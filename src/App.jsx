@@ -1,11 +1,16 @@
 import React from "react";
 import { ThreeScene } from "./components/Canvas/ThreeScene";
-import { Container } from "./components/Layout/Container";
+import { Configurator } from "./components/Configurator/Configurator";
+import { FlexContainer } from "./components/Layout/FlexContainer";
+import { DataContextProvider } from "./context/DataContextProvider";
 
 export const App = () => {
   return (
-    <Container>
-      <ThreeScene />
-    </Container>
+    <DataContextProvider>
+      <FlexContainer>
+        <ThreeScene />
+        <Configurator />
+      </FlexContainer>
+    </DataContextProvider>
   );
 };

@@ -20,9 +20,14 @@ body {
 }
 
 a,
-button {
+button,
+input {
   all: unset;
-  font-size: 1.6rem;
   box-sizing: border-box;
+}
+
+a,
+button {
+  font-size: 1.6rem;
   cursor: pointer;
 }
