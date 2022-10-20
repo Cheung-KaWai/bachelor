@@ -8,7 +8,7 @@ export const ThreeScene = () => {
   return (
     <SceneContainer>
       <Canvas>
-        <color attach="background" args={["#000"]}></color>
+        <color attach="background" args={["#000"]} />
         <OrbitControls />
         <ambientLight intensity={0.1} />
         <directionalLight color="red" position={[0, 0, 5]} />

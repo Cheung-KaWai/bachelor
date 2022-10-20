@@ -1,6 +1,11 @@
 import React from "react";
 import { ConfigContainer } from "../Layout/ConfigContainer";
+import { GenerateRoom } from "./GenerateRoom";
 
 export const Configurator = () => {
-  return <ConfigContainer>Configurator</ConfigContainer>;
+  return (
+    <ConfigContainer>
+      <GenerateRoom />
+    </ConfigContainer>
+  );
 };
