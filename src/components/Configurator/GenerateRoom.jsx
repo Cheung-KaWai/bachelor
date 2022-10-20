@@ -24,7 +24,6 @@ export const GenerateRoom = () => {
         <ErrorMessage>{err}</ErrorMessage>
       </FlexContainer>
       <Input placeholder="wCCz3UBJxB5lqnqousUo" value={roomId} onChange={(e) => setRoomId(e.target.value)} />
-
       <Generate onClick={handleGeneration}>Generate Room</Generate>
     </InputContainer>
   );
