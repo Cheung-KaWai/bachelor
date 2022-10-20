@@ -1,7 +1,11 @@
 import React from "react";
+import { ThreeScene } from "./components/Canvas/ThreeScene";
+import { Container } from "./components/Layout/Container";
 
-function App() {
-  return <div>Hello World</div>;
-}
-
-export default App;
+export const App = () => {
+  return (
+    <Container>
+      <ThreeScene />
+    </Container>
+  );
+};
