@@ -7,8 +7,6 @@ export const ConfigContainer = ({ children }) => {
 
 const Container = styled.div`
   width: 25vw;
-  height: 100vw;
-  position: fixed;
-  top: 0;
-  right: 0;
+  height: 100vh;
+  padding: 2rem;
 `;
