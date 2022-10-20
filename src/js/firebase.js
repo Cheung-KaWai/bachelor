@@ -17,12 +17,15 @@ const analytics = getAnalytics(app);
 const db = getFirestore();
 
 export const getData = async (roomId) => {
-  const docRef = doc(db, "roomplanData", roomId);
-  const docSnap = await getDoc(docRef);
-  console.log(docSnap.data());
-  if (docSnap.exists()) {
-    return docSnap.data();
-  } else {
-    console.log("fout");
+  try {
+    const docRef = doc(db, "roomplanData", roomId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      return docSnap.data();
+    } else {
+      return "No room found";
+    }
+  } catch (err) {
+    return err;
   }
 };

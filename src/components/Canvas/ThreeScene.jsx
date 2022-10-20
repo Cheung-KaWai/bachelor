@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import React from "react";
-import { Wall } from "../Box/Wall";
+import { Wall } from "../Room/Wall";
 import { OrbitControls } from "@react-three/drei";
 import { SceneContainer } from "../Layout/SceneContainer";
 

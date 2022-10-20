@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import { DataContext } from "../../context/DataContextProvider";
+import { getData } from "../../js/firebase";
+import { FlexContainer } from "../Layout/FlexContainer";
 
 export const GenerateRoom = () => {
+  const context = useContext(DataContext);
+
+  const [roomId, setRoomId] = useState("");
+  const [err, setErr] = useState("");
+
+  const handleGeneration = async () => {
+    const data = await getData(roomId);
+
+    if (typeof data === "string") setErr(data);
+    else context.setRoomData(data);
+  };
+
   return (
     <InputContainer>
-      <Label>Room ID</Label>
-      <Input placeholder="wCCz3UBJxB5lqnqousUo" />
-      <Generate>Generate Room</Generate>
+      <FlexContainer align="center" justify="space-between">
+        <Label>Room ID</Label>
+        <ErrorMessage>{err}</ErrorMessage>
+      </FlexContainer>
+      <Input placeholder="wCCz3UBJxB5lqnqousUo" value={roomId} onChange={(e) => setRoomId(e.target.value)} />
+
+      <Generate onClick={handleGeneration}>Generate Room</Generate>
     </InputContainer>
   );
 };
@@ -16,6 +35,7 @@ const InputContainer = styled.div`
   flex-direction: column;
   gap: 0.6rem;
 `;
+
 const Label = styled.label`
   display: block;
   font-size: 2rem;
@@ -30,6 +50,10 @@ const Input = styled.input`
   ::placeholder {
     color: #dee2e6;
   }
+`;
+
+const ErrorMessage = styled.span`
+  color: red;
 `;
 
 const Generate = styled.button`
