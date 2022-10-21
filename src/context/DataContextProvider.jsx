@@ -6,6 +6,7 @@ export const DataContextProvider = ({ children }) => {
   const [roomData, setRoomData] = useState(null);
   const [rerender, setRerender] = useState(false);
   const groupRef = useRef();
+  const cameraRef = useRef();
 
   const elements = {
     roomData,
@@ -13,6 +14,7 @@ export const DataContextProvider = ({ children }) => {
     groupRef,
     rerender,
     setRerender,
+    cameraRef,
   };
 
   return <DataContext.Provider value={elements}>{children}</DataContext.Provider>;
