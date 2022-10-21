@@ -1,16 +1,16 @@
-import { useHelper } from "@react-three/drei";
-import React from "react";
-import { BoxHelper } from "three";
+import React, { useContext, useEffect } from "react";
+import { DataContext } from "../../context/DataContextProvider";
 import { Wall } from "./Wall";
 
-export const GroupWalls = ({ groupRef, data }) => {
-  useHelper(groupRef, BoxHelper, "blue");
+export const GroupWalls = ({ data }) => {
+  const context = useContext(DataContext);
 
   return (
-    <group ref={groupRef}>
-      {data.map((wall, key) => {
-        return <Wall key={key} scale={wall.dimensions} transform={wall.transform} />;
-      })}
+    <group ref={context.groupRef}>
+      {context.roomData &&
+        context.roomData.walls.map((wall, key) => {
+          return <Wall key={key} scale={wall.dimensions} transform={wall.transform} />;
+        })}
     </group>
   );
 };

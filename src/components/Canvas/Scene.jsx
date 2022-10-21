@@ -7,7 +7,6 @@ import styled from "styled-components";
 import { GroupWalls } from "../Room/GroupWalls";
 export const Scene = () => {
   const context = useContext(DataContext);
-  const group = useRef();
 
   return (
     <SceneContainer>
@@ -16,9 +15,9 @@ export const Scene = () => {
         <OrbitControls />
         <ambientLight intensity={0.1} />
         <directionalLight color="red" position={[0, 0, 5]} />
-        {context.roomData && <GroupWalls groupRef={group} data={context.roomData.walls} />}
+        <GroupWalls />
       </Canvas>
-      <Button onClick={() => console.log(group)}>Hello</Button>
+      <Button onClick={() => console.log(context.groupRef)}>Hello</Button>
     </SceneContainer>
   );
 };
