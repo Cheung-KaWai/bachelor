@@ -13,8 +13,12 @@ export const GenerateRoom = () => {
   const handleGeneration = async () => {
     const data = await getData(roomId);
 
-    if (typeof data === "string") setErr(data);
-    else context.setRoomData(data);
+    if (typeof data === "string") {
+      setErr(data);
+    } else {
+      context.setRoomData(data);
+      context.setRerender((prev) => !prev);
+    }
   };
 
   return (
