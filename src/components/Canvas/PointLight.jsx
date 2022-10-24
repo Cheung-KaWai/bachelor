@@ -17,6 +17,9 @@ export const PointLight = ({ color, position, intensity }) => {
       intensity={intensity ?? 0.05}
       position={position ?? [0, 0, 0]}
       color={color ?? "#fff"}
+      castShadow
+      shadow-mapSize-height={512}
+      shadow-mapSize-width={512}
     />
   );
 };

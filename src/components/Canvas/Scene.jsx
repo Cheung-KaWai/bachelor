@@ -16,7 +16,7 @@ export const Scene = () => {
 
   return (
     <SceneContainer>
-      <Canvas>
+      <Canvas shadowMap>
         <color attach="background" args={["#fff"]} />
         <PerspectiveCamera makeDefault position={[0, 20, 0]} ref={context.cameraRef} />
         <OrbitControls />
