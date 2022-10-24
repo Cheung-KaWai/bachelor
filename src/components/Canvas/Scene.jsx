@@ -20,12 +20,12 @@ export const Scene = () => {
         <color attach="background" args={["#fff"]} />
         <PerspectiveCamera makeDefault position={[0, 20, 0]} ref={context.cameraRef} />
         <OrbitControls />
-        {/* <ambientLight intensity={0.1} />
-        <directionalLight color="#fff" position={[0, 0, 5]} /> */}
+        <PointLight position={[0, 3, 0]} intesity={1} />
+        {/* <directionalLight color="#fff" position={[0, 0, 5]} /> */}
         <GroupWalls />
         {lightContext && lightContext.model}
-        {/* <SpotLight /> */}
-        <PointLight />
+        <SpotLight />
+        <PointLight color={"#ffa957"} />
         {lightContext.rotation && <Floor />}
       </Canvas>
       {/* <Button onClick={() => console.log(context.groupRef)}>Hello</Button> */}

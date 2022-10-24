@@ -15,7 +15,9 @@ export const Wall = ({ scale, transform }) => {
   }, [context.rerender]);
 
   const matrix = new THREE.Matrix4();
-  matrix.set(...transform);
+  let transformData = [...transform];
+  transformData[13] = 0;
+  matrix.set(...transformData);
 
   let translation = new THREE.Vector3();
   let rotation = new THREE.Quaternion();
