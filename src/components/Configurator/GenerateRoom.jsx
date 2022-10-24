@@ -21,6 +21,10 @@ export const GenerateRoom = () => {
     }
   };
 
+  const handleNextStep = () => {
+    context.setStep(1);
+  };
+
   return (
     <InputContainer>
       <FlexContainer align="center" justify="space-between">
@@ -34,6 +38,7 @@ export const GenerateRoom = () => {
         onFocus={() => setErr("")}
       />
       <Generate onClick={handleGeneration}>Generate Room</Generate>
+      <Generate onClick={handleNextStep}>Configure light</Generate>
     </InputContainer>
   );
 };
