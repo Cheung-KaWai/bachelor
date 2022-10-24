@@ -4,6 +4,7 @@ import { DataContext } from "../../context/DataContextProvider";
 import { LightContext } from "../../context/LightContextProvider";
 import { getData } from "../../js/firebase";
 import { FlexContainer } from "../Layout/FlexContainer";
+import * as THREE from "three";
 
 export const GenerateRoom = () => {
   const context = useContext(DataContext);
@@ -21,6 +22,19 @@ export const GenerateRoom = () => {
       context.setRoomData(data);
       context.setRerender((prev) => !prev);
       lightContext.setStep(1);
+      console.log(data);
+
+      const transform = data.walls[0].transform;
+      const matrix = new THREE.Matrix4();
+      matrix.set(...transform);
+      let translation = new THREE.Vector3();
+      let rotation = new THREE.Quaternion();
+      let scaleMatrix = new THREE.Vector3();
+      matrix.transpose().decompose(translation, rotation, scaleMatrix);
+
+      const dimensions = data.walls[0].dimensions;
+      lightContext.setHeight(dimensions[1] / 2);
+      lightContext.setRotation(rotation);
     }
   };
 

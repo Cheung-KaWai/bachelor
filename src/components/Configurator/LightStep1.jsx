@@ -5,11 +5,12 @@ import { ConfigTitle } from "./ConfigTitle";
 import { useGLTF } from "@react-three/drei";
 import RoundLamp from "../Models/RoundLamp";
 import SquareLamp from "../Models/SquareLamp";
+import { Button } from "../UI/Button";
 
 export const LightStep1 = () => {
   const lightContext = useContext(LightContext);
 
-  const handleShape = async (ev) => {
+  const handleShape = (ev) => {
     switch (ev.target.value) {
       case "round":
         lightContext.setModel(<RoundLamp />);
@@ -17,6 +18,10 @@ export const LightStep1 = () => {
       default:
         lightContext.setModel(<SquareLamp />);
     }
+  };
+
+  const handleClick = () => {
+    console.log(lightContext.lampRef);
   };
 
   return (
@@ -29,7 +34,9 @@ export const LightStep1 = () => {
         <ModelButton value={"square"} onClick={handleShape}>
           Square
         </ModelButton>
+        <button onClick={handleClick}>hello</button>
       </ModelsContainer>
+      <Button onClick={() => lightContext.setStep(2)}>Next step</Button>
     </>
   );
 };

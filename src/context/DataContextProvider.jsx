@@ -6,6 +6,7 @@ export const DataContextProvider = ({ children }) => {
   const [roomData, setRoomData] = useState(null);
   const [rerender, setRerender] = useState(false);
   const [step, setStep] = useState(0);
+
   const groupRef = useRef();
   const cameraRef = useRef();
 
