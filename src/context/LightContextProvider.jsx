@@ -8,6 +8,7 @@ export const LightContextProvider = ({ children }) => {
   const [height, setHeight] = useState(null);
   const [rotation, setRotation] = useState(null);
   const lampRef = useRef();
+  const lightRef = useRef();
 
   const elements = {
     step,
@@ -19,6 +20,7 @@ export const LightContextProvider = ({ children }) => {
     setHeight,
     rotation,
     setRotation,
+    lightRef,
   };
 
   return <LightContext.Provider value={elements}>{children}</LightContext.Provider>;
