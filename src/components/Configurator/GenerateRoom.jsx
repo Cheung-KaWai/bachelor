@@ -1,11 +1,13 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { DataContext } from "../../context/DataContextProvider";
+import { LightContext } from "../../context/LightContextProvider";
 import { getData } from "../../js/firebase";
 import { FlexContainer } from "../Layout/FlexContainer";
 
 export const GenerateRoom = () => {
   const context = useContext(DataContext);
+  const lightContext = useContext(LightContext);
 
   const [roomId, setRoomId] = useState("");
   const [err, setErr] = useState("");
@@ -18,11 +20,12 @@ export const GenerateRoom = () => {
     } else {
       context.setRoomData(data);
       context.setRerender((prev) => !prev);
+      lightContext.setStep(1);
     }
   };
 
   const handleNextStep = () => {
-    context.setStep(1);
+    lightContext.setStep(1);
   };
 
   return (

@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import { DataContext } from "../../context/DataContextProvider";
+import { LightContext } from "../../context/LightContextProvider";
 import { ConfigContainer } from "../Layout/ConfigContainer";
 import { GenerateRoom } from "./GenerateRoom";
 import { LightStep1 } from "./LightStep1";
 
 export const Configurator = () => {
-  const context = useContext(DataContext);
+  const lightContext = useContext(LightContext);
 
   const configureStep = () => {
-    if (context) {
-      switch (context.step) {
+    if (lightContext) {
+      switch (lightContext.step) {
         case 1:
           return <LightStep1 />;
         default:
