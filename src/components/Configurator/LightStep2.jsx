@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { LightContext } from "../../context/LightContextProvider";
+import { Button } from "../UI/Button";
 import { ConfigTitle } from "./ConfigTitle";
 
 export const LightStep2 = () => {
@@ -26,6 +27,7 @@ export const LightStep2 = () => {
           60°
         </button>
       </AngleContainer>
+      <Button onClick={() => lightContext.setStep(3)}>Next step</Button>
     </>
   );
 };
