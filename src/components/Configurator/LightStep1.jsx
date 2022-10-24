@@ -6,9 +6,12 @@ import { useGLTF } from "@react-three/drei";
 import RoundLamp from "../Models/RoundLamp";
 import SquareLamp from "../Models/SquareLamp";
 import { Button } from "../UI/Button";
+import { DataContext } from "../../context/DataContextProvider";
+import { Vector3 } from "three";
 
 export const LightStep1 = () => {
   const lightContext = useContext(LightContext);
+  const context = useContext(DataContext);
 
   const handleShape = (ev) => {
     switch (ev.target.value) {
@@ -21,7 +24,11 @@ export const LightStep1 = () => {
   };
 
   const handleClick = () => {
-    console.log(lightContext.lampRef);
+    let locatie = new Vector3();
+
+    const test = context.groupRef.current.children[0];
+    test.getWorldPosition(locatie);
+    console.log(locatie);
   };
 
   return (

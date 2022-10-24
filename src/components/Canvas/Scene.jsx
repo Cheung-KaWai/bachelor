@@ -6,7 +6,9 @@ import { DataContext } from "../../context/DataContextProvider";
 import styled from "styled-components";
 import { GroupWalls } from "../Room/GroupWalls";
 import { LightContext } from "../../context/LightContextProvider";
+import { SpotLight } from "./SpotLight.jsx";
 import { PointLight } from "./PointLight";
+import { Floor } from "./Floor";
 
 export const Scene = () => {
   const context = useContext(DataContext);
@@ -22,8 +24,10 @@ export const Scene = () => {
         <directionalLight color="#fff" position={[0, 0, 5]} /> */}
         <GroupWalls />
         {lightContext && lightContext.model}
+        {/* <SpotLight /> */}
+        <PointLight />
+        {lightContext.rotation && <Floor />}
       </Canvas>
-      <PointLight />
       {/* <Button onClick={() => console.log(context.groupRef)}>Hello</Button> */}
     </SceneContainer>
   );

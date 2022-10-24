@@ -22,7 +22,7 @@ export default function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cube007.geometry}
-          material={material}
+          material={nodes.Cube007.materials}
           name="square"
           position={[0, lightContext.height ?? 0, 0]}
           quaternion={lightContext.rotation ?? [0, 0, 0, 0]}

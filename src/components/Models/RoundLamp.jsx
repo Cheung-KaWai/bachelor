@@ -21,7 +21,7 @@ export default function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cylinder002.geometry}
-          material={nodes.Cylinder002.material}
+          material={nodes.Cylinder002.materials}
           name="round"
           position={[0, lightContext.height ?? 0, 0]}
           quaternion={lightContext.rotation ?? [0, 0, 0, 0]}
