@@ -9,7 +9,7 @@ export const Floor = () => {
   return (
     <mesh scale={20} position={[0, -lightContext.height ?? 0, 0]} rotation={rotatie} receiveShadow>
       <planeGeometry />
-      <meshStandardMaterial />
+      <meshStandardMaterial envMapIntensity={0} />
     </mesh>
   );
 };

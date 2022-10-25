@@ -1,7 +1,6 @@
 import { useHelper } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
 import React, { useContext, useRef } from "react";
-import { Object3D, PointLightHelper, SpotLightHelper } from "three";
+import { CameraHelper, Object3D, PointLightHelper, SpotLightHelper } from "three";
 import { LightContext } from "../../context/LightContextProvider";
 
 export const Lamp = () => {
@@ -15,24 +14,38 @@ export const Lamp = () => {
     <>
       <spotLight
         castShadow
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+        // shadow-camera-far={50}
+        // shadow-camera-left={-10}
+        // shadow-camera-right={10}
+        // shadow-camera-top={10}
+        // shadow-camera-bottom={-10}
         position={[1, lightContext.height ?? 0, 1]}
         target-position={[1, 0, 1]}
         intensity={0.3}
-        color="#ffd1a3"
+        color="#fff"
         ref={lightContext.lightRef}
         angle={0.5}
         penumbra={1}
         distance={0}
         target={target}
-      />
+      ></spotLight>
       <primitive object={target} position={[1, 0, 1]} />
-      <pointLight
-        castShadow
+      {/* <pointLight
         ref={lightContext.pointRef}
         position={[1, lightContext.height ?? 0, 1]}
         intensity={0.1}
-        color="#ffd1a3"
-      />
+        color="#fff"
+        castShadow
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+        shadow-camera-far={50}
+        shadow-camera-left={-10}
+        shadow-camera-right={10}
+        shadow-camera-top={10}
+        shadow-camera-bottom={-10}
+      /> */}
     </>
   );
 };

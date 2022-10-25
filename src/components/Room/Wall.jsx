@@ -32,9 +32,9 @@ export const Wall = ({ scale, transform }) => {
 
   return (
     <>
-      <mesh scale={[scale[0], scale[1], 0.02]} position={translation} quaternion={rotation} castShadow receiveShadow>
+      <mesh scale={[scale[0], scale[1], 0.01]} position={translation} quaternion={rotation} castShadow receiveShadow>
         <boxGeometry />
-        <meshStandardMaterial />
+        <meshStandardMaterial envMapIntensity={0.01} />
       </mesh>
       <Text
         ref={textRef}
