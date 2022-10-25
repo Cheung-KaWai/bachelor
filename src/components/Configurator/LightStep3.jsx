@@ -11,7 +11,7 @@ export const LightStep3 = () => {
     const color = ev.target.value;
     const tempColor = new Color(color);
     lightContext.lightRef.current.color = tempColor;
-    // lightContext.pointRef.current.color = tempColor;
+    lightContext.pointRef.current.color = tempColor;
   };
 
   return (

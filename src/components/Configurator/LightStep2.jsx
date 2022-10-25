@@ -10,7 +10,9 @@ export const LightStep2 = () => {
   const handleClick = (ev) => {
     const angle = ev.target.value;
     lightContext.lightRef.current.angle = (angle * Math.PI) / 180;
-    // lightContext.pointRef.current.intensity = angle / 200;
+    const value = angle / 1000;
+    lightContext.pointRef.current.intensity = value;
+    console.log(lightContext);
   };
 
   return (

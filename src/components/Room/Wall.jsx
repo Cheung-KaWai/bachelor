@@ -3,11 +3,13 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Euler } from "three";
 import { DataContext } from "../../context/DataContextProvider";
+import { LightContext } from "../../context/LightContextProvider";
 import { fonts } from "../../js/fonts";
 
 export const Wall = ({ scale, transform }) => {
   const textRef = useRef();
   const context = useContext(DataContext);
+  const lightContext = useContext(LightContext);
 
   const matrix = new THREE.Matrix4();
   let transformData = [...transform];
