@@ -6,7 +6,7 @@ import { DataContext } from "../../context/DataContextProvider";
 import styled from "styled-components";
 import { GroupWalls } from "../Room/GroupWalls";
 import { LightContext } from "../../context/LightContextProvider";
-import { SpotLight } from "./SpotLight.jsx";
+import { Lamp } from "./Lamp.jsx";
 import { PointLight } from "./PointLight";
 import { Floor } from "./Floor";
 
@@ -16,17 +16,16 @@ export const Scene = () => {
 
   return (
     <SceneContainer>
-      <Canvas shadowMap>
+      <Canvas shadows>
         <color attach="background" args={["#fff"]} />
-        <PerspectiveCamera makeDefault position={[0, 20, 0]} ref={context.cameraRef} />
+        <PerspectiveCamera makeDefault position={[0, 20, 0]} lightRef={context.cameraRef} />
         <OrbitControls />
-        <PointLight position={[0, 3, 0]} intesity={1} />
-        {/* <directionalLight color="#fff" position={[0, 0, 5]} /> */}
         <GroupWalls />
-        {lightContext && lightContext.model}
-        <SpotLight />
-        <PointLight color={"#ffa957"} />
+        <Lamp />
         {lightContext.rotation && <Floor />}
+        {/* <PointLight position={[0, 3, 0]} intesity={1} ref={lightContext.roomRef} /> */}
+        {/* {lightContext && lightContext.model} */}
+        {/* <PointLight color={"#ffa957"} lightRef={lightContext.pointRef} /> */}
       </Canvas>
       {/* <Button onClick={() => console.log(context.groupRef)}>Hello</Button> */}
     </SceneContainer>

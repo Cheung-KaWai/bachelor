@@ -9,20 +9,22 @@ export const LightStep3 = () => {
 
   const handleClick = (ev) => {
     const color = ev.target.value;
-    lightContext.lightRef.current.color = new Color(color);
+    const tempColor = new Color(color);
+    lightContext.lightRef.current.color = tempColor;
+    lightContext.pointRef.current.color = tempColor;
   };
 
   return (
     <>
       <ConfigTitle title={"Light Temperature"} />
       <AngleContainer>
-        <button value="#ffa957" onClick={handleClick}>
+        <button value="#ffd6aa" onClick={handleClick}>
           2700k
         </button>
-        <button value="#ffb46b" onClick={handleClick}>
+        <button value="#fff1e0" onClick={handleClick}>
           3000k
         </button>
-        <button value="#ffd1a3" onClick={handleClick}>
+        <button value="#ffffff" onClick={handleClick}>
           4000k
         </button>
       </AngleContainer>

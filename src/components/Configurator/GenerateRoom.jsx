@@ -22,7 +22,6 @@ export const GenerateRoom = () => {
       context.setRoomData(data);
       context.setRerender((prev) => !prev);
       lightContext.setStep(1);
-      console.log(data);
 
       const transform = data.walls[0].transform;
       const matrix = new THREE.Matrix4();

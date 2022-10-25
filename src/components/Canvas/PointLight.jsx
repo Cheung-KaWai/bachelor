@@ -3,7 +3,7 @@ import React, { useContext, useRef } from "react";
 import { PointLightHelper } from "three";
 import { LightContext } from "../../context/LightContextProvider";
 
-export const PointLight = ({ color, position, intensity }) => {
+export const PointLight = ({ color, position, intensity, lightRef }) => {
   const lightContext = useContext(LightContext);
 
   const tijdelijk = useRef();
@@ -12,7 +12,7 @@ export const PointLight = ({ color, position, intensity }) => {
 
   return (
     <pointLight
-      ref={tijdelijk}
+      ref={lightRef}
       decay={2}
       intensity={intensity ?? 0.05}
       position={position ?? [0, 0, 0]}
