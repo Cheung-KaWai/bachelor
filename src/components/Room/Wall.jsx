@@ -1,18 +1,13 @@
 import { Text } from "@react-three/drei";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { Euler } from "three";
 import { DataContext } from "../../context/DataContextProvider";
 import { fonts } from "../../js/fonts";
 
 export const Wall = ({ scale, transform }) => {
   const textRef = useRef();
   const context = useContext(DataContext);
-
-  useEffect(() => {
-    if (textRef.current) {
-      textRef.current.rotateX(-Math.PI / 2);
-    }
-  }, [context.rerender]);
 
   const matrix = new THREE.Matrix4();
   let transformData = [...transform];
@@ -23,6 +18,8 @@ export const Wall = ({ scale, transform }) => {
   let rotation = new THREE.Quaternion();
   let scaleMatrix = new THREE.Vector3();
   matrix.transpose().decompose(translation, rotation, scaleMatrix);
+  const rotatie = new Euler(0, 0, 0, "YZX").setFromQuaternion(rotation);
+  rotatie.set(-Math.PI / 2, rotatie.y, rotatie.z);
 
   let textPosition = [
     translation.x > 0 ? translation.x + 0.01 : translation.x - 0.01,
@@ -40,7 +37,7 @@ export const Wall = ({ scale, transform }) => {
         ref={textRef}
         color={"#fff"}
         fontSize={0.25}
-        quaternion={rotation}
+        rotation={rotatie}
         anchorX={"center"}
         anchorY={"bottom"}
         position={textPosition}

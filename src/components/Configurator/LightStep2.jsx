@@ -27,7 +27,14 @@ export const LightStep2 = () => {
           60°
         </button>
       </AngleContainer>
-      <Button onClick={() => lightContext.setStep(3)}>Next step</Button>
+      {/* <Button
+        onClick={() => {
+          ev.preventDefault();
+          lightContext.setStep(3);
+        }}
+      >
+        Next step
+      </Button> */}
     </>
   );
 };

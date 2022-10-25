@@ -23,13 +23,13 @@ export const LightStep1 = () => {
     }
   };
 
-  const handleClick = () => {
-    let locatie = new Vector3();
+  // const handleClick = () => {
+  //   let locatie = new Vector3();
 
-    const test = context.groupRef.current.children[0];
-    test.getWorldPosition(locatie);
-    console.log(locatie);
-  };
+  //   const test = context.groupRef.current.children[0];
+  //   test.getWorldPosition(locatie);
+  //   console.log(locatie);
+  // };
 
   return (
     <>
@@ -41,9 +41,16 @@ export const LightStep1 = () => {
         <ModelButton value={"square"} onClick={handleShape}>
           Square
         </ModelButton>
-        <button onClick={handleClick}>hello</button>
+        {/* <button onClick={handleClick}>hello</button> */}
       </ModelsContainer>
-      <Button onClick={() => lightContext.setStep(2)}>Next step</Button>
+      {/* <Button
+        onClick={(ev) => {
+          ev.preventDefault();
+          lightContext.setStep(2);
+        }}
+      >
+        Next step
+      </Button> */}
     </>
   );
 };

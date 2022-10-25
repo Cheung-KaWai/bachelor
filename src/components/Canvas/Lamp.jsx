@@ -6,6 +6,7 @@ import { LightContext } from "../../context/LightContextProvider";
 export const Lamp = () => {
   const lightContext = useContext(LightContext);
   const target = new Object3D();
+
   const transform = useRef();
 
   useHelper(lightContext.lightRef, SpotLightHelper, "teal");
