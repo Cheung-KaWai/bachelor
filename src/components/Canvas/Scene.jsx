@@ -13,16 +13,18 @@ import { Lightmap } from "./Lightmap";
 import { CameraHelper } from "three";
 import { Camera } from "./Camera";
 
+// softShadows();
+
 export const Scene = () => {
   const context = useContext(DataContext);
   const lightContext = useContext(LightContext);
-  softShadows();
+
   return (
     <SceneContainer>
       <Canvas shadows>
+        <OrbitControls ref={lightContext.orbitRef} />
         <color attach="background" args={["#fff"]} />
         <Camera />
-        <OrbitControls />
         <GroupWalls />
         <Lamp />
         {lightContext.rotation && <Floor />}

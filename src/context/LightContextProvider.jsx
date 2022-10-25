@@ -12,6 +12,7 @@ export const LightContextProvider = ({ children }) => {
   const pointRef = useRef();
   const roomLight = useRef();
   const envLight = useRef();
+  const orbitRef = useRef();
 
   const elements = {
     step,
@@ -27,6 +28,7 @@ export const LightContextProvider = ({ children }) => {
     pointRef,
     roomLight,
     envLight,
+    orbitRef,
   };
 
   return <LightContext.Provider value={elements}>{children}</LightContext.Provider>;
