@@ -7,8 +7,8 @@ export const RoutesApp = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" index element={<ConfiguratorLamp />} />
-        <Route path="/quickview" element={<QuikView />} />
+        <Route path="/" element={<QuikView />} />
+        <Route path="/configurelamp" index element={<ConfiguratorLamp />} />
       </Routes>
     </BrowserRouter>
   );
