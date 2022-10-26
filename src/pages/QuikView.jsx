@@ -1,6 +1,6 @@
 import React from "react";
 import image from "../assets/tal.jpg";
-import usdz from "../assets/tal.usdz";
+import usdz from "../assets/test.usdz";
 
 export const QuikView = () => {
   return (
