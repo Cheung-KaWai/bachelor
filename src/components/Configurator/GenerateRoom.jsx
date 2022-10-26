@@ -54,7 +54,7 @@ export const GenerateRoom = () => {
         onFocus={() => setErr("")}
       />
       <Generate onClick={handleGeneration}>Generate Room</Generate>
-      <Generate onClick={handleNextStep}>Configure light</Generate>
+      {/* <Generate onClick={handleNextStep}>Configure light</Generate> */}
     </InputContainer>
   );
 };
