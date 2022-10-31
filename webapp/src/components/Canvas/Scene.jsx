@@ -30,10 +30,9 @@ export const Scene = () => {
         <Lamp />
         {lightContext.rotation && <Floor />}
         <Environment preset="studio" ref={lightContext.envRef} />
-        <Tal />
+        {lightContext && lightContext.model}
 
         {/* <PointLight position={[0, 3, 0]} intesity={1} ref={lightContext.roomRef} /> */}
-        {/* {lightContext && lightContext.model} */}
         {/* <PointLight color={"#ffa957"} lightRef={lightContext.pointRef} /> */}
       </Canvas>
       {/* <Button onClick={() => console.log(context.groupRef)}>Hello</Button> */}

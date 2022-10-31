@@ -9,6 +9,7 @@ import { Button } from "../UI/Button";
 import { DataContext } from "../../context/DataContextProvider";
 import { Vector3 } from "three";
 import { Tal } from "../Models/Tal";
+import talWit from "../../assets/images/talwit.jpg";
 
 export const LightStep1 = () => {
   const lightContext = useContext(LightContext);
@@ -17,7 +18,6 @@ export const LightStep1 = () => {
   const handleShape = (ev) => {
     switch (ev.target.value) {
       case "tal":
-        console.log("hello");
         lightContext.setModel(<Tal />);
         break;
       default:
@@ -37,8 +37,9 @@ export const LightStep1 = () => {
     <>
       <ConfigTitle title={"Choose Model"} />
       <ModelsContainer>
-        <ModelButton value={"tal"} onClick={handleShape}>
-          Round
+        <ModelButton onClick={handleShape}>
+          <LampImage src={talWit} />
+          <SpanValue value={"tal"}></SpanValue>
         </ModelButton>
         {/* <ModelButton value={"square"} onClick={handleShape}>
           Square
@@ -60,9 +61,28 @@ export const LightStep1 = () => {
 const ModelsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  position: relative;
   gap: 1rem;
 `;
 
-const ModelButton = styled.button`
-  padding: 1rem;
+const ModelButton = styled.div`
+  width: 20rem;
+  height: 20rem;
+  background-color: red;
+  cursor: pointer;
+`;
+
+const LampImage = styled.img`
+  object-fit: contain;
+  height: 100%;
+`;
+
+const SpanValue = styled.button`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* background-color: blue; */
+  z-index: 5;
 `;
