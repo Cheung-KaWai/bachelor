@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import React, { useContext } from "react";
-import { Environment, OrbitControls, PerspectiveCamera, softShadows, useHelper } from "@react-three/drei";
+import { Environment, OrbitControls, PerspectiveCamera, softShadows, Stage, useHelper } from "@react-three/drei";
 import { SceneContainer } from "../Layout/SceneContainer";
 import { DataContext } from "../../context/DataContextProvider";
 import styled from "styled-components";
@@ -14,8 +14,6 @@ import { CameraHelper } from "three";
 import { Camera } from "./Camera";
 import { Tal } from "../Models/Tal";
 
-// softShadows();
-
 export const Scene = () => {
   const context = useContext(DataContext);
   const lightContext = useContext(LightContext);
@@ -23,7 +21,14 @@ export const Scene = () => {
   return (
     <SceneContainer>
       <Canvas shadows>
-        <OrbitControls ref={lightContext.orbitRef} />
+        {/* {softShadows({
+          frustum: 3.75,
+          size: 0.005,
+          near: 9.5,
+          samples: 17,
+          rings: 11,
+        })} */}
+        <OrbitControls ref={lightContext.orbitRef} makeDefault />
         <color attach="background" args={["#fff"]} />
         <Camera />
         <GroupWalls />
@@ -31,7 +36,6 @@ export const Scene = () => {
         {lightContext.rotation && <Floor />}
         <Environment preset="studio" ref={lightContext.envRef} />
         {lightContext && lightContext.model}
-
         {/* <PointLight position={[0, 3, 0]} intesity={1} ref={lightContext.roomRef} /> */}
         {/* <PointLight color={"#ffa957"} lightRef={lightContext.pointRef} /> */}
       </Canvas>

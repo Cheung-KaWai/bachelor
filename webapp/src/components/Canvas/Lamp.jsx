@@ -10,21 +10,25 @@ export const Lamp = () => {
   const transform = useRef();
 
   let newPosition = new Vector3();
-  if (lightContext.lightRef.current) {
-    lightContext.lightRef.current.getWorldPosition(newPosition);
-    target.position.set(newPosition.x, 0, newPosition.z);
-    lightContext.lightRef.current.updateMatrixWorld();
-  }
+  // if (lightContext.lightRef.current) {
+  //   lightContext.lightRef.current.getWorldPosition(newPosition);
+  //   target.position.set(newPosition.x, 0, newPosition.z);
+  //   lightContext.lightRef.current.updateMatrixWorld();
+  // }
 
   // useHelper(lightContext.lightRef, SpotLightHelper, "teal");
   useHelper(lightContext.pointRef, PointLightHelper, 0.05, "teal");
 
   const handleTarget = () => {
     let newPosition = new Vector3();
-    if (lightContext.lightRef) {
+    if (lightContext.lampRef.current) {
       lightContext.lightRef.current.getWorldPosition(newPosition);
-      target.position.set(newPosition.x, 0, newPosition.z);
+      lightContext.lampRef.current.position.set(newPosition.x, lightContext.lampRef.current.position.y, newPosition.z);
     }
+    // if (lightContext.lightRef) {
+    //   lightContext.lightRef.current.getWorldPosition(newPosition);
+    //   target.position.set(newPosition.x, 0, newPosition.z);
+    // }
   };
 
   const stopOrbit = () => {
@@ -40,13 +44,13 @@ export const Lamp = () => {
       <TransformControls
         showY={false}
         ref={transform}
-        size={0.25}
-        position={[0, lightContext.height ?? 0, 0]}
+        size={0.5}
+        position={[0, lightContext.height - lightContext.lampHeight + 0.1, 0]}
         onMouseDown={stopOrbit}
         onMouseUp={startOrbit}
         onChange={handleTarget}
       >
-        <spotLight
+        {/* <spotLight
           castShadow
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
@@ -65,9 +69,9 @@ export const Lamp = () => {
           penumbra={1}
           distance={0}
           target={target}
-        />
+        /> */}
         <pointLight
-          ref={lightContext.pointRef}
+          ref={lightContext.lightRef}
           intensity={0.1}
           color="#fff"
           castShadow

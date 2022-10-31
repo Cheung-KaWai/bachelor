@@ -10,8 +10,9 @@ export const LightStep3 = () => {
   const handleClick = (ev) => {
     const color = ev.target.value;
     const tempColor = new Color(color);
+    console.log(lightContext.lightRef.current);
     lightContext.lightRef.current.color = tempColor;
-    lightContext.pointRef.current.color = tempColor;
+    // lightContext.pointRef.current.color = tempColor;
   };
 
   return (

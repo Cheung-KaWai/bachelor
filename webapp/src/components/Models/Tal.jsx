@@ -3,12 +3,14 @@ import React, { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useContext } from "react";
 import { LightContext } from "../../context/LightContextProvider";
-import { Box3, Vector3 } from "three";
+import { Box3, MeshStandardMaterial, Vector3 } from "three";
 import { useState } from "react";
 
 export function Tal(props) {
   const { nodes, materials } = useGLTF(tal);
   const lightContext = useContext(LightContext);
+
+  const material = new MeshStandardMaterial({ color: "#fff", envMapIntensity: 0.1 });
 
   const [dimensionY, setDimensionY] = useState(0);
 
@@ -17,7 +19,7 @@ export function Tal(props) {
     const box = new Box3().setFromObject(lamp);
     let dimensions = new Vector3();
     box.getSize(dimensions);
-    setDimensionY(dimensions.y);
+    lightContext.setLampHeight(dimensions.y);
   }, []);
 
   return (
@@ -25,14 +27,14 @@ export function Tal(props) {
       <group
         {...props}
         dispose={null}
-        position={[0, lightContext.height ? lightContext.height - dimensionY : 0, 0]}
+        position={[0, lightContext.height ? lightContext.height - lightContext.lampHeight : 0, 0]}
         ref={lightContext.lampRef}
       >
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cylinder002.geometry}
-          material={nodes.Cylinder002.material}
+          material={material}
           position={[0, 0.19, 0]}
           scale={0.03}
         />
@@ -40,7 +42,7 @@ export function Tal(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cylinder001.geometry}
-          material={nodes.Cylinder001.material}
+          material={material}
           position={[0, 0.19, 0]}
           scale={0.03}
         />
@@ -48,7 +50,7 @@ export function Tal(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cylinder003.geometry}
-          material={nodes.Cylinder003.material}
+          material={material}
           position={[0, 0.19, 0]}
           scale={0.03}
         />
@@ -56,7 +58,7 @@ export function Tal(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cylinder004.geometry}
-          material={nodes.Cylinder004.material}
+          material={material}
           position={[0, 0.77, 0]}
           scale={0.03}
         />
@@ -64,7 +66,7 @@ export function Tal(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cylinder006.geometry}
-          material={nodes.Cylinder006.material}
+          material={material}
           position={[0, 0.45, 0]}
           scale={0.03}
         />
@@ -72,7 +74,7 @@ export function Tal(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cylinder.geometry}
-          material={nodes.Cylinder.material}
+          material={material}
           position={[0, 0.13, 0]}
           scale={0.03}
         />
@@ -80,7 +82,7 @@ export function Tal(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cylinder005.geometry}
-          material={nodes.Cylinder005.material}
+          material={material}
           position={[0, 0.75, 0]}
           rotation={[-Math.PI, 0, 0]}
           scale={0.03}
@@ -89,7 +91,7 @@ export function Tal(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cylinder008.geometry}
-          material={nodes.Cylinder008.material}
+          material={material}
           position={[0, 0.12, 0]}
           scale={0.03}
         />
@@ -97,7 +99,7 @@ export function Tal(props) {
           castShadow
           receiveShadow
           geometry={nodes.Sphere.geometry}
-          material={nodes.Sphere.material}
+          material={material}
           position={[0, 0, 0]}
           scale={0.03}
         />

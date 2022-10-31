@@ -12,7 +12,7 @@ export const Configurator = () => {
   const configureLight = (
     <>
       <LightStep1 />
-      <LightStep2 />
+      {/* <LightStep2 /> */}
       <LightStep3 />
     </>
   );
