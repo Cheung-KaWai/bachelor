@@ -12,6 +12,7 @@ import { Floor } from "./Floor";
 import { Lightmap } from "./Lightmap";
 import { CameraHelper } from "three";
 import { Camera } from "./Camera";
+import { Tal } from "../Models/Tal";
 
 // softShadows();
 
@@ -29,6 +30,7 @@ export const Scene = () => {
         <Lamp />
         {lightContext.rotation && <Floor />}
         <Environment preset="studio" ref={lightContext.envRef} />
+        <Tal />
 
         {/* <PointLight position={[0, 3, 0]} intesity={1} ref={lightContext.roomRef} /> */}
         {/* {lightContext && lightContext.model} */}

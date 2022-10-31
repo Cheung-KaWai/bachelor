@@ -6,6 +6,7 @@ export const DataContextProvider = ({ children }) => {
   const [roomData, setRoomData] = useState(null);
   const [rerender, setRerender] = useState(false);
   const [step, setStep] = useState(0);
+  const [wallHeight, setWallHeight] = useState(0);
 
   const groupRef = useRef();
   const cameraRef = useRef();
@@ -19,6 +20,8 @@ export const DataContextProvider = ({ children }) => {
     cameraRef,
     step,
     setStep,
+    setWallHeight,
+    wallHeight,
   };
 
   return <DataContext.Provider value={elements}>{children}</DataContext.Provider>;

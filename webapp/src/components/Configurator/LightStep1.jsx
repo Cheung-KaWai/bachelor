@@ -8,6 +8,7 @@ import SquareLamp from "../Models/SquareLamp";
 import { Button } from "../UI/Button";
 import { DataContext } from "../../context/DataContextProvider";
 import { Vector3 } from "three";
+import { Tal } from "../Models/Tal";
 
 export const LightStep1 = () => {
   const lightContext = useContext(LightContext);
@@ -15,8 +16,9 @@ export const LightStep1 = () => {
 
   const handleShape = (ev) => {
     switch (ev.target.value) {
-      case "round":
-        lightContext.setModel(<RoundLamp />);
+      case "tal":
+        console.log("hello");
+        lightContext.setModel(<Tal />);
         break;
       default:
         lightContext.setModel(<SquareLamp />);
@@ -35,12 +37,12 @@ export const LightStep1 = () => {
     <>
       <ConfigTitle title={"Choose Model"} />
       <ModelsContainer>
-        <ModelButton value={"round"} onClick={handleShape}>
+        <ModelButton value={"tal"} onClick={handleShape}>
           Round
         </ModelButton>
-        <ModelButton value={"square"} onClick={handleShape}>
+        {/* <ModelButton value={"square"} onClick={handleShape}>
           Square
-        </ModelButton>
+        </ModelButton> */}
         {/* <button onClick={handleClick}>hello</button> */}
       </ModelsContainer>
       {/* <Button

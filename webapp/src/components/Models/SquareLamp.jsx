@@ -6,6 +6,7 @@ import { LightContext } from "../../context/LightContextProvider";
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/models/squareLamp.glb");
   let material = new MeshStandardMaterial({ color: "#fff", side: DoubleSide });
+  console.log(nodes);
 
   const lightContext = useContext(LightContext);
 

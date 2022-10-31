@@ -42,20 +42,22 @@ export const GenerateRoom = () => {
   };
 
   return (
-    <InputContainer>
-      <FlexContainer align="center" justify="space-between">
-        <Label>Room ID</Label>
-        <ErrorMessage>{err}</ErrorMessage>
-      </FlexContainer>
-      <Input
-        placeholder="wCCz3UBJxB5lqnqousUo"
-        value={roomId}
-        onChange={(e) => setRoomId(e.target.value)}
-        onFocus={() => setErr("")}
-      />
-      <Generate onClick={handleGeneration}>Generate Room</Generate>
-      {/* <Generate onClick={handleNextStep}>Configure light</Generate> */}
-    </InputContainer>
+    <>
+      <InputContainer>
+        <FlexContainer align="center" justify="space-between">
+          <Label>Room ID</Label>
+          <ErrorMessage>{err}</ErrorMessage>
+        </FlexContainer>
+        <Input
+          placeholder="wCCz3UBJxB5lqnqousUo"
+          value={roomId}
+          onChange={(e) => setRoomId(e.target.value)}
+          onFocus={() => setErr("")}
+        />
+        <Generate onClick={handleGeneration}>Generate Room</Generate>
+        {/* <Generate onClick={handleNextStep}>Configure light</Generate> */}
+      </InputContainer>
+    </>
   );
 };
 
