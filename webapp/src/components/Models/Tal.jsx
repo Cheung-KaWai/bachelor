@@ -1,26 +1,51 @@
-import tal from "../../assets/models/tal.glb";
+import tal2 from "../../assets/models/tal.glb";
 import React, { useEffect, useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useTexture } from "@react-three/drei";
 import { useContext } from "react";
 import { LightContext } from "../../context/LightContextProvider";
-import { Box3, MeshStandardMaterial, Vector3 } from "three";
+import { Box3, Color, MeshBasicMaterial, MeshStandardMaterial, NearestFilter, sRGBEncoding, Vector3 } from "three";
 import { useState } from "react";
+import texture from "../../assets/images/black4000k.jpg";
+import texture2 from "../../assets/images/black3000k.jpg";
+import texture3 from "../../assets/images/black2700k.jpg";
 
 export function Tal(props) {
-  const { nodes, materials } = useGLTF(tal);
+  const { nodes, materials } = useGLTF(tal2);
   const lightContext = useContext(LightContext);
+  const black4000k = useTexture(texture);
+  black4000k.flipY = false;
+  black4000k.encoding = sRGBEncoding;
 
-  const material = new MeshStandardMaterial({ color: "#fff", envMapIntensity: 0.1 });
+  const black2700k = useTexture(texture3);
+  black2700k.flipY = false;
+  black2700k.encoding = sRGBEncoding;
 
-  const [dimensionY, setDimensionY] = useState(0);
+  const black3000k = useTexture(texture2);
+  black3000k.flipY = false;
+  black3000k.encoding = sRGBEncoding;
+
+  const material = new MeshStandardMaterial({ color: "black", envMapIntensity: 1 });
+  const blackTexture4000k = new MeshBasicMaterial({ map: black4000k });
+  const blackTexture3000k = new MeshBasicMaterial({ map: black3000k });
+  const blackTexture2700k = new MeshBasicMaterial({ map: black2700k });
 
   useEffect(() => {
     const lamp = lightContext.lampRef.current;
     const box = new Box3().setFromObject(lamp);
     let dimensions = new Vector3();
     box.getSize(dimensions);
+
+    lightContext.setLampTextures({
+      blackTexture4000k,
+      blackTexture3000k,
+      blackTexture2700k,
+    });
+
+    lightContext.setCurrentTexture(blackTexture4000k);
     lightContext.setLampHeight(dimensions.y);
   }, []);
+
+  console.log("hello");
 
   return (
     <>
@@ -31,81 +56,45 @@ export function Tal(props) {
         ref={lightContext.lampRef}
       >
         <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cylinder002.geometry}
-          material={material}
-          position={[0, 0.19, 0]}
-          scale={0.03}
-        />
-        <mesh
-          castShadow
-          receiveShadow
+          name="Cylinder001"
           geometry={nodes.Cylinder001.geometry}
-          material={material}
+          material={lightContext.currentTexture ?? material}
           position={[0, 0.19, 0]}
-          scale={0.03}
         />
         <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cylinder003.geometry}
-          material={material}
-          position={[0, 0.19, 0]}
-          scale={0.03}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cylinder004.geometry}
-          material={material}
-          position={[0, 0.77, 0]}
-          scale={0.03}
-        />
-        <mesh
-          castShadow
-          receiveShadow
+          name="Cylinder006"
           geometry={nodes.Cylinder006.geometry}
-          material={material}
+          material={lightContext.currentTexture ?? material}
           position={[0, 0.45, 0]}
-          scale={0.03}
         />
         <mesh
-          castShadow
-          receiveShadow
+          name="Cylinder004"
+          geometry={nodes.Cylinder004.geometry}
+          material={lightContext.currentTexture ?? material}
+          position={[0, 0.77, 0]}
+        />
+        <mesh
+          name="Cylinder"
           geometry={nodes.Cylinder.geometry}
-          material={material}
+          material={lightContext.currentTexture ?? material}
           position={[0, 0.13, 0]}
-          scale={0.03}
         />
         <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cylinder005.geometry}
-          material={material}
-          position={[0, 0.75, 0]}
-          rotation={[-Math.PI, 0, 0]}
-          scale={0.03}
-        />
-        <mesh
-          castShadow
-          receiveShadow
+          name="Cylinder008"
           geometry={nodes.Cylinder008.geometry}
-          material={material}
+          material={lightContext.currentTexture ?? material}
           position={[0, 0.12, 0]}
-          scale={0.03}
         />
         <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Sphere.geometry}
-          material={material}
-          position={[0, 0, 0]}
-          scale={0.03}
+          name="Cylinder017"
+          geometry={nodes.Cylinder017.geometry}
+          material={lightContext.currentTexture ?? material}
+          position={[0, 0.19, 0]}
         />
+        <mesh name="Sphere003" geometry={nodes.Sphere003.geometry} material={lightContext.currentTexture ?? material} />
       </group>
     </>
   );
 }
 
-useGLTF.preload(tal);
+useGLTF.preload(tal2);

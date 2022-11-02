@@ -21,7 +21,9 @@ export const Configurator = () => {
     if (lightContext) {
       switch (lightContext.step) {
         case 1:
-          return configureLight;
+          return <LightStep1 />;
+        case 2:
+          return <LightStep3 />;
         default:
           return <GenerateRoom />;
       }

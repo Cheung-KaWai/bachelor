@@ -9,6 +9,9 @@ export const LightContextProvider = ({ children }) => {
   const [rotation, setRotation] = useState(null);
   const [targetPosition, setTargetPosition] = useState([0, 0, 0]);
   const [lampHeight, setLampHeight] = useState(0);
+  const [lampTextures, setLampTextures] = useState(null);
+  const [currentTexture, setCurrentTexture] = useState(null);
+
   const lampRef = useRef();
   const lightRef = useRef();
   const pointRef = useRef();
@@ -35,6 +38,10 @@ export const LightContextProvider = ({ children }) => {
     setTargetPosition,
     setLampHeight,
     lampHeight,
+    setLampTextures,
+    lampTextures,
+    setCurrentTexture,
+    currentTexture,
   };
 
   return <LightContext.Provider value={elements}>{children}</LightContext.Provider>;

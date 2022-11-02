@@ -73,6 +73,7 @@ export const Lamp = () => {
         <pointLight
           ref={lightContext.lightRef}
           intensity={0.1}
+          // power={890}
           color="#fff"
           castShadow
           shadow-mapSize-width={1024}

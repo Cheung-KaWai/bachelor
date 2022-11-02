@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { LightContext } from "../../context/LightContextProvider";
 import { ConfigTitle } from "./ConfigTitle";
 import { useGLTF } from "@react-three/drei";
-import RoundLamp from "../Models/RoundLamp";
-import SquareLamp from "../Models/SquareLamp";
 import { Button } from "../UI/Button";
 import { DataContext } from "../../context/DataContextProvider";
 import { Vector3 } from "three";
@@ -21,7 +19,7 @@ export const LightStep1 = () => {
         lightContext.setModel(<Tal />);
         break;
       default:
-        lightContext.setModel(<SquareLamp />);
+        lightContext.setModel(<Tal />);
     }
   };
 
@@ -46,14 +44,14 @@ export const LightStep1 = () => {
         </ModelButton> */}
         {/* <button onClick={handleClick}>hello</button> */}
       </ModelsContainer>
-      {/* <Button
+      <Button
         onClick={(ev) => {
           ev.preventDefault();
           lightContext.setStep(2);
         }}
       >
         Next step
-      </Button> */}
+      </Button>
     </>
   );
 };

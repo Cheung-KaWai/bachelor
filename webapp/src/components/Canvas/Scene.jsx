@@ -20,7 +20,7 @@ export const Scene = () => {
 
   return (
     <SceneContainer>
-      <Canvas shadows>
+      <Canvas shadows flat>
         {/* {softShadows({
           frustum: 3.75,
           size: 0.005,
@@ -32,12 +32,17 @@ export const Scene = () => {
         <color attach="background" args={["#fff"]} />
         <Camera />
         <GroupWalls />
-        <Lamp />
-        {lightContext.rotation && <Floor />}
         <Environment preset="studio" ref={lightContext.envRef} />
-        {lightContext && lightContext.model}
+
+        {lightContext.rotation && <Floor />}
+        {lightContext.model && (
+          <>
+            <Lamp />
+            {lightContext.model}
+          </>
+        )}
         {/* <PointLight position={[0, 3, 0]} intesity={1} ref={lightContext.roomRef} /> */}
-        {/* <PointLight color={"#ffa957"} lightRef={lightContext.pointRef} /> */}
+        {/* <PointLight color={"#ffa957"} /> */}
       </Canvas>
       {/* <Button onClick={() => console.log(context.groupRef)}>Hello</Button> */}
     </SceneContainer>
