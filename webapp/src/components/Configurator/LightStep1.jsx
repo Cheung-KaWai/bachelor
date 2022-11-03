@@ -2,12 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { LightContext } from "../../context/LightContextProvider";
 import { ConfigTitle } from "./ConfigTitle";
-import { useGLTF } from "@react-three/drei";
-import { Button } from "../UI/Button";
-import { DataContext } from "../../context/DataContextProvider";
-import { Vector3 } from "three";
 import { Tal } from "../Models/Tal";
-import talWit from "../../assets/images/talwit.jpg";
 import talBlack from "../../assets/images/talblack.jpg";
 
 export const LightStep1 = () => {
@@ -15,10 +10,7 @@ export const LightStep1 = () => {
 
   const handleShape = (ev) => {
     switch (ev.target.dataset.model) {
-      case "white":
-        lightContext.setModel(<Tal />);
-        break;
-      case "black":
+      case "kombo":
         lightContext.setModel(<Tal />);
         break;
       default:
@@ -39,15 +31,8 @@ export const LightStep1 = () => {
       <ConfigTitle title={"Choose Model"} />
       <ModelsContainer>
         <ModelButton onClick={handleShape}>
-          <LampImage src={talWit} data-model="white" />
+          <LampImage src={talBlack} data-model="kombo" />
         </ModelButton>
-        <ModelButton onClick={handleShape}>
-          <LampImage src={talBlack} data-model="black" />
-        </ModelButton>
-        {/* <ModelButton value={"square"} onClick={handleShape}>
-          Square
-        </ModelButton> */}
-        {/* <button onClick={handleClick}>hello</button> */}
       </ModelsContainer>
     </>
   );
@@ -76,14 +61,4 @@ const LampImage = styled.img`
   height: 100%;
   border-radius: 0.5rem;
   overflow: hidden;
-`;
-
-const SpanValue = styled.button`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  /* background-color: blue; */
-  z-index: 5;
 `;

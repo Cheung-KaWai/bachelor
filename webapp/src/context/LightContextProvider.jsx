@@ -11,6 +11,9 @@ export const LightContextProvider = ({ children }) => {
   const [lampHeight, setLampHeight] = useState(0);
   const [lampTextures, setLampTextures] = useState(null);
   const [currentTexture, setCurrentTexture] = useState(null);
+  const [modelName, setModelName] = useState("kombo");
+  const [modelColor, setModelColor] = useState("black");
+  const [colorTemp, setColorTemp] = useState("3000k");
 
   const lampRef = useRef();
   const lightRef = useRef();
@@ -42,6 +45,12 @@ export const LightContextProvider = ({ children }) => {
     lampTextures,
     setCurrentTexture,
     currentTexture,
+    setModelName,
+    modelName,
+    setModelColor,
+    modelColor,
+    setColorTemp,
+    colorTemp,
   };
 
   return <LightContext.Provider value={elements}>{children}</LightContext.Provider>;

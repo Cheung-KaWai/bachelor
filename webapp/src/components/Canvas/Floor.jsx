@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DoubleSide, Euler } from "three";
+import { Euler } from "three";
 import { LightContext } from "../../context/LightContextProvider";
 
 export const Floor = () => {

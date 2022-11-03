@@ -13,12 +13,27 @@ export const LightStep3 = () => {
     const tempColor = new Color(color);
 
     lightContext.lightRef.current.color = tempColor;
+    lightContext.setColorTemp(colorTexture);
     lightContext.setCurrentTexture(lightContext.lampTextures[colorTexture]);
-    // lightContext.pointRef.current.color = tempColor;
+  };
+
+  const handleModelColor = (ev) => {
+    const color = ev.target.dataset.modelcolor;
+    lightContext.setModelColor(color);
   };
 
   return (
     <>
+      {/* <ConfigTitle title={"Model Color"} />
+      <ColorContainer>
+        <ColorButton value="#000" data-modelcolor="black" onClick={handleModelColor}>
+          Black
+        </ColorButton>
+        <ColorButton value="#fff" data-modelcolor="white" onClick={handleModelColor}>
+          White
+        </ColorButton>
+      </ColorContainer>
+      <Spacer /> */}
       <ConfigTitle title={"Light Temperature"} />
       <ColorContainer>
         <ColorButton value="#ffd6aa" data-texture="blackTexture2700k" onClick={handleClick}>
@@ -34,6 +49,11 @@ export const LightStep3 = () => {
     </>
   );
 };
+
+const Spacer = styled.span`
+  margin-top: 5rem;
+  display: block;
+`;
 
 const ColorContainer = styled.div`
   display: flex;

@@ -6,20 +6,11 @@ import { Button } from "../UI/Button";
 import { CameraTarget } from "./CameraTarget";
 import { GenerateRoom } from "./GenerateRoom";
 import { LightStep1 } from "./LightStep1";
-import { LightStep2 } from "./LightStep2";
 import { LightStep3 } from "./LightStep3";
 import Progress from "./Progress";
 
 export const Configurator = () => {
   const lightContext = useContext(LightContext);
-
-  const configureLight = (
-    <>
-      <LightStep1 />
-      {/* <LightStep2 /> */}
-      <LightStep3 />
-    </>
-  );
 
   const configureStep = () => {
     if (lightContext) {
@@ -73,7 +64,7 @@ const StepContainer = styled.div`
 `;
 
 const NextButton = styled(Button)`
-  margin-top: ${(props) => (props.step == 1 ? "auto" : 0)};
+  margin-top: ${(props) => (props.step === 1 ? "auto" : 0)};
 `;
 
 const BackButton = styled(Button)`

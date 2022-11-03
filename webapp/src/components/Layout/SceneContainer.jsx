@@ -6,6 +6,6 @@ export const SceneContainer = ({ children }) => {
 };
 
 const BaseContainer = styled.div`
-  width: 75vw;
+  width: 70vw;
   height: 100vh;
 `;

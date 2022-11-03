@@ -6,7 +6,7 @@ export const ConfigContainer = ({ children }) => {
 };
 
 const Container = styled.div`
-  width: 25vw;
+  width: 30vw;
   height: 100vh;
   padding: 2rem;
   display: flex;

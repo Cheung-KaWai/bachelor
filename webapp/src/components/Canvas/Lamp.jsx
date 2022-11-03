@@ -1,6 +1,6 @@
 import { TransformControls, useHelper } from "@react-three/drei";
-import React, { useContext, useEffect, useRef } from "react";
-import { CameraHelper, Object3D, PointLightHelper, SpotLightHelper, Vector3 } from "three";
+import React, { useContext, useRef } from "react";
+import { Object3D, PointLightHelper, Vector3 } from "three";
 import { LightContext } from "../../context/LightContextProvider";
 
 export const Lamp = () => {
@@ -10,13 +10,7 @@ export const Lamp = () => {
   const transform = useRef();
 
   let newPosition = new Vector3();
-  // if (lightContext.lightRef.current) {
-  //   lightContext.lightRef.current.getWorldPosition(newPosition);
-  //   target.position.set(newPosition.x, 0, newPosition.z);
-  //   lightContext.lightRef.current.updateMatrixWorld();
-  // }
 
-  // useHelper(lightContext.lightRef, SpotLightHelper, "teal");
   useHelper(lightContext.pointRef, PointLightHelper, 0.05, "teal");
 
   const handleTarget = () => {
@@ -25,10 +19,6 @@ export const Lamp = () => {
       lightContext.lightRef.current.getWorldPosition(newPosition);
       lightContext.lampRef.current.position.set(newPosition.x, lightContext.lampRef.current.position.y, newPosition.z);
     }
-    // if (lightContext.lightRef) {
-    //   lightContext.lightRef.current.getWorldPosition(newPosition);
-    //   target.position.set(newPosition.x, 0, newPosition.z);
-    // }
   };
 
   const stopOrbit = () => {
@@ -50,26 +40,6 @@ export const Lamp = () => {
         onMouseUp={startOrbit}
         onChange={handleTarget}
       >
-        {/* <spotLight
-          castShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-far={25}
-          shadow-camera-left={-5}
-          shadow-camera-right={5}
-          shadow-camera-top={5}
-          shadow-camera-bottom={-5}
-          target-position={[0, 0, 0]}
-          // position={[0, -lightContext.height / 2 ?? 0, 0]}
-          position={[0, 0, 0]}
-          intensity={0.3}
-          color="#fff"
-          ref={lightContext.lightRef}
-          angle={0.5}
-          penumbra={1}
-          distance={0}
-          target={target}
-        /> */}
         <pointLight
           ref={lightContext.lightRef}
           intensity={0.8}

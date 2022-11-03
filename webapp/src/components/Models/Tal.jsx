@@ -3,11 +3,11 @@ import React, { useEffect, useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { useContext } from "react";
 import { LightContext } from "../../context/LightContextProvider";
-import { Box3, Color, MeshBasicMaterial, MeshStandardMaterial, NearestFilter, sRGBEncoding, Vector3 } from "three";
-import { useState } from "react";
+import { Box3, MeshBasicMaterial, MeshStandardMaterial, sRGBEncoding, Vector3 } from "three";
 import texture from "../../assets/images/black4000k.jpg";
 import texture2 from "../../assets/images/black3000k.jpg";
 import texture3 from "../../assets/images/black2700k.jpg";
+import texture4 from "../../assets/images/white3000k.jpg";
 
 export function Tal(props) {
   const { nodes, materials } = useGLTF(tal2);
@@ -29,6 +29,10 @@ export function Tal(props) {
   const blackTexture3000k = new MeshBasicMaterial({ map: black3000k });
   const blackTexture2700k = new MeshBasicMaterial({ map: black2700k });
 
+  const white3000k = useTexture(texture4);
+  white3000k.flipY = false;
+  white3000k.encoding = sRGBEncoding;
+
   useEffect(() => {
     const lamp = lightContext.lampRef.current;
     const box = new Box3().setFromObject(lamp);
@@ -39,6 +43,14 @@ export function Tal(props) {
       blackTexture4000k,
       blackTexture3000k,
       blackTexture2700k,
+      // kombo: {
+      //   black: {
+      //     blackTexture4000k,
+      //     blackTexture3000k,
+      //     blackTexture2700k,
+      //   },
+      //   white: {},
+      // },
     });
 
     lightContext.setCurrentTexture(blackTexture4000k);

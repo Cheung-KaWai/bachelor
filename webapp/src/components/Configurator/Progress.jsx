@@ -9,14 +9,30 @@ export default function Progress() {
 
   return (
     <FlexContainer align="center">
-      <Step step={lightcontext.step >= 1 ? 0 : 1}>1</Step>
-      <ProgressLine step={lightcontext.step > 1 ? 0 : 1} />
-      <Step step={lightcontext.step >= 2 ? 0 : 1}>2</Step>
-      <ProgressLine step={lightcontext.step > 2 ? 0 : 1} />
-      <Step step={lightcontext.step >= 3 ? 0 : 1}>3</Step>
+      <ProgressContainer>
+        <Step step={lightcontext.step >= 1 ? 0 : 1} stepLabel="Room">
+          1
+        </Step>
+        <ProgressLine step={lightcontext.step > 1 ? 0 : 1} />
+        <Step step={lightcontext.step >= 2 ? 0 : 1} stepLabel="Model">
+          2
+        </Step>
+        <ProgressLine step={lightcontext.step > 2 ? 0 : 1} />
+        <Step step={lightcontext.step >= 3 ? 0 : 1} stepLabel="Color">
+          3
+        </Step>
+      </ProgressContainer>
     </FlexContainer>
   );
 }
+
+const ProgressContainer = styled.div`
+  padding: 0 1rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 3rem;
+`;
 
 const Step = styled.p`
   background: ${(props) => (props.step === 0 ? "#91a7ff" : "#ced4da")};
@@ -26,6 +42,16 @@ const Step = styled.p`
   text-align: center;
   line-height: 4rem;
   border-radius: 50%;
+  position: relative;
+
+  ::after {
+    content: "${(props) => props.stepLabel}";
+    display: block;
+    position: absolute;
+    color: ${(props) => (props.step === 0 ? "#91a7ff" : "#ced4da")};
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const ProgressLine = styled.span`
