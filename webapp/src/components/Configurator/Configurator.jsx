@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { LightContext } from "../../context/LightContextProvider";
 import { ConfigContainer } from "../Layout/ConfigContainer";
 import { Button } from "../UI/Button";
+import { CameraTarget } from "./CameraTarget";
 import { GenerateRoom } from "./GenerateRoom";
 import { LightStep1 } from "./LightStep1";
 import { LightStep2 } from "./LightStep2";
@@ -38,6 +39,7 @@ export const Configurator = () => {
   return (
     <ConfigContainer>
       <Progress />
+      {lightContext && lightContext.step > 1 && <CameraTarget />}
       <StepContainer>{configureStep()}</StepContainer>
       {lightContext && lightContext.step > 1 && (
         <BackButton

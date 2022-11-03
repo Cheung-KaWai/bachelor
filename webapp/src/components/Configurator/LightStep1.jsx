@@ -8,14 +8,17 @@ import { DataContext } from "../../context/DataContextProvider";
 import { Vector3 } from "three";
 import { Tal } from "../Models/Tal";
 import talWit from "../../assets/images/talwit.jpg";
+import talBlack from "../../assets/images/talblack.jpg";
 
 export const LightStep1 = () => {
   const lightContext = useContext(LightContext);
-  const context = useContext(DataContext);
 
   const handleShape = (ev) => {
-    switch (ev.target.value) {
-      case "tal":
+    switch (ev.target.dataset.model) {
+      case "white":
+        lightContext.setModel(<Tal />);
+        break;
+      case "black":
         lightContext.setModel(<Tal />);
         break;
       default:
@@ -36,8 +39,10 @@ export const LightStep1 = () => {
       <ConfigTitle title={"Choose Model"} />
       <ModelsContainer>
         <ModelButton onClick={handleShape}>
-          <LampImage src={talWit} />
-          <SpanValue value={"tal"}></SpanValue>
+          <LampImage src={talWit} data-model="white" />
+        </ModelButton>
+        <ModelButton onClick={handleShape}>
+          <LampImage src={talBlack} data-model="black" />
         </ModelButton>
         {/* <ModelButton value={"square"} onClick={handleShape}>
           Square
@@ -59,11 +64,18 @@ const ModelButton = styled.div`
   width: 20rem;
   height: 20rem;
   cursor: pointer;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0);
+  border-radius: 0.5rem;
+  :hover {
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 const LampImage = styled.img`
   object-fit: contain;
   height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
 `;
 
 const SpanValue = styled.button`

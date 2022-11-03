@@ -15,7 +15,6 @@ import { Camera } from "./Camera";
 import { Tal } from "../Models/Tal";
 
 export const Scene = () => {
-  const context = useContext(DataContext);
   const lightContext = useContext(LightContext);
 
   return (
@@ -29,7 +28,7 @@ export const Scene = () => {
           rings: 11,
         })} */}
         <OrbitControls ref={lightContext.orbitRef} makeDefault />
-        <color attach="background" args={["#000"]} />
+        <color attach="background" args={["#70777F"]} />
         <Camera />
         <GroupWalls />
         <Environment preset="studio" ref={lightContext.envRef} />

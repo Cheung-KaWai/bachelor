@@ -72,7 +72,7 @@ export const Lamp = () => {
         /> */}
         <pointLight
           ref={lightContext.lightRef}
-          intensity={0.1}
+          intensity={0.8}
           // power={890}
           color="#fff"
           castShadow
