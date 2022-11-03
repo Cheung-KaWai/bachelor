@@ -44,14 +44,6 @@ export const LightStep1 = () => {
         </ModelButton> */}
         {/* <button onClick={handleClick}>hello</button> */}
       </ModelsContainer>
-      <Button
-        onClick={(ev) => {
-          ev.preventDefault();
-          lightContext.setStep(2);
-        }}
-      >
-        Next step
-      </Button>
     </>
   );
 };
@@ -66,7 +58,6 @@ const ModelsContainer = styled.div`
 const ModelButton = styled.div`
   width: 20rem;
   height: 20rem;
-  background-color: red;
   cursor: pointer;
 `;
 

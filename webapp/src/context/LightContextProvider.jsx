@@ -3,7 +3,7 @@ import React, { createContext, useRef, useState } from "react";
 export const LightContext = createContext();
 
 export const LightContextProvider = ({ children }) => {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
   const [model, setModel] = useState(null);
   const [height, setHeight] = useState(0);
   const [rotation, setRotation] = useState(null);

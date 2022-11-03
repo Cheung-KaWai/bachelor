@@ -4,9 +4,10 @@ import React, { useContext } from "react";
 import { DataContext } from "../../context/DataContextProvider";
 import { Wall } from "./Wall";
 
-export const GroupWalls = () => {
+function Test() {
   // useHelper(context.groupRef, BoxHelper, "blue");
   const context = useContext(DataContext);
+  console.log("walls");
   return (
     <group ref={context.groupRef}>
       {context.roomData &&
@@ -15,4 +16,6 @@ export const GroupWalls = () => {
         })}
     </group>
   );
-};
+}
+
+export const GroupWalls = React.memo(Test);

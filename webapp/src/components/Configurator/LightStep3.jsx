@@ -20,19 +20,31 @@ export const LightStep3 = () => {
   return (
     <>
       <ConfigTitle title={"Light Temperature"} />
-      <AngleContainer>
-        <button value="#ffd6aa" data-texture="blackTexture2700k" onClick={handleClick}>
+      <ColorContainer>
+        <ColorButton value="#ffd6aa" data-texture="blackTexture2700k" onClick={handleClick}>
           2700k
-        </button>
-        <button value="#fff1e0" data-texture="blackTexture3000k" onClick={handleClick}>
+        </ColorButton>
+        <ColorButton value="#fff1e0" data-texture="blackTexture3000k" onClick={handleClick}>
           3000k
-        </button>
-        <button value="#ffffff" data-texture="blackTexture4000k" onClick={handleClick}>
+        </ColorButton>
+        <ColorButton value="#ffffff" data-texture="blackTexture4000k" onClick={handleClick}>
           4000k
-        </button>
-      </AngleContainer>
+        </ColorButton>
+      </ColorContainer>
     </>
   );
 };
 
-const AngleContainer = styled.div``;
+const ColorContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+`;
+
+const ColorButton = styled.button`
+  height: 10rem;
+  width: 10rem;
+  text-align: center;
+  background-color: ${(props) => props.value};
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+`;

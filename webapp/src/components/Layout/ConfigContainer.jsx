@@ -9,4 +9,6 @@ const Container = styled.div`
   width: 25vw;
   height: 100vh;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
 `;

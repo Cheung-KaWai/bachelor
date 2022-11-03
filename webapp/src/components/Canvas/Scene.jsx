@@ -29,7 +29,7 @@ export const Scene = () => {
           rings: 11,
         })} */}
         <OrbitControls ref={lightContext.orbitRef} makeDefault />
-        <color attach="background" args={["#fff"]} />
+        <color attach="background" args={["#000"]} />
         <Camera />
         <GroupWalls />
         <Environment preset="studio" ref={lightContext.envRef} />

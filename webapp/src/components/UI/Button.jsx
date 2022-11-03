@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Button = ({ children, onClick }) => {
-  return <ButtonComp onClick={onClick}>{children}</ButtonComp>;
+export const Button = ({ children, onClick, className }) => {
+  return (
+    <ButtonComp onClick={onClick} className={className}>
+      {children}
+    </ButtonComp>
+  );
 };
 
 const ButtonComp = styled.button`
