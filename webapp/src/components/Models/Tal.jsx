@@ -33,6 +33,8 @@ export function Tal(props) {
   white3000k.flipY = false;
   white3000k.encoding = sRGBEncoding;
 
+  const whiteTexture3000k = new MeshBasicMaterial({ map: white3000k });
+
   useEffect(() => {
     const lamp = lightContext.lampRef.current;
     const box = new Box3().setFromObject(lamp);
@@ -43,6 +45,7 @@ export function Tal(props) {
       blackTexture4000k,
       blackTexture3000k,
       blackTexture2700k,
+      whiteTexture3000k,
       // kombo: {
       //   black: {
       //     blackTexture4000k,
@@ -56,8 +59,6 @@ export function Tal(props) {
     lightContext.setCurrentTexture(blackTexture4000k);
     lightContext.setLampHeight(dimensions.y);
   }, []);
-
-  console.log("hello");
 
   return (
     <>

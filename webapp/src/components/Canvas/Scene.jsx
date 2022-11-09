@@ -1,12 +1,14 @@
 import { Canvas } from "@react-three/fiber";
 import React, { useContext } from "react";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { ContactShadows, Environment, OrbitControls, softShadows } from "@react-three/drei";
 import { SceneContainer } from "../Layout/SceneContainer";
 import { GroupWalls } from "../Room/GroupWalls";
 import { LightContext } from "../../context/LightContextProvider";
 import { Lamp } from "./Lamp.jsx";
 import { Floor } from "./Floor";
 import { Camera } from "./Camera";
+
+softShadows();
 
 export const Scene = () => {
   const lightContext = useContext(LightContext);

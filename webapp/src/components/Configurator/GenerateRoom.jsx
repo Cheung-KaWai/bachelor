@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 import { DataContext } from "../../context/DataContextProvider";
 import { LightContext } from "../../context/LightContextProvider";
@@ -13,7 +13,7 @@ export const GenerateRoom = () => {
   const context = useContext(DataContext);
   const lightContext = useContext(LightContext);
 
-  const [roomId, setRoomId] = useState("");
+  const [roomId, setRoomId] = useState("wCCz3UBJxB5lqnqousUo");
   const [err, setErr] = useState("");
 
   const handlePreset = async (ev) => {
@@ -59,9 +59,24 @@ export const GenerateRoom = () => {
     }
   };
 
+  useEffect(() => {
+    handleGeneration();
+  }, []);
+
   return (
     <>
       <InputContainer>
+        <FlexContainer align="center" justify="space-between">
+          <Label>Generate My Room</Label>
+          <ErrorMessage>{err}</ErrorMessage>
+        </FlexContainer>
+        <Input
+          placeholder="Room ID: wCCz3UBJxB5lqnqousUo"
+          value={roomId}
+          onChange={(e) => setRoomId(e.target.value)}
+          onFocus={() => setErr("")}
+        />
+        <Generate onClick={handleGeneration}>Generate Room</Generate>
         <Label>Preset Rooms</Label>
         <RoomsContainer>
           <ImageContainer>
@@ -84,17 +99,6 @@ export const GenerateRoom = () => {
           </ImageContainer>
         </RoomsContainer>
 
-        <FlexContainer align="center" justify="space-between">
-          <Label>Generate My Room</Label>
-          <ErrorMessage>{err}</ErrorMessage>
-        </FlexContainer>
-        <Input
-          placeholder="Room ID: wCCz3UBJxB5lqnqousUo"
-          value={roomId}
-          onChange={(e) => setRoomId(e.target.value)}
-          onFocus={() => setErr("")}
-        />
-        <Generate onClick={handleGeneration}>Generate Room</Generate>
         {/* <Generate onClick={handleNextStep}>Configure light</Generate> */}
       </InputContainer>
     </>
@@ -129,6 +133,7 @@ const ErrorMessage = styled.span`
 
 const Generate = styled.button`
   margin-top: 1rem;
+  margin-bottom: 3rem;
   background-color: #91a7ff;
   height: 5rem;
   padding: 0 2rem;

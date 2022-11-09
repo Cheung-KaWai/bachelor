@@ -50,6 +50,7 @@ export const Configurator = () => {
             lightContext.setStep((prev) => {
               return prev + 1;
             });
+            lightContext.setShowLamp(true);
           }}
         >
           Next Step

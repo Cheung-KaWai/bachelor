@@ -1,10 +1,11 @@
 import React, { createContext, useRef, useState } from "react";
+import { Tal } from "../components/Models/Tal";
 
 export const LightContext = createContext();
 
 export const LightContextProvider = ({ children }) => {
   const [step, setStep] = useState(1);
-  const [model, setModel] = useState(null);
+  const [model, setModel] = useState(<Tal />);
   const [height, setHeight] = useState(0);
   const [rotation, setRotation] = useState(null);
   const [targetPosition, setTargetPosition] = useState([0, 0, 0]);
@@ -14,6 +15,7 @@ export const LightContextProvider = ({ children }) => {
   const [modelName, setModelName] = useState("kombo");
   const [modelColor, setModelColor] = useState("black");
   const [colorTemp, setColorTemp] = useState("3000k");
+  const [showLamp, setShowLamp] = useState(false);
 
   const lampRef = useRef();
   const lightRef = useRef();
@@ -21,7 +23,6 @@ export const LightContextProvider = ({ children }) => {
   const roomLight = useRef();
   const envLight = useRef();
   const orbitRef = useRef();
-
   const elements = {
     step,
     setStep,
@@ -51,6 +52,8 @@ export const LightContextProvider = ({ children }) => {
     modelColor,
     setColorTemp,
     colorTemp,
+    setShowLamp,
+    showLamp,
   };
 
   return <LightContext.Provider value={elements}>{children}</LightContext.Provider>;

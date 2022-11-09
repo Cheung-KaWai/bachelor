@@ -19,9 +19,9 @@ export const CameraTarget = () => {
     setSelected(0);
     context.setCameraPosition({
       data: [
-        target.x + 1 + Math.random() * 0.01,
+        target.x + 0.75 + Math.random() * 0.01,
         target.y + lightContext.lampHeight / 2,
-        target.z + 1 + Math.random() * 0.01,
+        target.z + 0.75 + Math.random() * 0.01,
       ],
     });
     lightContext.orbitRef.current.target = new Vector3(target.x, target.y + lightContext.lampHeight / 2, target.z);
@@ -60,9 +60,9 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: ${(props) => (props.selected ? "#91a7ff" : "#fff")};
-  color: ${(props) => (props.selected ? "#364fc7" : "#91a7ff")};
-  border: 1px solid #91a7ff;
+  background-color: ${(props) => (props.selected ? "#ced4da" : "#fff")};
+  color: ${(props) => (props.selected ? "#868e96" : "#868e96")};
+  border: 1px solid #ced4da;
   border-radius: 0.3rem;
   padding: 1rem;
   text-align: center;

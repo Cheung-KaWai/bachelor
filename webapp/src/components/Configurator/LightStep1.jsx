@@ -10,9 +10,9 @@ export const LightStep1 = () => {
 
   const handleShape = (ev) => {
     switch (ev.target.dataset.model) {
-      case "kombo":
-        lightContext.setModel(<Tal />);
-        break;
+      // case "kombo":
+      //   lightContext.setModel(<Tal />);
+      //   break;
       default:
         lightContext.setModel(<Tal />);
     }
