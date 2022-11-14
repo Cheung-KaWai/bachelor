@@ -39,7 +39,7 @@ export const LightStep3 = () => {
         <ColorButton value="#ffd6aa" data-texture="blackTexture2700k" onClick={handleClick}>
           2700k
         </ColorButton>
-        <ColorButton value="#fff1e0" data-texture="blackTexture3000k" onClick={handleClick}>
+        <ColorButton value="#fff1e0" data-texture="whiteTexture3000k" onClick={handleClick}>
           3000k
         </ColorButton>
         <ColorButton value="#ffffff" data-texture="blackTexture4000k" onClick={handleClick}>

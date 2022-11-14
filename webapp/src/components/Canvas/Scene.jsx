@@ -7,6 +7,8 @@ import { LightContext } from "../../context/LightContextProvider";
 import { Lamp } from "./Lamp.jsx";
 import { Floor } from "./Floor";
 import { Camera } from "./Camera";
+import { Window } from "../Models/Window";
+import { GroupWindows } from "../Room/GroupWindows";
 
 softShadows();
 
@@ -21,7 +23,7 @@ export const Scene = () => {
         <Camera />
         <GroupWalls />
         <Environment preset="studio" ref={lightContext.envRef} />
-
+        <GroupWindows />
         {lightContext.rotation && <Floor />}
         {lightContext.model && (
           <>

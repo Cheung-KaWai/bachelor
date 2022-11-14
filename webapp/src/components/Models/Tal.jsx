@@ -1,13 +1,11 @@
-import tal2 from "../../assets/models/tal.glb";
+import tal2 from "../../assets/models/tal14_11.glb";
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { useContext } from "react";
 import { LightContext } from "../../context/LightContextProvider";
 import { Box3, MeshBasicMaterial, MeshStandardMaterial, sRGBEncoding, Vector3 } from "three";
-import texture from "../../assets/images/black4000k.jpg";
-import texture2 from "../../assets/images/black3000k.jpg";
-import texture3 from "../../assets/images/black2700k.jpg";
-import texture4 from "../../assets/images/white3000k.jpg";
+import texture from "../../assets/images/blackNew.jpg";
+import texture2 from "../../assets/images/whiteNew.jpg";
 
 export function Tal(props) {
   const { nodes, materials } = useGLTF(tal2);
@@ -15,25 +13,13 @@ export function Tal(props) {
   const black4000k = useTexture(texture);
   black4000k.flipY = false;
   black4000k.encoding = sRGBEncoding;
-
-  const black2700k = useTexture(texture3);
-  black2700k.flipY = false;
-  black2700k.encoding = sRGBEncoding;
-
-  const black3000k = useTexture(texture2);
-  black3000k.flipY = false;
-  black3000k.encoding = sRGBEncoding;
-
-  const material = new MeshStandardMaterial({ color: "black", envMapIntensity: 1 });
-  const blackTexture4000k = new MeshBasicMaterial({ map: black4000k });
-  const blackTexture3000k = new MeshBasicMaterial({ map: black3000k });
-  const blackTexture2700k = new MeshBasicMaterial({ map: black2700k });
-
-  const white3000k = useTexture(texture4);
+  const white3000k = useTexture(texture2);
   white3000k.flipY = false;
   white3000k.encoding = sRGBEncoding;
 
-  const whiteTexture3000k = new MeshBasicMaterial({ map: white3000k });
+  const material = new MeshStandardMaterial({ color: "black", envMapIntensity: 1 });
+  const blackMaterial = new MeshBasicMaterial({ map: black4000k });
+  const whiteMaterial = new MeshBasicMaterial({ map: white3000k });
 
   useEffect(() => {
     const lamp = lightContext.lampRef.current;
@@ -42,10 +28,8 @@ export function Tal(props) {
     box.getSize(dimensions);
 
     lightContext.setLampTextures({
-      blackTexture4000k,
-      blackTexture3000k,
-      blackTexture2700k,
-      whiteTexture3000k,
+      blackMaterial,
+      whiteMaterial,
       // kombo: {
       //   black: {
       //     blackTexture4000k,
@@ -56,7 +40,7 @@ export function Tal(props) {
       // },
     });
 
-    lightContext.setCurrentTexture(blackTexture4000k);
+    lightContext.setCurrentTexture(blackMaterial);
     lightContext.setLampHeight(dimensions.y);
   }, []);
 
@@ -68,7 +52,7 @@ export function Tal(props) {
         position={[0, lightContext.height ? lightContext.height - lightContext.lampHeight : 0, 0]}
         ref={lightContext.lampRef}
       >
-        <mesh
+        {/* <mesh
           name="Cylinder001"
           geometry={nodes.Cylinder001.geometry}
           material={lightContext.currentTexture ?? material}
@@ -104,7 +88,29 @@ export function Tal(props) {
           material={lightContext.currentTexture ?? material}
           position={[0, 0.19, 0]}
         />
-        <mesh name="Sphere003" geometry={nodes.Sphere003.geometry} material={lightContext.currentTexture ?? material} />
+        <mesh name="Sphere003" geometry={nodes.Sphere003.geometry} material={lightContext.currentTexture ?? material} /> */}
+
+        <mesh
+          geometry={nodes.Cylinder004.geometry}
+          material={lightContext.currentTexture ?? material}
+          position={[0, 0.77, 0]}
+        />
+        <mesh
+          geometry={nodes.Cylinder006.geometry}
+          material={lightContext.currentTexture ?? material}
+          position={[0, 0.45, 0]}
+        />
+        <mesh
+          geometry={nodes.Cylinder018.geometry}
+          material={lightContext.currentTexture ?? material}
+          position={[0, 0.164, 0]}
+        />
+        <mesh
+          geometry={nodes.Cylinder017.geometry}
+          material={lightContext.currentTexture ?? material}
+          position={[0, 0.19, 0]}
+        />
+        <mesh geometry={nodes.Sphere003.geometry} material={lightContext.currentTexture ?? material} />
       </group>
     </>
   );

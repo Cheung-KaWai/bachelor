@@ -1,11 +1,11 @@
 import React from "react";
 import { OrbitControls, Stage, useHelper } from "@react-three/drei";
-import { DirectionalLightHelper } from "three";
+import { DirectionalLightHelper, PointLightHelper } from "three";
 import { useRef } from "react";
 
 export const TestComponent = () => {
   const dir = useRef();
-  useHelper(dir, DirectionalLightHelper, 1, "#f00");
+  useHelper(dir, PointLightHelper, 1, "#f00");
 
   return (
     <>
@@ -15,6 +15,7 @@ export const TestComponent = () => {
         castShadow
         position={[2.5, 8, 5]}
         intensity={1.5}
+        // decay={2}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
         shadow-camera-far={50}
@@ -31,6 +32,7 @@ export const TestComponent = () => {
           <boxBufferGeometry attach="geometry" args={[4, 1, 1]} />
           <meshStandardMaterial attach="material" />
         </mesh>
+
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
           <planeBufferGeometry attach="geometry" args={[100, 100]} />
           {/* <meshStandardMaterial attach="material" /> */}
