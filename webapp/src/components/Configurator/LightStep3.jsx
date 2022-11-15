@@ -8,42 +8,19 @@ export const LightStep3 = () => {
   const lightContext = useContext(LightContext);
 
   const handleClick = (ev) => {
-    const color = ev.target.value;
     const colorTexture = ev.target.dataset.texture;
-    const tempColor = new Color(color);
-
-    lightContext.lightRef.current.color = tempColor;
-    lightContext.setColorTemp(colorTexture);
     lightContext.setCurrentTexture(lightContext.lampTextures[colorTexture]);
-  };
-
-  const handleModelColor = (ev) => {
-    const color = ev.target.dataset.modelcolor;
-    lightContext.setModelColor(color);
   };
 
   return (
     <>
-      {/* <ConfigTitle title={"Model Color"} />
+      <ConfigTitle title={"Color Model"} />
       <ColorContainer>
-        <ColorButton value="#000" data-modelcolor="black" onClick={handleModelColor}>
+        <ColorButton value="#28282B" data-texture="blackMaterial" onClick={handleClick}>
           Black
         </ColorButton>
-        <ColorButton value="#fff" data-modelcolor="white" onClick={handleModelColor}>
+        <ColorButton value="#ffffff" data-texture="whiteMaterial" onClick={handleClick}>
           White
-        </ColorButton>
-      </ColorContainer>
-      <Spacer /> */}
-      <ConfigTitle title={"Light Temperature"} />
-      <ColorContainer>
-        <ColorButton value="#ffd6aa" data-texture="blackTexture2700k" onClick={handleClick}>
-          2700k
-        </ColorButton>
-        <ColorButton value="#fff1e0" data-texture="whiteTexture3000k" onClick={handleClick}>
-          3000k
-        </ColorButton>
-        <ColorButton value="#ffffff" data-texture="blackTexture4000k" onClick={handleClick}>
-          4000k
         </ColorButton>
       </ColorContainer>
     </>
@@ -67,4 +44,5 @@ const ColorButton = styled.button`
   text-align: center;
   background-color: ${(props) => props.value};
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+  color: gray;
 `;

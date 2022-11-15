@@ -21,6 +21,10 @@ export default function Progress() {
         <Step step={lightcontext.step >= 3 ? 0 : 1} stepLabel="Color">
           3
         </Step>
+        <ProgressLine step={lightcontext.step > 3 ? 0 : 1} />
+        <Step step={lightcontext.step >= 4 ? 0 : 1} stepLabel="Light">
+          4
+        </Step>
       </ProgressContainer>
     </FlexContainer>
   );

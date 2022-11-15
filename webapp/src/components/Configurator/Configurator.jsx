@@ -7,6 +7,7 @@ import { CameraTarget } from "./CameraTarget";
 import { GenerateRoom } from "./GenerateRoom";
 import { LightStep1 } from "./LightStep1";
 import { LightStep3 } from "./LightStep3";
+import { LightStep4 } from "./LightStep4";
 import Progress from "./Progress";
 
 export const Configurator = () => {
@@ -21,6 +22,8 @@ export const Configurator = () => {
           return <LightStep1 />;
         case 3:
           return <LightStep3 />;
+        case 4:
+          return <LightStep4 />;
         default:
           return <GenerateRoom />;
       }
@@ -43,7 +46,7 @@ export const Configurator = () => {
           Back
         </BackButton>
       )}
-      {lightContext && lightContext.step < 3 && (
+      {lightContext && lightContext.step < 4 && (
         <NextButton
           step={lightContext.step}
           onClick={() => {

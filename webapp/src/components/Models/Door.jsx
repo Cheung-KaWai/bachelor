@@ -1,32 +1,29 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import windowObj from "../../assets/models/window.glb";
+import door from "../../assets/models/door.glb";
 import * as THREE from "three";
 
-export function Window({ scale, tranform }) {
-  const { nodes, materials } = useGLTF(windowObj);
+export function Door({ scale, tranform }) {
+  const { nodes, materials } = useGLTF(door);
 
   const matrix = new THREE.Matrix4();
   let transformData = [...tranform];
-  transformData[13] = 0;
+  // transformData[13] = 0;
   matrix.set(...transformData);
 
   let translation = new THREE.Vector3();
   let rotation = new THREE.Quaternion();
   let scaleMatrix = new THREE.Vector3();
   matrix.transpose().decompose(translation, rotation, scaleMatrix);
+  console.log(translation);
 
   const material = new THREE.MeshStandardMaterial({ envMapIntensity: 0.1 });
 
   return (
-    // <group scale={scale} quaternion={rotation} position={translation} dispose={null}>
-    //   <mesh geometry={nodes.Plane.geometry} material={material} rotation={[-Math.PI / 2, 0, 0]} />
-    //   <mesh geometry={nodes.Plane001.geometry} material={material} rotation={[-Math.PI / 2, 0, 0]} />
-    // </group>
-    <group scale={scale} quaternion={rotation} position={translation} dispose={null}>
+    <group dispose={null} scale={scale} quaternion={rotation} position={translation}>
       <mesh
         receiveShadow
-        geometry={nodes.test.geometry}
+        geometry={nodes.Cube002.geometry}
         material={material}
         position={[0, 0, 0]}
         rotation={[0, -Math.PI / 2, 0]}
@@ -35,4 +32,4 @@ export function Window({ scale, tranform }) {
   );
 }
 
-useGLTF.preload(windowObj);
+useGLTF.preload(door);
