@@ -7,6 +7,7 @@ export const LightContextProvider = ({ children }) => {
   const [step, setStep] = useState(1);
   const [model, setModel] = useState(<Tal />);
   const [height, setHeight] = useState(0);
+  const [offset, setOffset] = useState(0);
   const [rotation, setRotation] = useState(null);
   const [targetPosition, setTargetPosition] = useState([0, 0, 0]);
   const [lampHeight, setLampHeight] = useState(0);
@@ -54,6 +55,8 @@ export const LightContextProvider = ({ children }) => {
     colorTemp,
     setShowLamp,
     showLamp,
+    setOffset,
+    offset,
   };
 
   return <LightContext.Provider value={elements}>{children}</LightContext.Provider>;

@@ -12,11 +12,21 @@ export const Floor = () => {
 
   return (
     <>
-      <mesh scale={200} position={[0, -lightContext.height ?? 0, 0]} rotation={rotatie} receiveShadow>
+      <mesh
+        scale={200}
+        position={[0, -lightContext.height + lightContext.offset ?? 0, 0]}
+        rotation={rotatie}
+        receiveShadow
+      >
         <planeGeometry />
         <meshStandardMaterial envMapIntensity={0.05} />
       </mesh>
-      <mesh scale={200} position={[0, lightContext.height ?? 0, 0]} rotation={rotatie2} receiveShadow>
+      <mesh
+        scale={200}
+        position={[0, lightContext.height + lightContext.offset ?? 0, 0]}
+        rotation={rotatie2}
+        receiveShadow
+      >
         <planeGeometry />
         <meshStandardMaterial envMapIntensity={0.05} />
       </mesh>

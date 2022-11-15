@@ -15,7 +15,6 @@ export function Door({ scale, tranform }) {
   let rotation = new THREE.Quaternion();
   let scaleMatrix = new THREE.Vector3();
   matrix.transpose().decompose(translation, rotation, scaleMatrix);
-  console.log(translation);
 
   const material = new THREE.MeshStandardMaterial({ envMapIntensity: 0.1 });
 
@@ -29,6 +28,10 @@ export function Door({ scale, tranform }) {
         rotation={[0, -Math.PI / 2, 0]}
       />
     </group>
+    // <mesh scale={scale} position={translation} quaternion={rotation}>
+    //   <boxGeometry />
+    //   <meshStandardMaterial envMapIntensity={0.1} />
+    // </mesh>
   );
 }
 

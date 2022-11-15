@@ -49,7 +49,7 @@ export function Tal(props) {
       <group
         {...props}
         dispose={null}
-        position={[0, lightContext.height ? lightContext.height - lightContext.lampHeight : 0, 0]}
+        position={[0, lightContext.height ? lightContext.height - lightContext.lampHeight + lightContext.offset : 0, 0]}
         ref={lightContext.lampRef}
       >
         {/* <mesh

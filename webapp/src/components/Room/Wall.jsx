@@ -13,7 +13,6 @@ export const Wall = ({ scale, transform }) => {
 
   const matrix = new THREE.Matrix4();
   let transformData = [...transform];
-  transformData[13] = 0;
   matrix.set(...transformData);
 
   let translation = new THREE.Vector3();

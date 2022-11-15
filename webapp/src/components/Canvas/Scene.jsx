@@ -10,6 +10,7 @@ import { Camera } from "./Camera";
 import { Window } from "../Models/Window";
 import { GroupWindows } from "../Room/GroupWindows";
 import { GroupDoors } from "../Room/GroupDoors";
+import { GroupObjects } from "../Room/GroupObjects";
 
 softShadows();
 
@@ -26,6 +27,7 @@ export const Scene = () => {
         <Environment preset="studio" ref={lightContext.envRef} />
         <GroupWindows />
         <GroupDoors />
+        <GroupObjects />
 
         {lightContext.rotation && <Floor />}
         {lightContext.model && (

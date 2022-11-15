@@ -11,7 +11,7 @@ export const Lamp = () => {
 
   let newPosition = new Vector3();
 
-  useHelper(lightContext.pointRef, PointLightHelper, 0.05, "teal");
+  useHelper(lightContext.pointRef, PointLightHelper, 1, "teal");
 
   const handleTarget = () => {
     let newPosition = new Vector3();

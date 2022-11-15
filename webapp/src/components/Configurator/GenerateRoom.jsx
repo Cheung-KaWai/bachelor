@@ -31,7 +31,9 @@ export const GenerateRoom = () => {
     matrix.transpose().decompose(translation, rotation, scaleMatrix);
 
     const dimensions = data.walls[0].dimensions;
+    const offset = data.walls[0].transform[13];
     lightContext.setHeight(dimensions[1] / 2);
+    lightContext.setOffset(offset);
     lightContext.setRotation(rotation);
   };
 
@@ -54,7 +56,10 @@ export const GenerateRoom = () => {
       matrix.transpose().decompose(translation, rotation, scaleMatrix);
 
       const dimensions = data.walls[0].dimensions;
+      const offset = data.walls[0].transform[13];
+
       lightContext.setHeight(dimensions[1] / 2);
+      lightContext.setOffset(offset);
       lightContext.setRotation(rotation);
     }
   };
