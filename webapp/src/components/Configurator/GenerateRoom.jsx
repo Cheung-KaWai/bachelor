@@ -8,6 +8,7 @@ import * as THREE from "three";
 
 import preset1 from "../../assets/images/preset.jpg";
 import preset2 from "../../assets/images/preset2.jpg";
+import { RoomSettingsButton } from "../UI/RoomSettingsButton";
 
 export const GenerateRoom = () => {
   const context = useContext(DataContext);
@@ -75,13 +76,22 @@ export const GenerateRoom = () => {
           <Label>Generate My Room</Label>
           <ErrorMessage>{err}</ErrorMessage>
         </FlexContainer>
-        <Input
-          placeholder="Room ID: wCCz3UBJxB5lqnqousUo"
-          value={roomId}
-          onChange={(e) => setRoomId(e.target.value)}
-          onFocus={() => setErr("")}
-        />
-        <Generate onClick={handleGeneration}>Generate Room</Generate>
+        <RoomGenerationContainer>
+          <Input
+            placeholder="Room ID: wCCz3UBJxB5lqnqousUo"
+            value={roomId}
+            onChange={(e) => setRoomId(e.target.value)}
+            onFocus={() => setErr("")}
+          />
+          <Generate onClick={handleGeneration}>Generate</Generate>
+        </RoomGenerationContainer>
+        <Label>Room settings</Label>
+        <RoomSettingsContainer>
+          <RoomSettingsButton name="Doors" click={context?.setShowDoors} show={context?.showDoors} />
+          <RoomSettingsButton name="Windows" click={context?.setShowWindows} show={context?.showWindows} />
+          <RoomSettingsButton name="Walls" click={context?.setShowWalls} show={context?.showWalls} />
+          <RoomSettingsButton name="Others" click={context?.setShowOthers} show={context?.showOthers} />
+        </RoomSettingsContainer>
         <Label>Preset Rooms</Label>
         <RoomsContainer>
           <ImageContainer>
@@ -137,8 +147,6 @@ const ErrorMessage = styled.span`
 `;
 
 const Generate = styled.button`
-  margin-top: 1rem;
-  margin-bottom: 3rem;
   background-color: #91a7ff;
   height: 5rem;
   padding: 0 2rem;
@@ -176,4 +184,16 @@ const ImageRoom = styled.img`
   max-height: 100%;
   object-fit: contain;
   cursor: pointer;
+`;
+
+const RoomSettingsContainer = styled.div`
+  margin-bottom: 3rem;
+  display: flex;
+  gap: 1rem;
+`;
+
+const RoomGenerationContainer = styled.div`
+  display: flex;
+  margin-bottom: 3rem;
+  gap: 1rem;
 `;

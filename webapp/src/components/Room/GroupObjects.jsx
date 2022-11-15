@@ -7,7 +7,8 @@ export const GroupObjects = () => {
   const context = useContext(DataContext);
   return (
     <>
-      {context?.roomData &&
+      {context.showOthers &&
+        context.roomData &&
         context.roomData.objects?.map((others, key) => (
           <DataObject key={key} scale={others.dimensions} transform={others.transform} />
         ))}

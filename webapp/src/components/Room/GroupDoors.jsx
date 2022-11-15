@@ -8,7 +8,8 @@ export const GroupDoors = () => {
 
   return (
     <>
-      {context?.roomData &&
+      {context.showDoors &&
+        context?.roomData &&
         context.roomData.doors?.map((door, key) => (
           <Door key={key} scale={[door.dimensions[0], door.dimensions[1], 1]} tranform={door.transform} />
         ))}

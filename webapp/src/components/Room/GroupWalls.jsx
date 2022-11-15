@@ -6,7 +6,8 @@ function Test() {
   const context = useContext(DataContext);
   return (
     <group ref={context.groupRef}>
-      {context.roomData &&
+      {context.showWalls &&
+        context.roomData &&
         context.roomData.walls.map((wall, key) => {
           return <Wall key={key} scale={wall.dimensions} transform={wall.transform} />;
         })}
