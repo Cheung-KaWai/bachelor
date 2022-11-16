@@ -19,7 +19,7 @@ export const GenerateRoom = () => {
 
   const handlePreset = async (ev) => {
     const data = await getData(ev.target.dataset.id);
-
+    context.setCornerPoints([]);
     context.setRoomData(data);
     context.setRerender((prev) => !prev);
 
@@ -45,6 +45,7 @@ export const GenerateRoom = () => {
     if (typeof data === "string") {
       setErr(data);
     } else {
+      context.setCornerPoints([]);
       context.setRoomData(data);
       context.setRerender((prev) => !prev);
 
@@ -154,9 +155,9 @@ const Generate = styled.button`
   color: #364fc7;
   text-align: center;
   transition: all 0.3s ease-out;
-  :hover {
+  /* :hover {
     transform: scale(1.01);
-  }
+  } */
 `;
 
 const RoomsContainer = styled.div`

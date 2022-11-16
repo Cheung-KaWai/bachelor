@@ -15,4 +15,8 @@ function Test() {
   );
 }
 
+{
+  /* <Wall scale={context.roomData.walls[1].dimensions} transform={context.roomData.walls[1].transform} /> */
+}
+
 export const GroupWalls = React.memo(Test);

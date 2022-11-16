@@ -14,6 +14,9 @@ export const DataContextProvider = ({ children }) => {
   const [showWindows, setShowWindows] = useState(true);
   const [showOthers, setShowOthers] = useState(true);
 
+  const [cornerPoints, setCornerPoints] = useState([]);
+  const [floorDataPoints, setFloorDataPoints] = useState([]);
+
   const groupRef = useRef();
   const cameraRef = useRef();
 
@@ -38,6 +41,10 @@ export const DataContextProvider = ({ children }) => {
     showWindows,
     setShowOthers,
     showOthers,
+    setCornerPoints,
+    cornerPoints,
+    setFloorDataPoints,
+    floorDataPoints,
   };
 
   return <DataContext.Provider value={elements}>{children}</DataContext.Provider>;

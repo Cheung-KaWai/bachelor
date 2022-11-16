@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { ContactShadows, Environment, OrbitControls, softShadows } from "@react-three/drei";
 import { SceneContainer } from "../Layout/SceneContainer";
 import { GroupWalls } from "../Room/GroupWalls";
@@ -11,11 +11,28 @@ import { Window } from "../Models/Window";
 import { GroupWindows } from "../Room/GroupWindows";
 import { GroupDoors } from "../Room/GroupDoors";
 import { GroupObjects } from "../Room/GroupObjects";
-
-softShadows();
+import { DataContext } from "../../context/DataContextProvider";
 
 export const Scene = () => {
   const lightContext = useContext(LightContext);
+  const context = useContext(DataContext);
+
+  const FixFloorpliz = () => {
+    const result = context.cornerPoints.reduce((unique, o) => {
+      if (!unique.some((obj) => obj.x === o.x && obj.y === o.y && obj.z === o.z)) {
+        unique.push(o);
+      }
+      return unique;
+    }, []);
+
+    const getCubes = result.map((point, key) => (
+      <mesh scale={[0.1, 0.1, 0.1]} position={[point.x, point.y, point.z]} key={key}>
+        <boxGeometry />
+        <meshStandardMaterial />
+      </mesh>
+    ));
+    return getCubes;
+  };
 
   return (
     <SceneContainer>
@@ -29,7 +46,9 @@ export const Scene = () => {
         <GroupDoors />
         <GroupObjects />
 
-        {lightContext.rotation && <Floor />}
+        {context?.cornerPoints && FixFloorpliz()}
+
+        {/* {lightContext.rotation && <Floor />} */}
         {lightContext.model && (
           <>
             <Lamp />
