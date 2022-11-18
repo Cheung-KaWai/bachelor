@@ -8,15 +8,96 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="home" id="BYZ-38-t0r" customClass="HomeViewController" customModule="roomscan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="roomscan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fIN-G0-beG" userLabel="emailField">
+                                <rect key="frame" x="35" y="397" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KQ8-il-ySF"/>
+                                    <constraint firstAttribute="width" constant="320" id="MDx-kX-Q71"/>
+                                </constraints>
+                                <color key="textColor" systemColor="systemIndigoColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wL-vL-aJO">
+                                <rect key="frame" x="35" y="371" width="320" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="fZi-71-96V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8WC-Nk-3vP" userLabel="passwordField">
+                                <rect key="frame" x="35" y="497" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="E7D-t8-6h6"/>
+                                    <constraint firstAttribute="width" constant="320" id="Ztl-tl-vJz"/>
+                                </constraints>
+                                <color key="textColor" red="0.34299933910000002" green="0.33519393209999998" blue="0.80808466670000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tR-Dy-56l">
+                                <rect key="frame" x="35" y="471" width="320" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="fKK-i6-MLw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvB-sd-i04">
+                                <rect key="frame" x="35" y="597" width="320" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Y1g-jd-2OL"/>
+                                    <constraint firstAttribute="height" constant="50" id="xH9-oF-CVL"/>
+                                </constraints>
+                                <color key="tintColor" red="0.34299933910000002" green="0.33519393209999998" blue="0.80808466670000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Login">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruE-HC-TWJ">
+                                <rect key="frame" x="35" y="667" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="9V1-lF-Xha"/>
+                                    <constraint firstAttribute="height" constant="50" id="Zyn-Ro-oVS"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Register">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                    <color key="baseForegroundColor" red="0.34299933910000002" green="0.33519393209999998" blue="0.80808466670000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fIN-G0-beG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6BU-U4-FmO"/>
+                            <constraint firstItem="fIN-G0-beG" firstAttribute="top" secondItem="0wL-vL-aJO" secondAttribute="bottom" constant="5" id="7oF-ey-V9U"/>
+                            <constraint firstItem="ruE-HC-TWJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KNQ-qC-Deh"/>
+                            <constraint firstItem="8WC-Nk-3vP" firstAttribute="top" secondItem="fIN-G0-beG" secondAttribute="bottom" constant="50" id="L1V-FI-JoR"/>
+                            <constraint firstItem="pvB-sd-i04" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OJy-XO-9ZJ"/>
+                            <constraint firstItem="8WC-Nk-3vP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pff-yM-Ff7"/>
+                            <constraint firstItem="ruE-HC-TWJ" firstAttribute="top" secondItem="pvB-sd-i04" secondAttribute="bottom" constant="20" id="Spl-9b-Ppr"/>
+                            <constraint firstItem="fIN-G0-beG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X6z-Sc-evo"/>
+                            <constraint firstItem="8WC-Nk-3vP" firstAttribute="top" secondItem="9tR-Dy-56l" secondAttribute="bottom" constant="5" id="Yds-Kh-NGV"/>
+                            <constraint firstItem="9tR-Dy-56l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hrf-9Y-XpM"/>
+                            <constraint firstItem="0wL-vL-aJO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kwd-K4-hms"/>
+                            <constraint firstItem="pvB-sd-i04" firstAttribute="top" secondItem="8WC-Nk-3vP" secondAttribute="bottom" constant="50" id="ta4-CH-bNW"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

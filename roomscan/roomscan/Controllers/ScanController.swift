@@ -23,7 +23,6 @@ class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSess
         roomCaptureView = RoomCaptureView(frame: view.bounds)
         roomCaptureView.captureSession.delegate = self
         roomCaptureView.delegate = self
-        
         view.insertSubview(roomCaptureView, at: 0)
     }
     override func viewDidAppear(_ animated: Bool) {
