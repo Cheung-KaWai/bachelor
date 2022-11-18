@@ -15,7 +15,12 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func navigate(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(identifier: "login") as! LoginViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

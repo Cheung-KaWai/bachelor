@@ -16,7 +16,6 @@ class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSess
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-
     }
     
     private func setup() {
