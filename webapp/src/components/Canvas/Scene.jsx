@@ -27,7 +27,7 @@ export const Scene = () => {
     }, []);
 
     // const dataPoints = result.map((el) => new Point(el.x, el.z));
-    console.log(result);
+    // console.log(result);
     // convexHull(dataPoints, dataPoints.length);
 
     const getCubes = () => {
@@ -35,14 +35,14 @@ export const Scene = () => {
       shapes.moveTo(-1.45, -7.66);
       shapes.lineTo(-5, -0.56);
       shapes.lineTo(1.28, 2.58);
-      const test = 8;
 
       return (
         <>
           {result.map((el, key) => (
             <mesh key={key} position={[el.x, el.y, el.z]} scale={[0.1, 0.1, 0.1]}>
               <boxGeometry />
-              <meshStandardMaterial color={key == test ? "#f00" : "#fff"} />
+              {/* <meshStandardMaterial color={key == test ? "#f00" : "#fff"} /> */}
+              <meshStandardMaterial />
             </mesh>
           ))}
           {/* <mesh scale={[0.1, 0.1, 0.1]} position={[-1.45, -1.28, -7.66]}>
@@ -129,8 +129,8 @@ export const Scene = () => {
         <GroupDoors />
         <GroupObjects />
 
-        {/* {context?.cornerPoints && FixFloorpliz()} */}
-        {lightContext.rotation && <Floor />}
+        {context?.cornerPoints && FixFloorpliz()}
+        {/* {lightContext.rotation && <Floor />} */}
 
         {lightContext.model && (
           <>
