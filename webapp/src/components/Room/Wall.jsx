@@ -52,8 +52,10 @@ export const Wall = ({ scale, transform }) => {
       const matrix = boxRef.current.matrixWorld;
       const vector1 = new Vector3(scale[0] / 2, -scale[1] / 2, 0);
       const vector2 = new Vector3(-scale[0] / 2, -scale[1] / 2, 0);
+      // const vector3 = new Vector3(vector1.sub(vector2));
       vector1.applyMatrix4(matrix);
       vector2.applyMatrix4(matrix);
+      // vector3.applyMatrix4(matrix);
       vector1.set(vector1.x.toFixed(2), vector1.y.toFixed(2), vector1.z.toFixed(2));
       vector2.set(vector2.x.toFixed(2), vector2.y.toFixed(2), vector2.z.toFixed(2));
 
@@ -75,7 +77,8 @@ export const Wall = ({ scale, transform }) => {
         ref={boxRef}
       >
         <boxGeometry args={[scale[0], scale[1], 0.01]} />
-        <meshStandardMaterial envMapIntensity={0.1} wireframe={true} />
+        {/* <meshStandardMaterial envMapIntensity={0.1} wireframe={true} /> */}
+        <meshStandardMaterial envMapIntensity={0.1} />
       </mesh>
       {/* <mesh rotation={[-Math.PI / 2, 0, 0]} position={[translation.x, translation.y - scale[1] / 2, translation.z]}>
         <circleGeometry args={[scale[0] / 2, 64]} />
