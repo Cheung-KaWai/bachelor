@@ -20,7 +20,7 @@ export const GenerateRoom = () => {
   const handlePreset = async (ev) => {
     const data = await getData(ev.target.dataset.id);
     // data.walls.length * 5
-    context.setAmountPoints(data.walls.length * 4);
+    context.setAmountPoints(data.walls.length * 5);
     context.setCornerPoints([]);
     context.setRoomData(data);
     context.setRerender((prev) => !prev);
@@ -49,7 +49,7 @@ export const GenerateRoom = () => {
       context.setCornerPoints([]);
       context.setRoomData(data);
       context.setRerender((prev) => !prev);
-      context.setAmountPoints(data.walls.length * 4);
+      context.setAmountPoints(data.walls.length * 5);
 
       const transform = data.walls[0].transform;
       const matrix = new THREE.Matrix4();

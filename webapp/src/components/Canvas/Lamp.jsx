@@ -34,7 +34,7 @@ export const Lamp = () => {
       <TransformControls
         showY={false}
         ref={transform}
-        size={0.5}
+        size={0.1}
         position={[0, lightContext.height - lightContext.lampHeight + 0.1, 0]}
         onMouseDown={stopOrbit}
         onMouseUp={startOrbit}

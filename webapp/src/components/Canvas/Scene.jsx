@@ -49,7 +49,7 @@ export const Scene = () => {
         let index = findNearestIndex(point, filterElements);
         newPoints.push(filterElements.splice(index, 1)[0]);
       }
-      console.log(newPoints);
+      // console.log(newPoints);
       setOrderedPoints(newPoints);
     }
   }, [context.cornerPoints]);
@@ -61,8 +61,8 @@ export const Scene = () => {
 
   const FixFloorpliz = () => {
     if (context.cornerPoints.length - offset !== orderedPoints.length) {
-      // console.log(context.cornerPoints);
-      // console.log(orderedPoints);
+      console.log(context.cornerPoints);
+      console.log(orderedPoints);
       return;
     }
 
@@ -71,7 +71,8 @@ export const Scene = () => {
       // shapes.moveTo(-1.45, -7.66);
       // shapes.lineTo(-5, -0.56);
       // shapes.lineTo(1.28, 2.58);
-      const test = 23;
+      const test = 0;
+      console.log(orderedPoints);
       return (
         <>
           {orderedPoints.map((el, key) => (
@@ -85,38 +86,42 @@ export const Scene = () => {
       );
     };
 
-    // const shapes = new THREE.Shape();
-    // if (result.length !== 0) {
-    //   for (let i = 0; i < result.length; i++) {
-    //     const element = result[i];
-    //     if (i === 0) {
-    //       shapes.moveTo(element.x, element.z);
-    //     }
-    //     shapes.lineTo(element.x, element.z);
-    //   }
-    //   shapes.lineTo(result[0].x, result[0].z);
+    const shapes = new THREE.Shape();
+    if (orderedPoints.length !== 0 && orderedPoints.length === context.cornerPoints.length - offset) {
+      for (let i = 0; i < orderedPoints.length; i++) {
+        const element = orderedPoints[i];
+        if (i === 0) {
+          console.log();
+          shapes.moveTo(parseFloat(element.z), parseFloat(element.x));
+        } else {
+          shapes.lineTo(parseFloat(element.z), parseFloat(element.x));
+        }
+      }
+      shapes.lineTo(parseFloat(orderedPoints[0].z), parseFloat(orderedPoints[0].x));
 
-    //   const x = 0,
-    //     y = 0;
+      //   //   const x = 0,
+      //   //     y = 0;
 
-    //   const heartShape = new THREE.Shape();
+      const heartShape = new THREE.Shape();
 
-    //   heartShape.moveTo(8, 2);
-    //   heartShape.lineTo(4, 8);
-    //   heartShape.lineTo(12, 8);
-    //   heartShape.lineTo(8, 2);
+      heartShape.moveTo(-2.69, -0.13);
+      heartShape.lineTo(-1.56, 2.84);
+      heartShape.lineTo(2.16, 1.42);
+      heartShape.lineTo(1.02, -1.56);
+      heartShape.lineTo(-2.69, -0.13);
 
-    //   console.log(shapes);
-    //   console.log(heartShape);
+      //   //   console.log(shapes);
+      console.log("generated", shapes);
+      console.log("works", heartShape);
 
-    //   return (
-    //     <mesh>
-    //       {console.log("hello")}
-    //       <shapeGeometry args={[heartShape]} />
-    //       <meshStandardMaterial />
-    //     </mesh>
-    //   );
-    // }
+      return (
+        <mesh>
+          {console.log("hello")}
+          <shapeGeometry args={[shapes]} />
+          <meshStandardMaterial />
+        </mesh>
+      );
+    }
 
     return getCubes();
   };
@@ -132,6 +137,8 @@ export const Scene = () => {
         <GroupWindows />
         <GroupDoors />
         <GroupObjects />
+        <gridHelper position={[0, -1.6, 0]} />
+        <axesHelper args={[1, 1, 1]} position={[0, -1.6, 0]} />
 
         {context?.cornerPoints && FixFloorpliz()}
         {/* {lightContext.rotation && <Floor />} */}
