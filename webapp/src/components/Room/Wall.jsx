@@ -62,10 +62,10 @@ export const Wall = ({ scale, transform }) => {
       const difX = parseFloat(vector2.x) - parseFloat(vector1.x);
       const difZ = parseFloat(vector2.z) - parseFloat(vector1.z);
 
-      const pointsNumbers = 3;
+      const pointsNumbers = 2;
       const intervalX = difX / (pointsNumbers + 1);
       const intervalZ = difZ / (pointsNumbers + 1);
-      for (let i = 0; i < 5; i++) {
+      for (let i = 1; i <= pointsNumbers; i++) {
         points.push(
           new Vector3(
             parseFloat(vector1.x) + intervalX * i,
@@ -75,8 +75,8 @@ export const Wall = ({ scale, transform }) => {
         );
       }
 
-      context.setCornerPoints((prev) => [...prev, vector1, vector2, ...points]);
-    }, 500);
+      context.setCornerPoints((prev) => [...prev, vector1, ...points, vector2]);
+    }, 1000);
     // console.log(positions);
   }, [context.roomData]);
 

@@ -4,6 +4,17 @@ import { Wall } from "./Wall";
 
 function Test() {
   const context = useContext(DataContext);
+
+  const generateWalls = () => {
+    const walls = [];
+
+    for (let i = 0; i < 1; i++) {
+      const wall = context.roomData.walls[i];
+      walls.push(<Wall scale={wall.dimensions} transform={wall.transform} />);
+    }
+    return walls;
+  };
+
   return (
     <group ref={context.groupRef}>
       {context.showWalls &&
@@ -13,10 +24,6 @@ function Test() {
         })}
     </group>
   );
-}
-
-{
-  /* <Wall scale={context.roomData.walls[1].dimensions} transform={context.roomData.walls[1].transform} /> */
 }
 
 export const GroupWalls = React.memo(Test);

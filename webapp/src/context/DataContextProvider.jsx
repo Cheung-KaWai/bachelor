@@ -8,6 +8,7 @@ export const DataContextProvider = ({ children }) => {
   const [step, setStep] = useState(0);
   const [wallHeight, setWallHeight] = useState(0);
   const [cameraPosition, setCameraPosition] = useState({ data: [0, 20, 0] });
+  const [amountPoints, setAmountPoints] = useState(0);
 
   const [showWalls, setShowWalls] = useState(true);
   const [showDoors, setShowDoors] = useState(true);
@@ -45,6 +46,8 @@ export const DataContextProvider = ({ children }) => {
     cornerPoints,
     setFloorDataPoints,
     floorDataPoints,
+    setAmountPoints,
+    amountPoints,
   };
 
   return <DataContext.Provider value={elements}>{children}</DataContext.Provider>;

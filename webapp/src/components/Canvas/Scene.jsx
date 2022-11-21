@@ -13,70 +13,74 @@ import { GroupDoors } from "../Room/GroupDoors";
 import { GroupObjects } from "../Room/GroupObjects";
 import { DataContext } from "../../context/DataContextProvider";
 import * as THREE from "three";
+import { findNearestIndex } from "../../js/functions";
+import { useState } from "react";
 
 export const Scene = () => {
   const lightContext = useContext(LightContext);
   const context = useContext(DataContext);
 
-  const FixFloorpliz = () => {
-    const result = context.cornerPoints.reduce((unique, o) => {
-      if (!unique.some((obj) => obj.x === o.x && obj.y === o.y && obj.z === o.z)) {
-        unique.push(o);
-      }
-      return unique;
-    }, []);
+  const [orderedPoints, setOrderedPoints] = useState([]);
+  const [offset, setOffset] = useState(0);
 
-    // const dataPoints = result.map((el) => new Point(el.x, el.z));
-    // console.log(result);
-    // convexHull(dataPoints, dataPoints.length);
+  useEffect(() => {
+    // console.log(context.cornerPoints);
+    if (context.cornerPoints.length !== 0 && context.amountPoints === context.cornerPoints.length) {
+      // const result = context.cornerPoints.reduce((unique, o) => {
+      //   if (!unique.some((obj) => obj.x === o.x && obj.y === o.y && obj.z === o.z)) {
+      //     unique.push(o);
+      //   }
+      //   return unique;
+      // });
+      // console.log(result);
+
+      const elements = [...context.cornerPoints];
+      const filterElements = elements.reduce((unique, o) => {
+        if (!unique.some((obj) => obj.x == o.x && obj.y == o.y && obj.z == o.z)) {
+          unique.push(o);
+        }
+        return unique;
+      }, []);
+      setOffset(elements.length - filterElements.length);
+      const newPoints = [];
+      newPoints.push(filterElements.shift());
+      while (filterElements.length > 0) {
+        let point = newPoints[newPoints.length - 1];
+        let index = findNearestIndex(point, filterElements);
+        newPoints.push(filterElements.splice(index, 1)[0]);
+      }
+      console.log(newPoints);
+      setOrderedPoints(newPoints);
+    }
+  }, [context.cornerPoints]);
+
+  useEffect(() => {
+    // console.log(orderedPoints);
+    // console.log(context.cornerPoints);
+  }, [orderedPoints]);
+
+  const FixFloorpliz = () => {
+    if (context.cornerPoints.length - offset !== orderedPoints.length) {
+      // console.log(context.cornerPoints);
+      // console.log(orderedPoints);
+      return;
+    }
 
     const getCubes = () => {
-      const shapes = new THREE.Shape();
-      shapes.moveTo(-1.45, -7.66);
-      shapes.lineTo(-5, -0.56);
-      shapes.lineTo(1.28, 2.58);
-
+      // const shapes = new THREE.Shape();
+      // shapes.moveTo(-1.45, -7.66);
+      // shapes.lineTo(-5, -0.56);
+      // shapes.lineTo(1.28, 2.58);
+      const test = 23;
       return (
         <>
-          {result.map((el, key) => (
+          {orderedPoints.map((el, key) => (
             <mesh key={key} position={[el.x, el.y, el.z]} scale={[0.1, 0.1, 0.1]}>
               <boxGeometry />
-              {/* <meshStandardMaterial color={key == test ? "#f00" : "#fff"} /> */}
-              <meshStandardMaterial />
+              {/* <meshStandardMaterial /> */}
+              <meshStandardMaterial color={key == test ? "#f00" : "#fff"} />
             </mesh>
           ))}
-          {/* <mesh scale={[0.1, 0.1, 0.1]} position={[-1.45, -1.28, -7.66]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[-5, -1.28, -0.56]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[1.28, -1.28, 2.58]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[0.1, -1.28, -1.98]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[2.07, -1.28, -5.9]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[3.96, -1.28, -0.04]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[0, -1.28, 0]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh>
-            <shapeGeometry args={[shapes]} />
-            <meshStandardMaterial />
-          </mesh> */}
         </>
       );
     };
