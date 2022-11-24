@@ -23,6 +23,7 @@
 		500E7D9A2927959400BC29EC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 500E7D992927959400BC29EC /* FirebaseStorage */; };
 		500E7D9C2927981D00BC29EC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7D9B2927981D00BC29EC /* RegisterViewController.swift */; };
 		500E7D9F2927C6A600BC29EC /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7D9E2927C6A600BC29EC /* FirebaseManager.swift */; };
+		500E7DA1292F906A00BC29EC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA0292F906A00BC29EC /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		500E7D8E2927915C00BC29EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		500E7D9B2927981D00BC29EC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		500E7D9E2927C6A600BC29EC /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		500E7DA0292F906A00BC29EC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				500E7D8A29278B0800BC29EC /* HomeViewController.swift */,
 				500E7D8C2927906E00BC29EC /* LoginViewController.swift */,
 				500E7D9B2927981D00BC29EC /* RegisterViewController.swift */,
+				500E7DA0292F906A00BC29EC /* TabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				500E7DA1292F906A00BC29EC /* TabBarViewController.swift in Sources */,
 				500E7D792927852B00BC29EC /* ScanController.swift in Sources */,
 				500E7D752927852B00BC29EC /* AppDelegate.swift in Sources */,
 				500E7D9F2927C6A600BC29EC /* FirebaseManager.swift in Sources */,

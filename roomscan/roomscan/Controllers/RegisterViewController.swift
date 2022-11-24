@@ -31,7 +31,7 @@ class RegisterViewController: UIViewController {
                  let res = await FirebaseManager.shared.signUp(withUsername: username.text!, withEmail: email.text!, withPassword: password.text!)
                  print(res)
                  if res.isEmpty {
-                     let vc = storyboard?.instantiateViewController(identifier: "home") as! HomeViewController
+                     let vc = storyboard?.instantiateViewController(identifier: "tabBar") as! TabBarViewController
                      vc.modalPresentationStyle = .fullScreen
                      present(vc, animated: true)
                  }else{

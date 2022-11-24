@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
                  let res = await FirebaseManager.shared.signIn(withEmail: email.text!, withPassword: password.text!)
                  if res.isEmpty{
                      print("yeah")
-                     let vc = storyboard?.instantiateViewController(identifier: "home") as! HomeViewController
+                     let vc = storyboard?.instantiateViewController(identifier: "tabBar") as! TabBarViewController
                      vc.modalPresentationStyle = .fullScreen
                      present(vc, animated: true)
                  }else{
