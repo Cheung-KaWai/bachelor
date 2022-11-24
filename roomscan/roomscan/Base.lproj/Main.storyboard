@@ -309,6 +309,9 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.15555919427087744" green="0.15076294146534377" blue="0.36979451805654195" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="scan:" destination="8z6-Bf-V5m" eventType="touchDown" id="jHi-sj-6Ui"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fNa-KD-qNl">
                                 <rect key="frame" x="170" y="221" width="50" height="47.666666666666671"/>
@@ -373,6 +376,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYX-l4-WhP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4342" y="-902"/>
+        </scene>
+        <!--Scan Controller-->
+        <scene sceneID="CNP-WC-lok">
+            <objects>
+                <viewController storyboardIdentifier="scan" id="Zvq-fT-aVt" customClass="ScanController" customModule="roomscan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="diH-aX-2Vj">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="HRR-QM-hrh"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cR6-Eb-bUa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5208" y="-890"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="RjR-7H-0We">
@@ -476,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2VP-0d-ZZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4460" y="-176"/>
+            <point key="canvasLocation" x="4378" y="-176"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="IQm-3K-lrD">
@@ -504,6 +522,9 @@
         <image name="person" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

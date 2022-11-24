@@ -16,7 +16,12 @@ class HomeViewController: UIViewController {
         username.text = "Welcome \(user)"
     }
     
-
+    @IBAction func scan(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(identifier: "scan") as! ScanController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
