@@ -279,11 +279,88 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a 3D map of your room by using your camera" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8L-Po-ckx">
+                                <rect key="frame" x="70" y="286.33333333333331" width="250" height="40.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="n9J-tJ-HLU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Export your room to our database" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGD-Ic-Qdm">
+                                <rect key="frame" x="70" y="422" width="250" height="40.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="OWJ-Nz-XmI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4f-CT-uSi">
+                                <rect key="frame" x="35" y="730" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="TCg-SI-OEK"/>
+                                    <constraint firstAttribute="height" constant="50" id="qnv-nU-Tpr"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start Scan">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.15555919427087744" green="0.15076294146534377" blue="0.36979451805654195" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fNa-KD-qNl">
+                                <rect key="frame" x="170" y="232.33333333333334" width="50" height="47.666666666666686"/>
+                                <color key="tintColor" red="0.15479922290000001" green="0.14907756450000001" blue="0.36874246599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EvD-hC-HQg"/>
+                                    <constraint firstAttribute="width" constant="50" id="Fsm-zb-SEg"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2iF-88-JDT">
+                                <rect key="frame" x="170" y="369.66666666666669" width="50" height="45"/>
+                                <color key="tintColor" red="0.15479922290000001" green="0.14907756450000001" blue="0.36874246599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9sS-Z1-7JS"/>
+                                    <constraint firstAttribute="width" constant="50" id="thc-Sf-hLh"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laptopcomputer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pwP-SE-hBc">
+                                <rect key="frame" x="170" y="504.99999999999994" width="50" height="45.333333333333371"/>
+                                <color key="tintColor" red="0.15479922290000001" green="0.14907756450000001" blue="0.36874246599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="ckP-W1-2Zh"/>
+                                    <constraint firstAttribute="height" constant="50" id="zeJ-rn-XSp"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with this account in our webapp and start configuring inside your own room " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3a-3U-363">
+                                <rect key="frame" x="70" y="557.66666666666663" width="250" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="t7M-i2-0iE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hm4-0h-pPx"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
+                            <constraint firstItem="y8L-Po-ckx" firstAttribute="top" secondItem="fNa-KD-qNl" secondAttribute="bottom" constant="5" id="3zF-Hr-ay1"/>
+                            <constraint firstItem="r3a-3U-363" firstAttribute="top" secondItem="pwP-SE-hBc" secondAttribute="bottom" constant="5" id="46O-as-pH9"/>
+                            <constraint firstItem="F4f-CT-uSi" firstAttribute="centerX" secondItem="Jmx-bj-U6p" secondAttribute="centerX" id="5Ut-AU-aq5"/>
+                            <constraint firstItem="pwP-SE-hBc" firstAttribute="centerX" secondItem="Jmx-bj-U6p" secondAttribute="centerX" id="7EE-we-69Y"/>
+                            <constraint firstItem="fNa-KD-qNl" firstAttribute="centerX" secondItem="Jmx-bj-U6p" secondAttribute="centerX" id="BRT-ki-km1"/>
+                            <constraint firstItem="2iF-88-JDT" firstAttribute="centerX" secondItem="Jmx-bj-U6p" secondAttribute="centerX" id="DJf-GG-hix"/>
+                            <constraint firstItem="r3a-3U-363" firstAttribute="centerX" secondItem="Jmx-bj-U6p" secondAttribute="centerX" id="EUi-PU-uQI"/>
+                            <constraint firstItem="y8L-Po-ckx" firstAttribute="centerX" secondItem="Jmx-bj-U6p" secondAttribute="centerX" id="K0u-kU-rCU"/>
+                            <constraint firstItem="tGD-Ic-Qdm" firstAttribute="top" secondItem="2iF-88-JDT" secondAttribute="bottom" constant="5" id="MPH-L8-CtJ"/>
+                            <constraint firstItem="hm4-0h-pPx" firstAttribute="bottom" secondItem="F4f-CT-uSi" secondAttribute="bottom" constant="30" id="VfN-Y8-ONv"/>
                             <constraint firstItem="T9E-sg-yTb" firstAttribute="top" secondItem="hm4-0h-pPx" secondAttribute="top" constant="50" id="Vmv-kR-xgQ"/>
+                            <constraint firstItem="pwP-SE-hBc" firstAttribute="top" secondItem="tGD-Ic-Qdm" secondAttribute="bottom" constant="40" id="gP1-vS-qOt"/>
+                            <constraint firstItem="2iF-88-JDT" firstAttribute="top" secondItem="y8L-Po-ckx" secondAttribute="bottom" constant="40" id="m3v-sc-VGd"/>
+                            <constraint firstItem="tGD-Ic-Qdm" firstAttribute="centerX" secondItem="Jmx-bj-U6p" secondAttribute="centerX" id="mOW-T8-Vyd"/>
+                            <constraint firstItem="2iF-88-JDT" firstAttribute="centerY" secondItem="Jmx-bj-U6p" secondAttribute="centerY" constant="-30" id="roa-ho-FWk"/>
                             <constraint firstItem="T9E-sg-yTb" firstAttribute="centerX" secondItem="Jmx-bj-U6p" secondAttribute="centerX" id="uaE-lf-ydi"/>
                         </constraints>
                     </view>
@@ -297,6 +374,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="128" height="93"/>
+        <image name="cloud" catalog="system" width="128" height="87"/>
+        <image name="laptopcomputer" catalog="system" width="128" height="71"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
