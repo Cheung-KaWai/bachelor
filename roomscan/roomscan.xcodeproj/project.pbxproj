@@ -22,6 +22,7 @@
 		500E7D982927959400BC29EC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 500E7D972927959400BC29EC /* FirebaseFirestore */; };
 		500E7D9A2927959400BC29EC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 500E7D992927959400BC29EC /* FirebaseStorage */; };
 		500E7D9C2927981D00BC29EC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7D9B2927981D00BC29EC /* RegisterViewController.swift */; };
+		500E7D9F2927C6A600BC29EC /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7D9E2927C6A600BC29EC /* FirebaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		500E7D8C2927906E00BC29EC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		500E7D8E2927915C00BC29EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		500E7D9B2927981D00BC29EC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		500E7D9E2927C6A600BC29EC /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		500E7D732927852B00BC29EC /* roomscan */ = {
 			isa = PBXGroup;
 			children = (
+				500E7D9D2927C67700BC29EC /* Managers */,
 				500E7D89292786AA00BC29EC /* Resources */,
 				500E7D882927865400BC29EC /* Controllers */,
 				500E7D7A2927852B00BC29EC /* Main.storyboard */,
@@ -103,6 +106,14 @@
 				500E7D7D2927853000BC29EC /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		500E7D9D2927C67700BC29EC /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				500E7D9E2927C6A600BC29EC /* FirebaseManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +200,7 @@
 			files = (
 				500E7D792927852B00BC29EC /* ScanController.swift in Sources */,
 				500E7D752927852B00BC29EC /* AppDelegate.swift in Sources */,
+				500E7D9F2927C6A600BC29EC /* FirebaseManager.swift in Sources */,
 				500E7D772927852B00BC29EC /* SceneDelegate.swift in Sources */,
 				500E7D9C2927981D00BC29EC /* RegisterViewController.swift in Sources */,
 				500E7D8D2927906F00BC29EC /* LoginViewController.swift in Sources */,
