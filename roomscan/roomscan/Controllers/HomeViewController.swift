@@ -9,9 +9,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var username: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let user = FirebaseManager.shared.getCurrentUser()
+        username.text = "Welcome \(user)"
     }
     
 

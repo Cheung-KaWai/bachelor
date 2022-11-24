@@ -28,19 +28,12 @@ final class FirebaseManager{
     public func signUp(withUsername username:String, withEmail email:String, withPassword password: String) async ->String{
         
         do{
-            print(email)
-            print(password)
-            let auth = try await Auth.auth().createUser(withEmail: email, password: password)
-            let uid = auth.user.uid
+            try await Auth.auth().createUser(withEmail: email, password: password)
             
-            self.db.collection("users").addDocument(data: ["username":username,"uid":uid]){
-                error in
-                if error != nil {
-                   print("guud")
-                }else{
-                   print("nicht guud")
-                }
-            }
+            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            changeRequest?.displayName = username
+            try await changeRequest?.commitChanges()
+
             return ""
         }catch{
             return error.localizedDescription
@@ -54,5 +47,14 @@ final class FirebaseManager{
         }catch{
             return error.localizedDescription
         }
+    }
+    
+    public func getCurrentUser() -> String{
+        let user = Auth.auth().currentUser
+        
+        if user != nil{
+            return (user?.displayName)!
+        }
+        return "no username"
     }
 }

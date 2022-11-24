@@ -26,13 +26,11 @@ class RegisterViewController: UIViewController {
   
     @IBAction func register(_ sender: Any) {
         validateForm()
-        print("hello")
         if error.text == nil {
             Task{
                  let res = await FirebaseManager.shared.signUp(withUsername: username.text!, withEmail: email.text!, withPassword: password.text!)
                  print(res)
                  if res.isEmpty {
-                     print("hallo")
                      let vc = storyboard?.instantiateViewController(identifier: "home") as! HomeViewController
                      vc.modalPresentationStyle = .fullScreen
                      present(vc, animated: true)
