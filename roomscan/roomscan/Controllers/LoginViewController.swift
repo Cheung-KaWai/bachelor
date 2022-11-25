@@ -14,8 +14,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.movePageUp()
+        self.hideKeyboardWhenTappedAround() 
     }
     
     @IBAction func navigate(_ sender: Any) {
@@ -51,7 +51,6 @@ class LoginViewController: UIViewController {
         
         error.text = nil
     }
-    
     
     /*
      // MARK: - Navigation

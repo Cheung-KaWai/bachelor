@@ -24,6 +24,8 @@
 		500E7D9C2927981D00BC29EC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7D9B2927981D00BC29EC /* RegisterViewController.swift */; };
 		500E7D9F2927C6A600BC29EC /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7D9E2927C6A600BC29EC /* FirebaseManager.swift */; };
 		500E7DA1292F906A00BC29EC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA0292F906A00BC29EC /* TabBarViewController.swift */; };
+		500E7DA52930BD3900BC29EC /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA42930BD3800BC29EC /* ViewControllerExtensions.swift */; };
+		500E7DA72930C23500BC29EC /* BorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA62930C23500BC29EC /* BorderedTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		500E7D9B2927981D00BC29EC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		500E7D9E2927C6A600BC29EC /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		500E7DA0292F906A00BC29EC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		500E7DA42930BD3800BC29EC /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		500E7DA62930C23500BC29EC /* BorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 		500E7D732927852B00BC29EC /* roomscan */ = {
 			isa = PBXGroup;
 			children = (
+				500E7DA32930BCFC00BC29EC /* Extensions */,
 				500E7D9D2927C67700BC29EC /* Managers */,
 				500E7D89292786AA00BC29EC /* Resources */,
 				500E7D882927865400BC29EC /* Controllers */,
@@ -117,6 +122,15 @@
 				500E7D9E2927C6A600BC29EC /* FirebaseManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		500E7DA32930BCFC00BC29EC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				500E7DA42930BD3800BC29EC /* ViewControllerExtensions.swift */,
+				500E7DA62930C23500BC29EC /* BorderedTextField.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +222,8 @@
 				500E7D772927852B00BC29EC /* SceneDelegate.swift in Sources */,
 				500E7D9C2927981D00BC29EC /* RegisterViewController.swift in Sources */,
 				500E7D8D2927906F00BC29EC /* LoginViewController.swift in Sources */,
+				500E7DA52930BD3900BC29EC /* ViewControllerExtensions.swift in Sources */,
+				500E7DA72930C23500BC29EC /* BorderedTextField.swift in Sources */,
 				500E7D8B29278B0800BC29EC /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

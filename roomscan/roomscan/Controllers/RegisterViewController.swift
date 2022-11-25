@@ -15,6 +15,8 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.movePageUp()
+        self.hideKeyboardWhenTappedAround() 
     }
     
     @IBAction func navigate(_ sender: Any) {

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fIN-G0-beG" userLabel="emailField">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fIN-G0-beG" userLabel="emailField" customClass="BorderedTextField" customModule="roomscan" customModuleProvider="target">
                                 <rect key="frame" x="35" y="397" width="320" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -37,8 +37,9 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8WC-Nk-3vP" userLabel="passwordField">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8WC-Nk-3vP" userLabel="passwordField" customClass="BorderedTextField" customModule="roomscan" customModuleProvider="target">
                                 <rect key="frame" x="35" y="497" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="E7D-t8-6h6"/>
                                     <constraint firstAttribute="width" constant="320" id="Ztl-tl-vJz"/>
@@ -88,14 +89,15 @@
                                     <action selector="navigate:" destination="BYZ-38-t0r" eventType="touchDown" id="Gec-yJ-Oxd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nP2-aV-C8h">
-                                <rect key="frame" x="35" y="258" width="320" height="63"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nP2-aV-C8h">
+                                <rect key="frame" x="35" y="278" width="320" height="63"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="8yY-pt-YWr"/>
                                     <constraint firstAttribute="height" constant="63" id="c6b-fA-LKs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -112,7 +114,7 @@
                             <constraint firstItem="ruE-HC-TWJ" firstAttribute="top" secondItem="pvB-sd-i04" secondAttribute="bottom" constant="20" id="Spl-9b-Ppr"/>
                             <constraint firstItem="fIN-G0-beG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X6z-Sc-evo"/>
                             <constraint firstItem="8WC-Nk-3vP" firstAttribute="top" secondItem="9tR-Dy-56l" secondAttribute="bottom" constant="5" id="Yds-Kh-NGV"/>
-                            <constraint firstItem="0wL-vL-aJO" firstAttribute="top" secondItem="nP2-aV-C8h" secondAttribute="bottom" constant="50" id="h4D-7s-esd"/>
+                            <constraint firstItem="0wL-vL-aJO" firstAttribute="top" secondItem="nP2-aV-C8h" secondAttribute="bottom" constant="30" id="h4D-7s-esd"/>
                             <constraint firstItem="9tR-Dy-56l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hrf-9Y-XpM"/>
                             <constraint firstItem="0wL-vL-aJO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kwd-K4-hms"/>
                             <constraint firstItem="pvB-sd-i04" firstAttribute="top" secondItem="8WC-Nk-3vP" secondAttribute="bottom" constant="50" id="ta4-CH-bNW"/>
@@ -136,12 +138,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d2u-61-C4x">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d2u-61-C4x" customClass="BorderedTextField" customModule="roomscan" customModuleProvider="target">
                                 <rect key="frame" x="35" y="297" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="62m-Zc-TXM"/>
                                     <constraint firstAttribute="width" constant="320" id="LR3-HR-6kY"/>
                                 </constraints>
+                                <color key="textColor" red="0.01230114698" green="0.01230114698" blue="0.01230114698" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -154,12 +158,14 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bom-s2-oqV">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bom-s2-oqV" customClass="BorderedTextField" customModule="roomscan" customModuleProvider="target">
                                 <rect key="frame" x="35" y="397" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="EbQ-9c-AbZ"/>
                                     <constraint firstAttribute="height" constant="50" id="uS2-DX-HZZ"/>
                                 </constraints>
+                                <color key="textColor" red="0.01230114698" green="0.01230114698" blue="0.01230114698" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -172,12 +178,14 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ILz-yV-Lrk">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ILz-yV-Lrk" customClass="BorderedTextField" customModule="roomscan" customModuleProvider="target">
                                 <rect key="frame" x="35" y="497" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="875-ml-gBp"/>
                                     <constraint firstAttribute="width" constant="320" id="kje-ub-aJM"/>
                                 </constraints>
+                                <color key="textColor" red="0.01230114698" green="0.01230114698" blue="0.01230114698" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -218,26 +226,26 @@
                                     <action selector="navigate:" destination="u1e-0y-rMU" eventType="touchDown" id="hZg-ln-NLr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pne-4E-9Wl">
-                                <rect key="frame" x="35" y="158" width="320" height="63"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pne-4E-9Wl">
+                                <rect key="frame" x="35" y="178" width="320" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="w8I-CD-UiZ"/>
                                     <constraint firstAttribute="width" constant="320" id="xog-Z9-Zdk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W9n-Jp-YRf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3b7-hN-Cvq" firstAttribute="top" secondItem="mjF-gl-7E1" secondAttribute="bottom" constant="20" id="1DB-kD-iVc"/>
                             <constraint firstItem="mjF-gl-7E1" firstAttribute="centerX" secondItem="sdT-Pa-UHS" secondAttribute="centerX" id="4nT-XG-Bn9"/>
                             <constraint firstItem="Pne-4E-9Wl" firstAttribute="centerX" secondItem="sdT-Pa-UHS" secondAttribute="centerX" id="Dgb-1v-6TP"/>
                             <constraint firstItem="3b7-hN-Cvq" firstAttribute="centerX" secondItem="sdT-Pa-UHS" secondAttribute="centerX" id="G1g-D1-dgW"/>
                             <constraint firstItem="d2u-61-C4x" firstAttribute="centerY" secondItem="sdT-Pa-UHS" secondAttribute="centerY" constant="-100" id="GNV-84-f4X"/>
-                            <constraint firstItem="omr-9B-bH3" firstAttribute="top" secondItem="Pne-4E-9Wl" secondAttribute="bottom" constant="50" id="IUC-tz-gUe"/>
+                            <constraint firstItem="omr-9B-bH3" firstAttribute="top" secondItem="Pne-4E-9Wl" secondAttribute="bottom" constant="30" id="IUC-tz-gUe"/>
                             <constraint firstItem="mjF-gl-7E1" firstAttribute="top" secondItem="ILz-yV-Lrk" secondAttribute="bottom" constant="50" id="Rnl-jA-iLL"/>
                             <constraint firstItem="omr-9B-bH3" firstAttribute="centerX" secondItem="sdT-Pa-UHS" secondAttribute="centerX" id="T6E-3l-QPr"/>
                             <constraint firstItem="bom-s2-oqV" firstAttribute="centerX" secondItem="sdT-Pa-UHS" secondAttribute="centerX" id="dWr-Ap-8kg"/>
@@ -329,8 +337,8 @@
                                     <constraint firstAttribute="width" constant="50" id="thc-Sf-hLh"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laptopcomputer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pwP-SE-hBc">
-                                <rect key="frame" x="170" y="493.66666666666657" width="50" height="45.333333333333371"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laptopcomputer.and.ipad" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pwP-SE-hBc">
+                                <rect key="frame" x="170" y="493.66666666666669" width="50" height="45.666666666666686"/>
                                 <color key="tintColor" red="0.15479922290000001" green="0.14907756450000001" blue="0.36874246599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="ckP-W1-2Zh"/>
@@ -488,7 +496,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="nk7-vK-xrc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="nXe-F0-Ha8"/>
                 </viewController>
@@ -504,7 +512,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="mRl-5f-SRk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="BxR-vi-J2W"/>
                 </viewController>
@@ -517,14 +525,14 @@
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="cloud" catalog="system" width="128" height="87"/>
         <image name="house" catalog="system" width="128" height="104"/>
-        <image name="laptopcomputer" catalog="system" width="128" height="71"/>
+        <image name="laptopcomputer.and.ipad" catalog="system" width="128" height="69"/>
         <image name="map" catalog="system" width="128" height="112"/>
         <image name="person" catalog="system" width="128" height="121"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
