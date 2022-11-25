@@ -26,6 +26,7 @@
 		500E7DA1292F906A00BC29EC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA0292F906A00BC29EC /* TabBarViewController.swift */; };
 		500E7DA52930BD3900BC29EC /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA42930BD3800BC29EC /* ViewControllerExtensions.swift */; };
 		500E7DA72930C23500BC29EC /* BorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA62930C23500BC29EC /* BorderedTextField.swift */; };
+		500E7DA92930DFE400BC29EC /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA82930DFE400BC29EC /* Matrix.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		500E7DA0292F906A00BC29EC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		500E7DA42930BD3800BC29EC /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		500E7DA62930C23500BC29EC /* BorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextField.swift; sourceTree = "<group>"; };
+		500E7DA82930DFE400BC29EC /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			children = (
 				500E7DA42930BD3800BC29EC /* ViewControllerExtensions.swift */,
 				500E7DA62930C23500BC29EC /* BorderedTextField.swift */,
+				500E7DA82930DFE400BC29EC /* Matrix.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				500E7D752927852B00BC29EC /* AppDelegate.swift in Sources */,
 				500E7D9F2927C6A600BC29EC /* FirebaseManager.swift in Sources */,
 				500E7D772927852B00BC29EC /* SceneDelegate.swift in Sources */,
+				500E7DA92930DFE400BC29EC /* Matrix.swift in Sources */,
 				500E7D9C2927981D00BC29EC /* RegisterViewController.swift in Sources */,
 				500E7D8D2927906F00BC29EC /* LoginViewController.swift in Sources */,
 				500E7DA52930BD3900BC29EC /* ViewControllerExtensions.swift in Sources */,

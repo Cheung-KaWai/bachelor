@@ -60,9 +60,13 @@ class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSess
         roomView?.captureSession.stop()
     }
     
+    func captureView(didPresent processedResult: CapturedRoom, error: Error?) {
+        print("helllooooooo")
+        print(processedResult)
+    }
+    
     @objc func doneClickked(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
         stopSession()
         hideButtons()
         showExportButtons()
@@ -71,7 +75,6 @@ class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSess
     
     @objc func cancelClicked(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
         stopSession()
         print("bye")
         let vc = storyboard?.instantiateViewController(identifier: "tabBar") as! TabBarViewController
