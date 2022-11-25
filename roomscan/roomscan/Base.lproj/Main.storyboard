@@ -392,13 +392,97 @@
                     <view key="view" contentMode="scaleToFill" id="diH-aX-2Vj">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <roomCaptureView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTi-NU-u6W">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </roomCaptureView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" highlightedImage="checkmark.circle" translatesAutoresizingMaskIntoConstraints="NO" id="VoX-lN-pHJ">
+                                <rect key="frame" x="290" y="711" width="70" height="68.666666666666629"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="2LG-Ea-zsW"/>
+                                    <constraint firstAttribute="height" constant="70" id="v0V-bX-xPS"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NH6-bl-VvV">
+                                <rect key="frame" x="30" y="711" width="70" height="68.666666666666629"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="HIx-Pw-XRU"/>
+                                    <constraint firstAttribute="height" constant="70" id="qRX-T2-kdu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure the scan of your room is complete and all the walls are connected in order to avoid errors during configuration" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7O-2S-mSi">
+                                <rect key="frame" x="65" y="77" width="260" height="81.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="Q61-2l-3pW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBD-1t-cxh">
+                                <rect key="frame" x="35" y="730" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7Cp-3V-bKX"/>
+                                    <constraint firstAttribute="width" constant="320" id="AmL-jZ-XwU"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Export">
+                                    <color key="baseBackgroundColor" red="0.41672751100026806" green="0.39907478742266911" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="exportData:" destination="Zvq-fT-aVt" eventType="touchDown" id="fT2-tQ-1M7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHe-Vp-g2W">
+                                <rect key="frame" x="35" y="660" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="BwV-zs-h1o"/>
+                                    <constraint firstAttribute="height" constant="50" id="in0-e9-h8V"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Retake Scan">
+                                    <color key="baseBackgroundColor" red="0.15479922290000001" green="0.14907756450000001" blue="0.36874246599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="retake:" destination="Zvq-fT-aVt" eventType="touchDown" id="GLk-8X-Jcr"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HRR-QM-hrh"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gTi-NU-u6W" secondAttribute="bottom" id="4Ir-bV-qvV"/>
+                            <constraint firstItem="D7O-2S-mSi" firstAttribute="top" secondItem="HRR-QM-hrh" secondAttribute="top" constant="30" id="DSG-ku-PQH"/>
+                            <constraint firstItem="NH6-bl-VvV" firstAttribute="leading" secondItem="HRR-QM-hrh" secondAttribute="leading" constant="30" id="JCP-RS-pgm"/>
+                            <constraint firstItem="gTi-NU-u6W" firstAttribute="centerY" secondItem="diH-aX-2Vj" secondAttribute="centerY" id="Ovh-Q7-NXa"/>
+                            <constraint firstItem="lBD-1t-cxh" firstAttribute="top" secondItem="FHe-Vp-g2W" secondAttribute="bottom" constant="20" id="PA5-Ah-FoA"/>
+                            <constraint firstItem="HRR-QM-hrh" firstAttribute="bottom" secondItem="VoX-lN-pHJ" secondAttribute="bottom" constant="30" id="QqM-mu-KvA"/>
+                            <constraint firstItem="D7O-2S-mSi" firstAttribute="centerX" secondItem="diH-aX-2Vj" secondAttribute="centerX" id="TWM-gm-t9x"/>
+                            <constraint firstItem="gTi-NU-u6W" firstAttribute="centerX" secondItem="diH-aX-2Vj" secondAttribute="centerX" id="XDh-fi-jGV"/>
+                            <constraint firstItem="FHe-Vp-g2W" firstAttribute="centerX" secondItem="diH-aX-2Vj" secondAttribute="centerX" id="aVL-up-UQM"/>
+                            <constraint firstItem="lBD-1t-cxh" firstAttribute="centerX" secondItem="diH-aX-2Vj" secondAttribute="centerX" id="fcW-5L-DFp"/>
+                            <constraint firstItem="HRR-QM-hrh" firstAttribute="trailing" secondItem="VoX-lN-pHJ" secondAttribute="trailing" constant="30" id="jpz-WU-aRs"/>
+                            <constraint firstItem="HRR-QM-hrh" firstAttribute="bottom" secondItem="lBD-1t-cxh" secondAttribute="bottom" constant="30" id="k25-ri-hhI"/>
+                            <constraint firstItem="gTi-NU-u6W" firstAttribute="leading" secondItem="HRR-QM-hrh" secondAttribute="leading" id="mUF-IL-MdP"/>
+                            <constraint firstItem="gTi-NU-u6W" firstAttribute="top" secondItem="diH-aX-2Vj" secondAttribute="top" id="ogA-d9-0JX"/>
+                            <constraint firstItem="HRR-QM-hrh" firstAttribute="trailing" secondItem="gTi-NU-u6W" secondAttribute="trailing" id="uk5-o6-CaU"/>
+                            <constraint firstItem="HRR-QM-hrh" firstAttribute="bottom" secondItem="NH6-bl-VvV" secondAttribute="bottom" constant="30" id="yFI-Vh-XHG"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancel" destination="NH6-bl-VvV" id="5l7-CM-5RV"/>
+                        <outlet property="done" destination="VoX-lN-pHJ" id="An9-hO-QcI"/>
+                        <outlet property="exportButton" destination="lBD-1t-cxh" id="UkF-20-Rxu"/>
+                        <outlet property="message" destination="D7O-2S-mSi" id="sd2-Vu-puD"/>
+                        <outlet property="retakeButton" destination="FHe-Vp-g2W" id="Nq8-YC-j9G"/>
+                        <outlet property="roomView" destination="gTi-NU-u6W" id="tSf-dR-IqR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cR6-Eb-bUa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5208" y="-890"/>
+            <point key="canvasLocation" x="5206" y="-902"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="RjR-7H-0We">
@@ -523,14 +607,13 @@
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="128" height="93"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
         <image name="cloud" catalog="system" width="128" height="87"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="laptopcomputer.and.ipad" catalog="system" width="128" height="69"/>
         <image name="map" catalog="system" width="128" height="112"/>
         <image name="person" catalog="system" width="128" height="121"/>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
