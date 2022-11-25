@@ -27,6 +27,7 @@
 		500E7DA52930BD3900BC29EC /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA42930BD3800BC29EC /* ViewControllerExtensions.swift */; };
 		500E7DA72930C23500BC29EC /* BorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA62930C23500BC29EC /* BorderedTextField.swift */; };
 		500E7DA92930DFE400BC29EC /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA82930DFE400BC29EC /* Matrix.swift */; };
+		500E7DAC2930E18300BC29EC /* MatrixData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DAB2930E18300BC29EC /* MatrixData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		500E7DA42930BD3800BC29EC /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		500E7DA62930C23500BC29EC /* BorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextField.swift; sourceTree = "<group>"; };
 		500E7DA82930DFE400BC29EC /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		500E7DAB2930E18300BC29EC /* MatrixData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		500E7D732927852B00BC29EC /* roomscan */ = {
 			isa = PBXGroup;
 			children = (
+				500E7DAA2930E15B00BC29EC /* Models */,
 				500E7DA32930BCFC00BC29EC /* Extensions */,
 				500E7D9D2927C67700BC29EC /* Managers */,
 				500E7D89292786AA00BC29EC /* Resources */,
@@ -134,6 +137,14 @@
 				500E7DA82930DFE400BC29EC /* Matrix.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		500E7DAA2930E15B00BC29EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				500E7DAB2930E18300BC29EC /* MatrixData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +231,7 @@
 			files = (
 				500E7DA1292F906A00BC29EC /* TabBarViewController.swift in Sources */,
 				500E7D792927852B00BC29EC /* ScanController.swift in Sources */,
+				500E7DAC2930E18300BC29EC /* MatrixData.swift in Sources */,
 				500E7D752927852B00BC29EC /* AppDelegate.swift in Sources */,
 				500E7D9F2927C6A600BC29EC /* FirebaseManager.swift in Sources */,
 				500E7D772927852B00BC29EC /* SceneDelegate.swift in Sources */,

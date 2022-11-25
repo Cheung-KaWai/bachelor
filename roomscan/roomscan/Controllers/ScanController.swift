@@ -12,7 +12,8 @@ class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSess
     private var scanning: Bool = false
     private var roomCaptureView: RoomCaptureView!
     private var roomCaptureSessionConfig: RoomCaptureSession.Configuration = RoomCaptureSession.Configuration()
-
+    private var finalResults: CapturedRoom?
+    
     @IBOutlet weak var roomView: RoomCaptureView!
     
     @IBOutlet weak var done: UIImageView!
@@ -61,7 +62,7 @@ class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSess
     }
     
     func captureView(didPresent processedResult: CapturedRoom, error: Error?) {
-        print("helllooooooo")
+        finalResults = processedResult
         print(processedResult)
     }
     
@@ -112,6 +113,46 @@ class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSess
         startSession()
         showButtons()
         hideExportButtons()
+    }
+    
+    private func getData(_ arrayObject: [CapturedRoom.Surface]) -> [Any]{
+        var data = [Any]()
+        arrayObject.forEach { matrix in
+           let dimensions = [matrix.dimensions.x,matrix.dimensions.y,matrix.dimensions.z]
+           var transform:[Float] = []
+           let column1 = matrix.transform.columns.0
+           let column2 = matrix.transform.columns.1
+           let column3 = matrix.transform.columns.2
+           let column4 = matrix.transform.columns.3
+           transform.append(contentsOf: [column1.x,column1.y,column1.z,column1.w])
+           transform.append(contentsOf: [column2.x,column2.y,column2.z,column2.w])
+           transform.append(contentsOf: [column3.x,column3.y,column3.z,column3.w])
+           transform.append(contentsOf: [column4.x,column4.y,column4.z,column4.w])
+
+           let dataObject = MatrixData(fromDimension: dimensions, fromTransform: transform)
+           data.append(dataObject.dictionary)
+       }
+       return data
+    }
+    
+    private func getDataObject(_ arrayObject: [CapturedRoom.Object]) -> [Any]{
+        var data = [Any]()
+        arrayObject.forEach { matrix in
+           let dimensions = [matrix.dimensions.x,matrix.dimensions.y,matrix.dimensions.z]
+           var transform:[Float] = []
+           let column1 = matrix.transform.columns.0
+           let column2 = matrix.transform.columns.1
+           let column3 = matrix.transform.columns.2
+           let column4 = matrix.transform.columns.3
+           transform.append(contentsOf: [column1.x,column1.y,column1.z,column1.w])
+           transform.append(contentsOf: [column2.x,column2.y,column2.z,column2.w])
+           transform.append(contentsOf: [column3.x,column3.y,column3.z,column3.w])
+           transform.append(contentsOf: [column4.x,column4.y,column4.z,column4.w])
+
+           let dataObject = MatrixData(fromDimension: dimensions, fromTransform: transform)
+           data.append(dataObject.dictionary)
+       }
+       return data
     }
 }
 
