@@ -11,6 +11,7 @@ final class DataManager{
     static let shared = DataManager()
     
     private var documentID: String = "no document ID"
+    private var listRooms: [String] = [String]()
     
     init(){}
     
@@ -22,5 +23,12 @@ final class DataManager{
         return documentID
     }
     
+    public func getRooms()->[String]{
+        return listRooms
+    }
+    
+    public func setRooms(withListRoom rooms : [String]){
+        listRooms = rooms
+    }
 }
 

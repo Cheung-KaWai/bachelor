@@ -21,7 +21,6 @@ class EndScanViewController: UIViewController {
         let vc = storyboard?.instantiateViewController(identifier: "tabBar") as! TabBarViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
-
     }
     /*
     // MARK: - Navigation

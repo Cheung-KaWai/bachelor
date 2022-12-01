@@ -70,4 +70,24 @@ final class FirebaseManager{
            }
        }
     }
+    
+    public func getRooms (){
+        let user = Auth.auth().currentUser
+        var roomsID = [String]()
+        print(user?.uid as Any)
+        if user != nil {
+            let rooms = db.collection("roomplanData").whereField("uid", isEqualTo: user?.uid as Any)
+            
+            rooms.getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        roomsID.append(document.documentID)
+                    }
+                    DataManager.shared.setRooms(withListRoom: roomsID)
+                }
+            }
+        }
+    }
 }

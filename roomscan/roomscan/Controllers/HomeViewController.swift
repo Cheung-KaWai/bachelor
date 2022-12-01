@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = FirebaseManager.shared.getCurrentUser()
+        FirebaseManager.shared.getRooms()
         username.text = "Welcome \(user)"
     }
     
