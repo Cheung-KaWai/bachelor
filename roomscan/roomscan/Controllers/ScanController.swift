@@ -7,6 +7,7 @@
 
 import UIKit
 import RoomPlan
+import FirebaseAuth
 
 class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSessionDelegate {
     private var scanning: Bool = false
@@ -22,6 +23,7 @@ class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSess
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var exportButton: UIButton!
     @IBOutlet weak var retakeButton: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +109,20 @@ class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSess
     
     
     @IBAction func exportData(_ sender: Any) {
+        var roomData = [String:Any]()
+        roomData["walls"] = getData(finalResults!.walls)
+        roomData["doors"] = getData(finalResults!.doors)
+        roomData["openings"] = getData(finalResults!.openings)
+        roomData["windows"] = getData(finalResults!.windows)
+        roomData["objects"] = getDataObject(finalResults!.objects)
+        
+        let user = Auth.auth().currentUser
+        
+        if user != nil {
+            roomData["uid"] = user?.uid
+        }
+        
+        FirebaseManager.shared.addRoomdata(roomData)
     }
     
     @IBAction func retake(_ sender: Any) {
