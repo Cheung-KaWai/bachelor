@@ -107,6 +107,12 @@ class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSess
         cancel.isHidden = false
     }
     
+    private func navigateToEnd(){
+        let vc = storyboard?.instantiateViewController(identifier: "endscan") as! EndScanViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
     
     @IBAction func exportData(_ sender: Any) {
         var roomData = [String:Any]()
@@ -121,9 +127,10 @@ class ScanController: UIViewController, RoomCaptureViewDelegate, RoomCaptureSess
         if user != nil {
             roomData["uid"] = user?.uid
         }
-        
-        FirebaseManager.shared.addRoomdata(roomData)
+        FirebaseManager.shared.addRoomdata(roomData,navigate:navigateToEnd)
+
     }
+
     
     @IBAction func retake(_ sender: Any) {
         startSession()

@@ -29,6 +29,7 @@
 		500E7DA92930DFE400BC29EC /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DA82930DFE400BC29EC /* Matrix.swift */; };
 		500E7DAC2930E18300BC29EC /* MatrixData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DAB2930E18300BC29EC /* MatrixData.swift */; };
 		500E7DAE2930FB2900BC29EC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DAD2930FB2900BC29EC /* DataManager.swift */; };
+		500E7DB029389F1900BC29EC /* EndScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7DAF29389F1900BC29EC /* EndScanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		500E7DA82930DFE400BC29EC /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		500E7DAB2930E18300BC29EC /* MatrixData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixData.swift; sourceTree = "<group>"; };
 		500E7DAD2930FB2900BC29EC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		500E7DAF29389F1900BC29EC /* EndScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScanViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				500E7D8C2927906E00BC29EC /* LoginViewController.swift */,
 				500E7D9B2927981D00BC29EC /* RegisterViewController.swift */,
 				500E7DA0292F906A00BC29EC /* TabBarViewController.swift */,
+				500E7DAF29389F1900BC29EC /* EndScanViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				500E7DA72930C23500BC29EC /* BorderedTextField.swift in Sources */,
 				500E7DAE2930FB2900BC29EC /* DataManager.swift in Sources */,
 				500E7D8B29278B0800BC29EC /* HomeViewController.swift in Sources */,
+				500E7DB029389F1900BC29EC /* EndScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

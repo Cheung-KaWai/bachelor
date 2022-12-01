@@ -484,53 +484,46 @@
             </objects>
             <point key="canvasLocation" x="5206" y="-902"/>
         </scene>
-        <!--View Controller-->
+        <!--End Scan View Controller-->
         <scene sceneID="t7r-gM-qGv">
             <objects>
-                <viewController id="13e-x5-vid" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="endscan" id="13e-x5-vid" customClass="EndScanViewController" customModule="roomscan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lZY-wa-Fy4">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PS2-aD-V88">
-                                <rect key="frame" x="35" y="77" width="320" height="28.666666666666671"/>
-                                <color key="tintColor" red="0.41672751099999999" green="0.39907478740000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="fAr-bd-CDc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                <color key="textColor" red="0.15479922290000001" green="0.14907756450000001" blue="0.36874246599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your room ID is " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEO-eK-HpF">
-                                <rect key="frame" x="35" y="175.66666666666666" width="320" height="21"/>
+                                <rect key="frame" x="35" y="97" width="320" height="27.666666666666671"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="4g3-8c-rPr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gs-fi-f7T">
-                                <rect key="frame" x="35" y="201.66666666666666" width="320" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a6YaXajNSLx938UqAtt0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gs-fi-f7T">
+                                <rect key="frame" x="35" y="129.66666666666666" width="320" height="28.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="wHd-TJ-obP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="0.15479922290000001" green="0.14907756450000001" blue="0.36874246599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's Next?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2H-SZ-UOD">
-                                <rect key="frame" x="35" y="361.66666666666669" width="320" height="21"/>
+                                <rect key="frame" x="35" y="360" width="320" height="24"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="xKX-Pg-TFC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use this ID on our webapp in order to generate the room" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDP-4N-cy8">
-                                <rect key="frame" x="35" y="402.66666666666669" width="320" height="42"/>
+                                <rect key="frame" x="35" y="404" width="320" height="42"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="bK8-3Q-4Vl"/>
                                     <constraint firstAttribute="height" constant="42" id="xJy-0e-ARU"/>
@@ -540,7 +533,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j19-Yh-woC">
-                                <rect key="frame" x="35" y="454.66666666666669" width="320" height="21"/>
+                                <rect key="frame" x="35" y="456" width="320" height="21"/>
+                                <color key="tintColor" red="0.15479922290000001" green="0.14907756450000001" blue="0.36874246599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="GFc-v4-3bC"/>
                                 </constraints>
@@ -549,7 +543,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with this account in our webapp and your room is available in the list" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEG-Od-7Rt">
-                                <rect key="frame" x="35" y="485.66666666666669" width="320" height="40.666666666666686"/>
+                                <rect key="frame" x="35" y="487" width="320" height="40.666666666666629"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="Zqb-DQ-uPR"/>
                                 </constraints>
@@ -567,10 +562,13 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Done">
                                     <color key="baseBackgroundColor" red="0.15479922290000001" green="0.14907756450000001" blue="0.36874246599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="navigate:" destination="13e-x5-vid" eventType="touchDown" id="eFp-kV-Bwa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UOZ-fZ-R9W"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eDP-4N-cy8" firstAttribute="top" secondItem="h2H-SZ-UOD" secondAttribute="bottom" constant="20" id="1jq-Yi-CaC"/>
                             <constraint firstItem="eDP-4N-cy8" firstAttribute="centerX" secondItem="lZY-wa-Fy4" secondAttribute="centerX" id="5tX-Yd-YPq"/>
@@ -580,16 +578,17 @@
                             <constraint firstItem="h2H-SZ-UOD" firstAttribute="centerX" secondItem="lZY-wa-Fy4" secondAttribute="centerX" id="Qj7-y9-mhT"/>
                             <constraint firstItem="bEG-Od-7Rt" firstAttribute="top" secondItem="j19-Yh-woC" secondAttribute="bottom" constant="10" id="Ur5-Dm-AC9"/>
                             <constraint firstItem="WEO-eK-HpF" firstAttribute="centerX" secondItem="lZY-wa-Fy4" secondAttribute="centerX" id="WqR-w0-t7e"/>
-                            <constraint firstItem="PS2-aD-V88" firstAttribute="top" secondItem="UOZ-fZ-R9W" secondAttribute="top" constant="30" id="YUv-DU-uTy"/>
-                            <constraint firstItem="PS2-aD-V88" firstAttribute="centerX" secondItem="lZY-wa-Fy4" secondAttribute="centerX" id="bev-9n-hg3"/>
                             <constraint firstItem="bEG-Od-7Rt" firstAttribute="centerX" secondItem="lZY-wa-Fy4" secondAttribute="centerX" id="cPS-QF-BXm"/>
                             <constraint firstItem="1Gs-fi-f7T" firstAttribute="top" secondItem="WEO-eK-HpF" secondAttribute="bottom" constant="5" id="gDY-Wk-4aB"/>
+                            <constraint firstItem="WEO-eK-HpF" firstAttribute="top" secondItem="UOZ-fZ-R9W" secondAttribute="top" constant="50" id="gZE-sq-RdT"/>
                             <constraint firstItem="UOZ-fZ-R9W" firstAttribute="bottom" secondItem="gGN-Uf-7Cp" secondAttribute="bottom" constant="30" id="gpf-p3-eVI"/>
                             <constraint firstItem="gGN-Uf-7Cp" firstAttribute="centerX" secondItem="lZY-wa-Fy4" secondAttribute="centerX" id="iT4-ds-mbc"/>
                             <constraint firstItem="h2H-SZ-UOD" firstAttribute="centerY" secondItem="lZY-wa-Fy4" secondAttribute="centerY" constant="-50" id="jHx-Yz-mCn"/>
-                            <constraint firstItem="WEO-eK-HpF" firstAttribute="top" secondItem="PS2-aD-V88" secondAttribute="bottom" constant="70" id="q0K-RM-P3g"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="roomId" destination="1Gs-fi-f7T" id="x1R-ZB-7zf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0C-nQ-gVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -725,9 +724,6 @@
         <image name="map" catalog="system" width="128" height="112"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

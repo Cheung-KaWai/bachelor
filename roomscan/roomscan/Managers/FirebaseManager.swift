@@ -58,7 +58,7 @@ final class FirebaseManager{
         return "no username"
     }
     
-    public func addRoomdata(_ data: [String:Any]) {
+    public func addRoomdata(_ data: [String:Any], navigate: @escaping()->Void)  {
        var ref: DocumentReference? = nil
        ref = db.collection("roomplanData").addDocument(data: data) { err in
            if let err = err {
@@ -66,6 +66,7 @@ final class FirebaseManager{
            } else {
                print("Document added with ID: \(ref!.documentID)")
                DataManager.shared.setDocumentID(withID: ref!.documentID)
+               navigate()
            }
        }
     }
