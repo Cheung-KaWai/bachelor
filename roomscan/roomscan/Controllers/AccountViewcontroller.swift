@@ -21,4 +21,14 @@ class AccountViewController: UIViewController {
         userId.text = user?.uid
         email.text = user?.email
     }
+    
+    
+    @IBAction func logout(_ sender: Any) {
+        let check = FirebaseManager.shared.logOut()
+        if check {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "login") as! LoginViewController
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        }
+    }
 }

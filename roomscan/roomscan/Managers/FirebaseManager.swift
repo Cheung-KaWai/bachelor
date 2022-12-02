@@ -90,4 +90,14 @@ final class FirebaseManager{
             }
         }
     }
+    
+    public func logOut () -> Bool{
+        do{
+            try FirebaseAuth.Auth.auth().signOut()
+            return true
+        }catch{
+            print(error)
+            return false
+        }
+    }
 }
