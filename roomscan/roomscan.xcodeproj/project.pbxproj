@@ -94,13 +94,12 @@
 		500E7D732927852B00BC29EC /* roomscan */ = {
 			isa = PBXGroup;
 			children = (
+				500E7DB52939E80500BC29EC /* Views */,
 				500E7DAA2930E15B00BC29EC /* Models */,
 				500E7DA32930BCFC00BC29EC /* Extensions */,
 				500E7D9D2927C67700BC29EC /* Managers */,
 				500E7D89292786AA00BC29EC /* Resources */,
 				500E7D882927865400BC29EC /* Controllers */,
-				500E7D7A2927852B00BC29EC /* Main.storyboard */,
-				500E7D7F2927853000BC29EC /* LaunchScreen.storyboard */,
 				500E7D822927853000BC29EC /* Info.plist */,
 				500E7D8E2927915C00BC29EC /* GoogleService-Info.plist */,
 			);
@@ -157,6 +156,15 @@
 				500E7DAB2930E18300BC29EC /* MatrixData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		500E7DB52939E80500BC29EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				500E7D7A2927852B00BC29EC /* Main.storyboard */,
+				500E7D7F2927853000BC29EC /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
