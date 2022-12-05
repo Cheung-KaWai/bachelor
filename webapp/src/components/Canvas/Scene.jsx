@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import React, { useContext, useEffect } from "react";
-import { ContactShadows, Environment, OrbitControls, softShadows } from "@react-three/drei";
+import { Center, ContactShadows, Environment, OrbitControls, softShadows } from "@react-three/drei";
 import { SceneContainer } from "../Layout/SceneContainer";
 import { GroupWalls } from "../Room/GroupWalls";
 import { LightContext } from "../../context/LightContextProvider";
@@ -15,25 +15,21 @@ import { DataContext } from "../../context/DataContextProvider";
 import * as THREE from "three";
 import { findNearestIndex } from "../../js/functions";
 import { useState } from "react";
+import { Euler, Vector3 } from "three";
+import { useRef } from "react";
+import { OBB } from "../../../node_modules/three/examples/jsm/math/OBB";
 
 export const Scene = () => {
   const lightContext = useContext(LightContext);
   const context = useContext(DataContext);
+  const testRef = useRef();
 
   const [orderedPoints, setOrderedPoints] = useState([]);
   const [offset, setOffset] = useState(0);
+  const [positionCenter, setPositionCenter] = useState([0, 0, 0]);
 
   useEffect(() => {
-    // console.log(context.cornerPoints);
     if (context.cornerPoints.length !== 0 && context.amountPoints === context.cornerPoints.length) {
-      // const result = context.cornerPoints.reduce((unique, o) => {
-      //   if (!unique.some((obj) => obj.x === o.x && obj.y === o.y && obj.z === o.z)) {
-      //     unique.push(o);
-      //   }
-      //   return unique;
-      // });
-      // console.log(result);
-
       const elements = [...context.cornerPoints];
       const filterElements = elements.reduce((unique, o) => {
         if (!unique.some((obj) => obj.x == o.x && obj.y == o.y && obj.z == o.z)) {
@@ -55,30 +51,22 @@ export const Scene = () => {
   }, [context.cornerPoints]);
 
   useEffect(() => {
-    // console.log(orderedPoints);
-    // console.log(context.cornerPoints);
+    const test = context.groupRef.current;
+    console.log(test);
   }, [orderedPoints]);
 
   const FixFloorpliz = () => {
     if (context.cornerPoints.length - offset !== orderedPoints.length) {
-      console.log(context.cornerPoints);
-      console.log(orderedPoints);
       return;
     }
 
     const getCubes = () => {
-      // const shapes = new THREE.Shape();
-      // shapes.moveTo(-1.45, -7.66);
-      // shapes.lineTo(-5, -0.56);
-      // shapes.lineTo(1.28, 2.58);
       const test = 0;
-      console.log(orderedPoints);
       return (
         <>
           {orderedPoints.map((el, key) => (
             <mesh key={key} position={[el.x, el.y, el.z]} scale={[0.1, 0.1, 0.1]}>
               <boxGeometry />
-              {/* <meshStandardMaterial /> */}
               <meshStandardMaterial color={key == test ? "#f00" : "#fff"} />
             </mesh>
           ))}
@@ -91,7 +79,6 @@ export const Scene = () => {
       for (let i = 0; i < orderedPoints.length; i++) {
         const element = orderedPoints[i];
         if (i === 0) {
-          console.log();
           shapes.moveTo(parseFloat(element.z), parseFloat(element.x));
         } else {
           shapes.lineTo(parseFloat(element.z), parseFloat(element.x));
@@ -99,24 +86,13 @@ export const Scene = () => {
       }
       shapes.lineTo(parseFloat(orderedPoints[0].z), parseFloat(orderedPoints[0].x));
 
-      //   //   const x = 0,
-      //   //     y = 0;
-
-      const heartShape = new THREE.Shape();
-
-      heartShape.moveTo(-2.69, -0.13);
-      heartShape.lineTo(-1.56, 2.84);
-      heartShape.lineTo(2.16, 1.42);
-      heartShape.lineTo(1.02, -1.56);
-      heartShape.lineTo(-2.69, -0.13);
-
-      //   //   console.log(shapes);
-      console.log("generated", shapes);
-      console.log("works", heartShape);
-
+      const rotatie = new Euler(0, 0, 0, "YXZ").setFromQuaternion(lightContext.rotation);
+      rotatie.set(-Math.PI / 2, -Math.PI / 2, 0);
       return (
-        <mesh>
-          {console.log("hello")}
+        <mesh
+          position={[positionCenter[0], -lightContext.height + lightContext.offset ?? 0, positionCenter[2]]}
+          rotation={rotatie}
+        >
           <shapeGeometry args={[shapes]} />
           <meshStandardMaterial />
         </mesh>
@@ -132,11 +108,14 @@ export const Scene = () => {
         <OrbitControls ref={lightContext.orbitRef} makeDefault />
         <color attach="background" args={["#70777F"]} />
         <Camera />
-        <GroupWalls />
-        <Environment preset="studio" ref={lightContext.envRef} />
-        <GroupWindows />
-        <GroupDoors />
-        <GroupObjects />
+        <Center>
+          <GroupWalls />
+
+          <Environment preset="studio" ref={lightContext.envRef} />
+          <GroupWindows />
+          <GroupDoors />
+          <GroupObjects />
+        </Center>
         <gridHelper position={[0, -1.6, 0]} />
         <axesHelper args={[1, 1, 1]} position={[0, -1.6, 0]} />
 
