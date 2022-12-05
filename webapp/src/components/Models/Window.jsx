@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useContext } from "react";
 import { useGLTF } from "@react-three/drei";
 import windowObj from "../../assets/models/window.glb";
 import * as THREE from "three";
+import { DataContext } from "../../context/DataContextProvider";
 
 export function Window({ scale, tranform }) {
   const { nodes, materials } = useGLTF(windowObj);
@@ -18,12 +19,14 @@ export function Window({ scale, tranform }) {
 
   const material = new THREE.MeshStandardMaterial({ envMapIntensity: 0.1 });
 
+  const context = useContext(DataContext);
+
   return (
     // <group scale={scale} quaternion={rotation} position={translation} dispose={null}>
     //   <mesh geometry={nodes.Plane.geometry} material={material} rotation={[-Math.PI / 2, 0, 0]} />
     //   <mesh geometry={nodes.Plane001.geometry} material={material} rotation={[-Math.PI / 2, 0, 0]} />
     // </group>
-    <group scale={scale} quaternion={rotation} position={translation} dispose={null}>
+    <group scale={scale} quaternion={rotation} position={translation} dispose={null} visible={context.showWindows}>
       <mesh
         receiveShadow
         geometry={nodes.test.geometry}

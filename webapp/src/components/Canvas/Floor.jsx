@@ -7,11 +7,6 @@ import * as THREE from "three";
 import { findNearestIndex } from "../../js/functions";
 
 export const Floor = () => {
-  // const rotatie = new Euler(0, 0, 0, "YXZ").setFromQuaternion(lightContext.rotation);
-  // rotatie.set(-Math.PI / 2, rotatie.y, rotatie.z);
-
-  // const rotatie2 = rotatie.clone();
-  // rotatie2.set(Math.PI / 2, rotatie2.y, rotatie2.z);
   const [orderedPoints, setOrderedPoints] = useState([]);
   const [offset, setOffset] = useState(0);
 
@@ -41,6 +36,9 @@ export const Floor = () => {
   }, [context.cornerPoints]);
 
   const generateFloor = () => {
+    if (context.cornerPoints.length - offset !== orderedPoints.length) {
+      return;
+    }
     const shapes = new THREE.Shape();
     if (orderedPoints.length !== 0 && orderedPoints.length === context.cornerPoints.length - offset) {
       for (let i = 0; i < orderedPoints.length; i++) {
@@ -56,17 +54,15 @@ export const Floor = () => {
       const rotatie = new THREE.Euler(0, 0, 0, "YXZ").setFromQuaternion(lightContext.rotation);
       rotatie.set(-Math.PI / 2, -Math.PI / 2, 0);
       return (
-        <mesh position={[0, -lightContext.height ?? 0, 0]} rotation={rotatie} receiveShadow>
-          <shapeGeometry args={[shapes]} />
-          <meshStandardMaterial envMapIntensity={0.1} />
-        </mesh>
+        <>
+          <mesh position={[0, -lightContext.height ?? 0, 0]} rotation={rotatie} receiveShadow>
+            <shapeGeometry args={[shapes]} />
+            <meshStandardMaterial envMapIntensity={0.1} />
+          </mesh>
+        </>
       );
     }
   };
-
-  useEffect(() => {
-    console.log("floor");
-  }, []);
 
   return <>{context?.cornerPoints && generateFloor()}</>;
 };
