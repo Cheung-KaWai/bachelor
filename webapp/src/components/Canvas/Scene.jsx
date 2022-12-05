@@ -1,41 +1,18 @@
 import { Canvas } from "@react-three/fiber";
-import React, { useContext, useEffect } from "react";
-import { Center, ContactShadows, Environment, OrbitControls, softShadows } from "@react-three/drei";
+import React, { useContext } from "react";
+import { Center, Environment, OrbitControls } from "@react-three/drei";
 import { SceneContainer } from "../Layout/SceneContainer";
 import { GroupWalls } from "../Room/GroupWalls";
 import { LightContext } from "../../context/LightContextProvider";
 import { Lamp } from "./Lamp.jsx";
 import { Floor } from "./Floor";
 import { Camera } from "./Camera";
-import { Window } from "../Models/Window";
 import { GroupWindows } from "../Room/GroupWindows";
 import { GroupDoors } from "../Room/GroupDoors";
 import { GroupObjects } from "../Room/GroupObjects";
-import { DataContext } from "../../context/DataContextProvider";
-import * as THREE from "three";
-import { findNearestIndex } from "../../js/functions";
-import { useState } from "react";
-import { Euler, Vector3 } from "three";
-import { useRef } from "react";
-import { OBB } from "../../../node_modules/three/examples/jsm/math/OBB";
 
 export const Scene = () => {
   const lightContext = useContext(LightContext);
-  const context = useContext(DataContext);
-  const testRef = useRef();
-
-  const [orderedPoints, setOrderedPoints] = useState([]);
-  const [offset, setOffset] = useState(0);
-  const [positionCenter, setPositionCenter] = useState([0, 0, 0]);
-
-  useEffect(() => {
-    console.log("scene");
-  }, []);
-
-  useEffect(() => {
-    const test = context.groupRef.current;
-    console.log(test);
-  }, [orderedPoints]);
 
   return (
     <SceneContainer>
@@ -45,24 +22,13 @@ export const Scene = () => {
         <Camera />
         <Center>
           <GroupWalls />
-
           <Environment preset="studio" ref={lightContext.envRef} />
           <GroupWindows />
           <GroupDoors />
           <GroupObjects />
         </Center>
         <Floor />
-        {/* <gridHelper position={[0, -1.6, 0]} />
-        <axesHelper args={[1, 1, 1]} position={[0, -1.6, 0]} /> */}
-
-        {/* {context?.cornerPoints && FixFloorpliz()} */}
-
-        {lightContext.model && (
-          <>
-            <Lamp />
-            {lightContext.model}
-          </>
-        )}
+        <Lamp />
       </Canvas>
     </SceneContainer>
   );

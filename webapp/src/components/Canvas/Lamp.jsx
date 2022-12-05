@@ -29,35 +29,47 @@ export const Lamp = () => {
     if (lightContext.orbitRef.current) lightContext.orbitRef.current.enabled = true;
   };
 
+  {
+    lightContext.model && (
+      <>
+        <Lamp />
+      </>
+    );
+  }
+
   return (
     <>
-      <TransformControls
-        showY={false}
-        ref={transform}
-        size={0.1}
-        position={[0, lightContext.height - lightContext.lampHeight + 0.1, 0]}
-        onMouseDown={stopOrbit}
-        onMouseUp={startOrbit}
-        onChange={handleTarget}
-      >
-        <pointLight
-          ref={lightContext.lightRef}
-          intensity={0.8}
-          // power={890}
-          color="#fff"
-          castShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-far={25}
-          shadow-camera-left={-5}
-          shadow-camera-right={5}
-          shadow-camera-top={5}
-          shadow-camera-bottom={-5}
-          position={[0, 0, 0]}
-        />
-      </TransformControls>
-
-      <primitive object={target} position={[newPosition.x, 0, newPosition.z]} />
+      {lightContext.model && (
+        <>
+          <TransformControls
+            showY={false}
+            ref={transform}
+            size={0.1}
+            position={[0, lightContext.height - lightContext.lampHeight + 0.1, 0]}
+            onMouseDown={stopOrbit}
+            onMouseUp={startOrbit}
+            onChange={handleTarget}
+          >
+            <pointLight
+              ref={lightContext.lightRef}
+              intensity={0.8}
+              // power={890}
+              color="#fff"
+              castShadow
+              shadow-mapSize-width={1024}
+              shadow-mapSize-height={1024}
+              shadow-camera-far={25}
+              shadow-camera-left={-5}
+              shadow-camera-right={5}
+              shadow-camera-top={5}
+              shadow-camera-bottom={-5}
+              position={[0, 0, 0]}
+            />
+          </TransformControls>
+          <primitive object={target} position={[newPosition.x, 0, newPosition.z]} />
+          {lightContext.model}
+        </>
+      )}
     </>
   );
 };
