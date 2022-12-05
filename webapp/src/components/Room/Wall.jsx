@@ -5,21 +5,6 @@ import { Euler, Vector2, Vector3 } from "three";
 import { DataContext } from "../../context/DataContextProvider";
 import { LightContext } from "../../context/LightContextProvider";
 import { fonts } from "../../js/fonts";
-// import { OBB } from "../../../node_modules/three/examples/jsm/math/OBB";
-
-// function RotatePoint(point, pivot, rotation) {
-//   const cosTheta = Math.cos(rotation);
-//   const sinTheta = Math.sin(rotation);
-
-//   const x = cosTheta * (point.x - pivot.x) - sinTheta * (point.z - pivot.z) + pivot.x;
-//   const z = sinTheta * (point.x - pivot.x) + cosTheta * (point.z - pivot.z) + pivot.z;
-
-//   return new Vector3(x, point.y, z);
-// }
-
-// function RotatePointAroundPivot(point, pivot, angles) {
-//   // point.applyAxisAngle(new Vector3(0,1,0),angles)
-// }
 
 export const Wall = ({ scale, transform }) => {
   const textRef = useRef();
@@ -77,23 +62,20 @@ export const Wall = ({ scale, transform }) => {
 
       context.setCornerPoints((prev) => [...prev, vector1, ...points, vector2]);
     }, 1000);
-    // console.log(positions);
   }, [context.roomData]);
 
   return (
     <>
       <mesh
-        // scale={[scale[0], scale[1], 0.01]}
         position={translation}
         quaternion={rotation}
-        // rotation={rotatie2}
-        // rotation={rotatie2}
         castShadow
         receiveShadow
         ref={boxRef}
+        visible={context.showWalls}
       >
         <boxGeometry args={[scale[0], scale[1], 0.01]} />
-        <meshStandardMaterial envMapIntensity={0.1} wireframe={true} />
+        <meshStandardMaterial envMapIntensity={0.1} />
         {/* <meshStandardMaterial envMapIntensity={0.1} /> */}
       </mesh>
       {/* <mesh rotation={[-Math.PI / 2, 0, 0]} position={[translation.x, translation.y - scale[1] / 2, translation.z]}>

@@ -17,8 +17,7 @@ function Test() {
 
   return (
     <group ref={context.groupRef}>
-      {context.showWalls &&
-        context.roomData &&
+      {context.roomData &&
         context.roomData.walls.map((wall, key) => {
           return <Wall key={key} scale={wall.dimensions} transform={wall.transform} />;
         })}
