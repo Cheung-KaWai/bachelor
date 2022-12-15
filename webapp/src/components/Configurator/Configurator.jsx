@@ -32,7 +32,7 @@ export const Configurator = () => {
 
   return (
     <ConfigContainer>
-      <Progress />
+      {/* <Progress /> */}
       {lightContext && lightContext.step > 1 && <CameraTarget />}
       <StepContainer>{configureStep()}</StepContainer>
       {lightContext && lightContext.step > 1 && (
