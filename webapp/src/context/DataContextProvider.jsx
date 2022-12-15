@@ -14,6 +14,7 @@ export const DataContextProvider = ({ children }) => {
   const [showDoors, setShowDoors] = useState(true);
   const [showWindows, setShowWindows] = useState(true);
   const [showOthers, setShowOthers] = useState(true);
+  const [showFloor, setShowFloor] = useState(true);
 
   const [cornerPoints, setCornerPoints] = useState([]);
   const [floorDataPoints, setFloorDataPoints] = useState([]);
@@ -48,6 +49,8 @@ export const DataContextProvider = ({ children }) => {
     floorDataPoints,
     setAmountPoints,
     amountPoints,
+    setShowFloor,
+    showFloor,
   };
 
   return <DataContext.Provider value={elements}>{children}</DataContext.Provider>;

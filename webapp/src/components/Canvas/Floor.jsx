@@ -72,7 +72,7 @@ export const Floor = () => {
     }
   };
 
-  return <>{context?.cornerPoints && generateFloor()}</>;
+  return <>{context?.cornerPoints && context.showFloor && generateFloor()}</>;
 };
 
 // const FixFloorpliz = () => {

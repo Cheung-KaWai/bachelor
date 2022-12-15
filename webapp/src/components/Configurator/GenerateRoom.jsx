@@ -94,6 +94,7 @@ export const GenerateRoom = () => {
           <RoomSettingsButton name="Windows" click={context?.setShowWindows} show={context?.showWindows} />
           <RoomSettingsButton name="Walls" click={context?.setShowWalls} show={context?.showWalls} />
           <RoomSettingsButton name="Others" click={context?.setShowOthers} show={context?.showOthers} />
+          <RoomSettingsButton name="Floor" click={context?.setShowFloor} show={context?.showFloor} />
         </RoomSettingsContainer>
         <Label>Preset Rooms</Label>
         <RoomsContainer>
