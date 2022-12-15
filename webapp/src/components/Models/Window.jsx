@@ -17,7 +17,7 @@ export function Window({ scale, tranform }) {
   let scaleMatrix = new THREE.Vector3();
   matrix.transpose().decompose(translation, rotation, scaleMatrix);
 
-  const material = new THREE.MeshStandardMaterial({ envMapIntensity: 0.1 });
+  const material = new THREE.MeshStandardMaterial({ envMapIntensity: 0.1, color: "#00f" });
 
   const context = useContext(DataContext);
 

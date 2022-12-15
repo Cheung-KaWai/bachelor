@@ -5,13 +5,18 @@ import { DataContext } from "../../context/DataContextProvider";
 import { LightContext } from "../../context/LightContextProvider";
 import * as THREE from "three";
 import { findNearestIndex } from "../../js/functions";
+import { useTexture } from "@react-three/drei";
+import { Floor1 } from "../../js/textures";
 
 export const Floor = () => {
   const [orderedPoints, setOrderedPoints] = useState([]);
   const [offset, setOffset] = useState(0);
+  const [material, setMaterial] = useState(new THREE.MeshStandardMaterial({ envMapIntensity: 0.1 }));
 
   const context = useContext(DataContext);
   const lightContext = useContext(LightContext);
+
+  const floor1 = new THREE.MeshStandardMaterial(Floor1());
 
   useEffect(() => {
     if (context.cornerPoints.length !== 0 && context.amountPoints === context.cornerPoints.length) {
@@ -22,6 +27,7 @@ export const Floor = () => {
         }
         return unique;
       }, []);
+
       setOffset(elements.length - filterElements.length);
       const newPoints = [];
       newPoints.push(filterElements.shift());
@@ -55,9 +61,11 @@ export const Floor = () => {
       rotatie.set(-Math.PI / 2, -Math.PI / 2, 0);
       return (
         <>
-          <mesh position={[0, -lightContext.height ?? 0, 0]} rotation={rotatie} receiveShadow>
+          <mesh position={[0, -lightContext.height ?? 0, 0]} rotation={rotatie} receiveShadow material={material}>
             <shapeGeometry args={[shapes]} />
-            <meshStandardMaterial envMapIntensity={0.1} />
+          </mesh>
+          <mesh position={[0, -lightContext.height ?? 0, 0]} rotation={rotatie} receiveShadow material={material}>
+            <shapeGeometry args={[shapes]} />
           </mesh>
         </>
       );

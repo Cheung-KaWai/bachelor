@@ -24,7 +24,7 @@ export const DataObject = ({ transform, scale }) => {
       visible={context.showOthers}
     >
       <boxGeometry />
-      <meshStandardMaterial envMapIntensity={0.1} />
+      <meshStandardMaterial envMapIntensity={0.1} color={"#0f0"} />
     </mesh>
   );
 };
