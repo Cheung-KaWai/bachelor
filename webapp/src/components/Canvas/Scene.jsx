@@ -11,6 +11,7 @@ import { GroupWindows } from "../Room/GroupWindows";
 import { GroupDoors } from "../Room/GroupDoors";
 import { GroupObjects } from "../Room/GroupObjects";
 import { DataContext } from "../../context/DataContextProvider";
+import { colors } from "../../js/colors";
 
 export const Scene = () => {
   const lightContext = useContext(LightContext);
@@ -20,7 +21,7 @@ export const Scene = () => {
     <SceneContainer>
       <Canvas shadows flat>
         <OrbitControls ref={lightContext.orbitRef} makeDefault />
-        <color attach="background" args={["#70777F"]} />
+        <color attach="background" args={[colors.creme]} />
         <Camera />
         <Center>
           <GroupWalls />
