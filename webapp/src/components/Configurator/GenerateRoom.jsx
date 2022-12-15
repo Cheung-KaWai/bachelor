@@ -19,6 +19,8 @@ export const GenerateRoom = () => {
 
   const handlePreset = async (ev) => {
     const data = await getData(ev.target.dataset.id);
+    // data.walls.length * 5
+    context.setAmountPoints(data.walls.length * 5);
     context.setCornerPoints([]);
     context.setRoomData(data);
     context.setRerender((prev) => !prev);
@@ -43,11 +45,11 @@ export const GenerateRoom = () => {
     const data = await getData(roomId);
 
     if (typeof data === "string") {
-      setErr(data);
     } else {
       context.setCornerPoints([]);
       context.setRoomData(data);
       context.setRerender((prev) => !prev);
+      context.setAmountPoints(data.walls.length * 5);
 
       const transform = data.walls[0].transform;
       const matrix = new THREE.Matrix4();
@@ -92,6 +94,7 @@ export const GenerateRoom = () => {
           <RoomSettingsButton name="Windows" click={context?.setShowWindows} show={context?.showWindows} />
           <RoomSettingsButton name="Walls" click={context?.setShowWalls} show={context?.showWalls} />
           <RoomSettingsButton name="Others" click={context?.setShowOthers} show={context?.showOthers} />
+          <RoomSettingsButton name="Floor" click={context?.setShowFloor} show={context?.showFloor} />
         </RoomSettingsContainer>
         <Label>Preset Rooms</Label>
         <RoomsContainer>

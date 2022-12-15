@@ -1,18 +1,16 @@
 import { Canvas } from "@react-three/fiber";
-import React, { useContext, useEffect } from "react";
-import { ContactShadows, Environment, OrbitControls, softShadows } from "@react-three/drei";
+import React, { useContext } from "react";
+import { Center, Environment, OrbitControls } from "@react-three/drei";
 import { SceneContainer } from "../Layout/SceneContainer";
 import { GroupWalls } from "../Room/GroupWalls";
 import { LightContext } from "../../context/LightContextProvider";
 import { Lamp } from "./Lamp.jsx";
 import { Floor } from "./Floor";
 import { Camera } from "./Camera";
-import { Window } from "../Models/Window";
 import { GroupWindows } from "../Room/GroupWindows";
 import { GroupDoors } from "../Room/GroupDoors";
 import { GroupObjects } from "../Room/GroupObjects";
 import { DataContext } from "../../context/DataContextProvider";
-import * as THREE from "three";
 
 export const Scene = () => {
   const lightContext = useContext(LightContext);
@@ -26,95 +24,13 @@ export const Scene = () => {
       return unique;
     }, []);
 
-    // const dataPoints = result.map((el) => new Point(el.x, el.z));
-    console.log(result);
-    // convexHull(dataPoints, dataPoints.length);
-
-    const getCubes = () => {
-      const shapes = new THREE.Shape();
-      shapes.moveTo(-1.45, -7.66);
-      shapes.lineTo(-5, -0.56);
-      shapes.lineTo(1.28, 2.58);
-      const test = 8;
-
-      return (
-        <>
-          {result.map((el, key) => (
-            <mesh key={key} position={[el.x, el.y, el.z]} scale={[0.1, 0.1, 0.1]}>
-              <boxGeometry />
-              <meshStandardMaterial color={key == test ? "#f00" : "#fff"} />
-            </mesh>
-          ))}
-          {/* <mesh scale={[0.1, 0.1, 0.1]} position={[-1.45, -1.28, -7.66]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[-5, -1.28, -0.56]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[1.28, -1.28, 2.58]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[0.1, -1.28, -1.98]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[2.07, -1.28, -5.9]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[3.96, -1.28, -0.04]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh scale={[0.1, 0.1, 0.1]} position={[0, -1.28, 0]}>
-            <boxGeometry />
-            <meshStandardMaterial />
-          </mesh>
-          <mesh>
-            <shapeGeometry args={[shapes]} />
-            <meshStandardMaterial />
-          </mesh> */}
-        </>
-      );
-    };
-
-    // const shapes = new THREE.Shape();
-    // if (result.length !== 0) {
-    //   for (let i = 0; i < result.length; i++) {
-    //     const element = result[i];
-    //     if (i === 0) {
-    //       shapes.moveTo(element.x, element.z);
-    //     }
-    //     shapes.lineTo(element.x, element.z);
-    //   }
-    //   shapes.lineTo(result[0].x, result[0].z);
-
-    //   const x = 0,
-    //     y = 0;
-
-    //   const heartShape = new THREE.Shape();
-
-    //   heartShape.moveTo(8, 2);
-    //   heartShape.lineTo(4, 8);
-    //   heartShape.lineTo(12, 8);
-    //   heartShape.lineTo(8, 2);
-
-    //   console.log(shapes);
-    //   console.log(heartShape);
-
-    //   return (
-    //     <mesh>
-    //       {console.log("hello")}
-    //       <shapeGeometry args={[heartShape]} />
-    //       <meshStandardMaterial />
-    //     </mesh>
-    //   );
-    // }
-
-    return getCubes();
+    const getCubes = result.map((point, key) => (
+      <mesh scale={[0.1, 0.1, 0.1]} position={[point.x, point.y, point.z]} key={key}>
+        <boxGeometry />
+        <meshStandardMaterial />
+      </mesh>
+    ));
+    return getCubes;
   };
 
   return (
@@ -123,21 +39,16 @@ export const Scene = () => {
         <OrbitControls ref={lightContext.orbitRef} makeDefault />
         <color attach="background" args={["#70777F"]} />
         <Camera />
-        <GroupWalls />
-        <Environment preset="studio" ref={lightContext.envRef} />
-        <GroupWindows />
-        <GroupDoors />
-        <GroupObjects />
-
-        {/* {context?.cornerPoints && FixFloorpliz()} */}
-        {lightContext.rotation && <Floor />}
-
-        {lightContext.model && (
-          <>
-            <Lamp />
-            {lightContext.model}
-          </>
-        )}
+        <Center>
+          <GroupWalls />
+          <Environment preset="studio" ref={lightContext.envRef} />
+          <GroupWindows />
+          <GroupDoors />
+          <GroupObjects />
+        </Center>
+        {/* {FixFloorpliz()} */}
+        <Floor />
+        {/* <Lamp /> */}
       </Canvas>
     </SceneContainer>
   );
