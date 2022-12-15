@@ -2,6 +2,7 @@ import create from "zustand";
 import { mountStoreDevtool } from "simple-zustand-devtools";
 
 export const useConfigurationStore = create((set) => ({
+  room: {},
   update: (name, value) => set({ [name]: value }),
 }));
 
