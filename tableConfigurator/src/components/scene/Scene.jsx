@@ -3,7 +3,7 @@ import { colors } from "@/js/theme";
 import { useConfigurationStore } from "@/store/data";
 import { Center, OrbitControls } from "@react-three/drei";
 import React, { useEffect } from "react";
-import { Canvas } from "react-three-fiber";
+import { Canvas } from "@react-three/fiber";
 import { Container } from "../layouts/Container";
 import { ListWalls } from "./walls/ListWalls";
 
