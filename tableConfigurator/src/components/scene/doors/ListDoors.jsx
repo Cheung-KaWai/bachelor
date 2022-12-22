@@ -4,7 +4,6 @@ import { Door } from "./Door";
 
 export const ListDoors = () => {
   const room = useConfigurationStore((state) => state.room);
-  const update = useConfigurationStore((state) => state.update);
   return (
     <group position={[0, 0, 0]}>
       {room.doors?.map((wall, key) => (
