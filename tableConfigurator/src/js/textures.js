@@ -26,6 +26,7 @@ export const WallMaterial = () => {
   const maps = {
     plaster: {
       map: plasterMap,
+      envMapIntensity: 2,
       // normalMap: plasterNormal,
     },
   };
@@ -60,8 +61,13 @@ export const FloorMaterial = () => {
   // const normalTextures = useTexture(normalData);
   // const roughnesstextures = useTexture(roughnessData);
   const rotation = useConfigurationStore((state) => state.floorRotation);
-  const rotatie = new Euler(0, 0, 0, "YXZ").setFromQuaternion(rotation);
-  fixtextures(mapTextures, 0.3, rotatie.y);
+  if (rotation) {
+    const rotatie = new Euler(0, 0, 0, "YXZ").setFromQuaternion(rotation);
+    fixtextures(mapTextures, 0.3, rotatie.y);
+  } else {
+    fixtextures(mapTextures, 0.3);
+  }
+
   // fixtextures(normalTextures, 0.5, Math.Pi / 2);
   // fixtextures(roughnesstextures, 0.4);
 

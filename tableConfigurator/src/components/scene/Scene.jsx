@@ -1,7 +1,7 @@
 import { getData } from "@/js/firebase";
 import { colors } from "@/js/theme";
 import { useConfigurationStore } from "@/store/data";
-import { Center, Environment, OrbitControls } from "@react-three/drei";
+import { Center, ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 import React, { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Container } from "../layouts/Container";
@@ -12,6 +12,7 @@ import { ListObjects } from "./objects/ListObjects";
 import { Light } from "./lights/Light";
 import { handleNewRoom } from "@/lib/functions";
 import { ListWindows } from "./windows/ListWindows";
+import { Shadows } from "./Shadows";
 
 export const Scene = () => {
   const update = useConfigurationStore((state) => state.update);
