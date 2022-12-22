@@ -10,13 +10,14 @@ export const Wall = ({ scale, transform }) => {
   const { translation, rotation } = getTransformData(transform);
 
   useEffect(() => {
+    console.log("wall");
     generateCornerPoint(scale, wallRef, addFloorpoints);
   }, [room]);
 
   return (
     <mesh position={translation} quaternion={rotation} ref={wallRef}>
       <boxGeometry args={[scale[0], scale[1], 0.01]} />
-      <meshStandardMaterial />
+      <meshStandardMaterial wireframe={true} />
     </mesh>
   );
 };
@@ -38,7 +39,6 @@ const getTransformData = (transform) => {
 
 const generateCornerPoint = (scale, wallRef, addFloorpoints) => {
   const matrix = wallRef.current.matrixWorld;
-  console.log(matrix);
   const vector1 = new Vector3(scale[0] / 2, -scale[1] / 2, 0);
   const vector2 = new Vector3(-scale[0] / 2, -scale[1] / 2, 0);
 
@@ -60,5 +60,5 @@ const generateCornerPoint = (scale, wallRef, addFloorpoints) => {
     );
   }
 
-  addFloorpoints([vector1, ...points, vector2]);
+  addFloorpoints([vector1, vector2]);
 };

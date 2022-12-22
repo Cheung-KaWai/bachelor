@@ -26,9 +26,9 @@ export const Scene = () => {
         <Center>
           <GroupWalls />
           <Environment preset="studio" ref={lightContext.envRef} />
-          <GroupWindows />
+          {/* <GroupWindows />
           <GroupDoors />
-          <GroupObjects />
+          <GroupObjects /> */}
         </Center>
         <Floor />
       </Canvas>

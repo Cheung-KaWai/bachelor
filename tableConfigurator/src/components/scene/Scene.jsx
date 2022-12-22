@@ -9,7 +9,10 @@ import { ListWalls } from "./walls/ListWalls";
 
 export const Scene = () => {
   const update = useConfigurationStore((state) => state.update);
+  const floorPoints = useConfigurationStore((state) => state.floorPoints);
+
   useEffect(() => {
+    update("floorPoints", []);
     generateRoom(update);
   }, []);
 
@@ -20,6 +23,12 @@ export const Scene = () => {
         <Center>
           <ListWalls />
         </Center>
+        {floorPoints.map((point) => (
+          <mesh position={[point.x, point.y, point.z]} scale={[0.2, 0.2, 0.2]}>
+            <boxGeometry />
+            <meshBasicMaterial color={"#f00"} />
+          </mesh>
+        ))}
       </Canvas>
     </Container>
   );

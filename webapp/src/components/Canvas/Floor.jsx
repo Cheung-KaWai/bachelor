@@ -7,6 +7,7 @@ import * as THREE from "three";
 import { findNearestIndex } from "../../js/functions";
 import { useTexture } from "@react-three/drei";
 import { Floor1 } from "../../js/textures";
+import { Euler } from "three";
 
 export const Floor = () => {
   const [orderedPoints, setOrderedPoints] = useState([]);
@@ -20,6 +21,7 @@ export const Floor = () => {
 
   useEffect(() => {
     if (context.cornerPoints.length !== 0 && context.amountPoints === context.cornerPoints.length) {
+      console.log("hieer");
       const elements = [...context.cornerPoints];
       const filterElements = elements.reduce((unique, o) => {
         if (!unique.some((obj) => obj.x == o.x && obj.y == o.y && obj.z == o.z)) {
