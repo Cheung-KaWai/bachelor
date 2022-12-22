@@ -11,7 +11,12 @@ export const useConfigurationStore = create((set) => ({
   addFloorpoints: (points) => set((state) => ({ floorPoints: [...state.floorPoints, ...points] })),
 }));
 
+export const useRoomConfiguration = create((set) => ({
+  floor: "hooverstone",
+}));
+
 // eslint-disable-next-line no-undef
 if (process.env.NODE_ENV === "development") {
   mountStoreDevtool("Store", useConfigurationStore);
+  mountStoreDevtool("Store2", useRoomConfiguration);
 }

@@ -1,4 +1,5 @@
-import { useConfigurationStore } from "@/store/data";
+import { FloorMaterial } from "@/js/textures";
+import { useConfigurationStore, useRoomConfiguration } from "@/store/data";
 import React, { useEffect, useRef, useState } from "react";
 import { Euler, MeshStandardMaterial, Shape } from "three";
 
@@ -12,6 +13,9 @@ export const Floor = () => {
   const height = useConfigurationStore((state) => state.floorHeight);
   const positionY = useConfigurationStore((state) => state.floorYPosition);
   const floorRef = useRef();
+  const currentFloor = useRoomConfiguration((state) => state.floor);
+  const maps = FloorMaterial();
+  const material = new MeshStandardMaterial(maps[currentFloor]);
 
   const [shape, setShape] = useState(new Shape());
   const [rotatie, setRotatie] = useState(null);
@@ -44,13 +48,7 @@ export const Floor = () => {
   }, [sortedPoints]);
   // return <>{sortedPoints.length !== 0 && generateFloor(floorPoints, offset, sortedPoints, rotation)}</>;
   return (
-    <mesh
-      position={[0, -height + positionY, 0]}
-      rotation={rotatie}
-      receiveShadow
-      material={new MeshStandardMaterial()}
-      ref={floorRef}
-    >
+    <mesh position={[0, -height + positionY, 0]} rotation={rotatie} receiveShadow material={material} ref={floorRef}>
       <shapeGeometry args={[shape]} />
     </mesh>
   );

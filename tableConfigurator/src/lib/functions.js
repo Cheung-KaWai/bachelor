@@ -31,10 +31,16 @@ export const handleNewRoom = async (id, update, getData) => {
   update("check", data.walls.length * 5);
 };
 
-export const fixtextures = (arrayTextures) => {
+export const fixtextures = (arrayTextures, repeat, rotate) => {
   arrayTextures.map((texture) => {
     texture.flipY = false;
-    texture.repeat.set(6.5, 6.5);
+    if (repeat) {
+      texture.repeat.set(repeat, repeat);
+    }
+    if (rotate) {
+      console.log("hello");
+      texture.rotation = rotate;
+    }
     texture.encoding = sRGBEncoding;
     texture.wrapS = RepeatWrapping;
     texture.wrapT = RepeatWrapping;
