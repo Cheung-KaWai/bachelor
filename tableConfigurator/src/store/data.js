@@ -13,6 +13,8 @@ export const useConfigurationStore = create((set) => ({
 
 export const useRoomConfiguration = create((set) => ({
   floor: "hooverstone",
+
+  update: (name, value) => set({ [name]: value }),
 }));
 
 // eslint-disable-next-line no-undef

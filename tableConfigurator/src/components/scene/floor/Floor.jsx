@@ -48,7 +48,14 @@ export const Floor = () => {
   }, [sortedPoints]);
   // return <>{sortedPoints.length !== 0 && generateFloor(floorPoints, offset, sortedPoints, rotation)}</>;
   return (
-    <mesh position={[0, -height + positionY, 0]} rotation={rotatie} receiveShadow material={material} ref={floorRef}>
+    <mesh
+      position={[0, -height + positionY, 0]}
+      rotation={rotatie}
+      receiveShadow
+      material={material}
+      ref={floorRef}
+      castShadow
+    >
       <shapeGeometry args={[shape]} />
     </mesh>
   );

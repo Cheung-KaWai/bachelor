@@ -26,76 +26,94 @@ export const WallMaterial = () => {
   const maps = {
     plaster: {
       map: plasterMap,
-      envMapIntensity: 2,
+      envMapIntensity: 2.5,
+      color: "#ddd",
       // normalMap: plasterNormal,
     },
   };
   return maps;
 };
 
-const floorData = [
+export const floorData = [
   {
     id: "hooverstone",
     map: "/assets/textures/floors/hooverstone/map.jpg",
+    normal: "/assets/textures/floors/hooverstone/normal.jpg",
+    roughness: "/assets/textures/floors/hooverstone/roughness.jpg",
   },
   {
     id: "nublo",
     map: "/assets/textures/floors/nublo/map.jpg",
+    normal: "/assets/textures/floors/nublo/normal.jpg",
+    roughness: "/assets/textures/floors/nublo/roughness.jpg",
   },
   {
     id: "shermanoak",
     map: "/assets/textures/floors/shermanoak/map.jpg",
+    normal: "/assets/textures/floors/shermanoak/normal.jpg",
+    roughness: "/assets/textures/floors/shermanoak/roughness.jpg",
   },
   {
     id: "volterra",
     map: "/assets/textures/floors/volterra/map.jpg",
+    normal: "/assets/textures/floors/volterra/normal.jpg",
+    roughness: "/assets/textures/floors/volterra/roughness.jpg",
   },
 ];
 
 export const FloorMaterial = () => {
   const mapData = floorData.map((floor) => floor.map);
-  // const normalData = floorData.map((floor) => floor.normal);
-  // const roughnessData = floorData.map((floor) => floor.roughness);
+  const normalData = floorData.map((floor) => floor.normal);
+  const roughnessData = floorData.map((floor) => floor.roughness);
 
   const mapTextures = useTexture(mapData);
-  // const normalTextures = useTexture(normalData);
-  // const roughnesstextures = useTexture(roughnessData);
+  const normalTextures = useTexture(normalData);
+  const roughnesstextures = useTexture(roughnessData);
+
   const rotation = useConfigurationStore((state) => state.floorRotation);
   if (rotation) {
     const rotatie = new Euler(0, 0, 0, "YXZ").setFromQuaternion(rotation);
     fixtextures(mapTextures, 0.3, rotatie.y);
+    fixtextures(normalTextures, 0.3, rotatie.y);
+    fixtextures(roughnesstextures, 0.3, rotatie.y);
   } else {
     fixtextures(mapTextures, 0.3);
+    fixtextures(normalTextures, 0.3);
+    fixtextures(roughnesstextures, 0.3);
   }
 
-  // fixtextures(normalTextures, 0.5, Math.Pi / 2);
-  // fixtextures(roughnesstextures, 0.4);
-
   const [hooverstoneMap, nubloMap, shermanoakMap, volterraMap] = mapTextures;
-  // const [concreteNormal, woodNormal] = normalTextures;
-  // const [concreteRoughness] = roughnesstextures;
+  const [hooverstoneNormal, nubloNormal, shermanoakNormal, volterraNormal] = normalTextures;
+  const [hooverstoneRoughness, nubloRoughness, shermanoakRoughness, volterraRoughness] = roughnesstextures;
 
   const maps = {
     hooverstone: {
       map: hooverstoneMap,
       envMapIntensity: 0.5,
-      // normalMap: concreteNormal,
-      // roughnessMap: concreteRoughness,
+      normalMap: hooverstoneNormal,
+      // roughnessMap: hooverstoneRoughness,
+      roughness: 2,
     },
     nublo: {
       map: nubloMap,
       envMapIntensity: 0.5,
-      // normalMap: woodNormal,
+      normalMap: nubloNormal,
+      // roughnessMap: nubloRoughness,
+      roughness: 2,
     },
     shermanoak: {
       map: shermanoakMap,
       envMapIntensity: 0.5,
-      // normalMap: woodNormal,
+      normalMap: shermanoakNormal,
+      // roughnessMap: shermanoakRoughness,
+      roughness: 2,
     },
     volterra: {
       map: volterraMap,
       envMapIntensity: 0.5,
-      // normalMap: woodNormal,
+      normalMap: volterraNormal,
+      // roughnessMap: volterraRoughness,
+      roughness: 2,
     },
   };
 

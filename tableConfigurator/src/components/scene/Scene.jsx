@@ -1,7 +1,7 @@
 import { getData } from "@/js/firebase";
 import { colors } from "@/js/theme";
 import { useConfigurationStore } from "@/store/data";
-import { Center, ContactShadows, Environment, OrbitControls } from "@react-three/drei";
+import { Center, ContactShadows, Environment, OrbitControls, Stage } from "@react-three/drei";
 import React, { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Container } from "../layouts/Container";
@@ -12,8 +12,6 @@ import { ListObjects } from "./objects/ListObjects";
 import { Light } from "./lights/Light";
 import { handleNewRoom } from "@/lib/functions";
 import { ListWindows } from "./windows/ListWindows";
-import { Shadows } from "./Shadows";
-
 export const Scene = () => {
   const update = useConfigurationStore((state) => state.update);
   useEffect(() => {
@@ -22,14 +20,13 @@ export const Scene = () => {
 
   return (
     <Container bgColor={colors.creme} width={"60vw"} height={"100vh"}>
-      <Canvas>
+      <Canvas shadows gl={{ physicallyCorrectLights: true, antialias: true }}>
         <OrbitControls position={[0, 20, 0]} makeDefault />
-        {/* <Light /> */}
         <Environment preset="city" />
         <ListWalls />
         {/* <ListDoors />
-        <ListObjects />
-        <ListWindows /> */}
+        <ListObjects /> */}
+        {/* <ListWindows /> */}
         <Floor />
       </Canvas>
     </Container>

@@ -8,5 +8,5 @@ export const Grid = ({ children, ...props }) => {
 const GridStyled = styled.div`
   display: grid;
   grid-template-columns: ${(props) => `repeat(${props.columns}, 1fr)`};
-  gap: 1rem;
+  gap: ${(props) => props.gap};
 `;
