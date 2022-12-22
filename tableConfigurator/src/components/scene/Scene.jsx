@@ -7,11 +7,11 @@ import { Canvas } from "@react-three/fiber";
 import { Container } from "../layouts/Container";
 import { ListWalls } from "./walls/ListWalls";
 import { Floor } from "./floor/Floor";
-import { Matrix4, Quaternion, Vector3 } from "three";
 import { ListDoors } from "./doors/ListDoors";
 import { ListObjects } from "./objects/ListObjects";
 import { Light } from "./lights/Light";
 import { handleNewRoom } from "@/lib/functions";
+import { ListWindows } from "./windows/ListWindows";
 
 export const Scene = () => {
   const update = useConfigurationStore((state) => state.update);
@@ -27,7 +27,7 @@ export const Scene = () => {
         <ListWalls />
         <ListDoors />
         <ListObjects />
-
+        <ListWindows />
         <Floor />
       </Canvas>
     </Container>
