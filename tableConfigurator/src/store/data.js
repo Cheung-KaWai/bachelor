@@ -6,6 +6,7 @@ export const useConfigurationStore = create((set) => ({
   floorPoints: [],
   sortedPoints: [],
   check: -1,
+  offset: -1,
   update: (name, value) => set({ [name]: value }),
   addFloorpoints: (points) => set((state) => ({ floorPoints: [...state.floorPoints, ...points] })),
 }));
