@@ -2,7 +2,7 @@ import { useConfigurationStore } from "@/store/data";
 import React, { useEffect, useRef } from "react";
 import { Matrix4, Quaternion, Vector3 } from "three";
 
-export const Wall = ({ scale, transform }) => {
+export const Wall = ({ scale, transform, material }) => {
   const wallRef = useRef();
   const room = useConfigurationStore((state) => state.room);
   const addFloorpoints = useConfigurationStore((state) => state.addFloorpoints);
@@ -16,9 +16,8 @@ export const Wall = ({ scale, transform }) => {
   }, [room]);
 
   return (
-    <mesh position={translation} quaternion={rotation} ref={wallRef}>
+    <mesh position={translation} quaternion={rotation} ref={wallRef} material={material}>
       <boxGeometry args={[scale[0], scale[1], 0.01]} />
-      <meshStandardMaterial wireframe={true} />
     </mesh>
   );
 };

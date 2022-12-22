@@ -25,9 +25,9 @@ export const Scene = () => {
         <OrbitControls position={[0, 20, 0]} makeDefault />
         <Light />
         <ListWalls />
-        <ListDoors />
+        {/* <ListDoors />
         <ListObjects />
-        <ListWindows />
+        <ListWindows /> */}
         <Floor />
       </Canvas>
     </Container>

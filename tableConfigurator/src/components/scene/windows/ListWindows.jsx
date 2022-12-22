@@ -1,6 +1,5 @@
 import { useConfigurationStore } from "@/store/data";
 import React from "react";
-import { Window } from "./Window";
 
 export const ListWindows = () => {
   const room = useConfigurationStore((state) => state.room);

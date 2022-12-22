@@ -1,4 +1,4 @@
-import { Matrix4, Quaternion, Vector3 } from "three";
+import { Matrix4, Quaternion, RepeatWrapping, sRGBEncoding, Vector3 } from "three";
 
 export const getTransformData = (transform) => {
   const matrix = new Matrix4();
@@ -29,4 +29,14 @@ export const handleNewRoom = async (id, update, getData) => {
   update("floorHeight", data.walls[0].dimensions[1] / 2);
   update("room", data);
   update("check", data.walls.length * 5);
+};
+
+export const fixtextures = (arrayTextures) => {
+  arrayTextures.map((texture) => {
+    texture.flipY = false;
+    texture.repeat.set(6.5, 6.5);
+    texture.encoding = sRGBEncoding;
+    texture.wrapS = RepeatWrapping;
+    texture.wrapT = RepeatWrapping;
+  });
 };
