@@ -3,7 +3,6 @@ import { Matrix4, Quaternion, Vector3 } from "three";
 
 export const Furniture = ({ scale, transform }) => {
   const { translation, rotation } = getTransformData(transform);
-
   return (
     <mesh position={translation} quaternion={rotation}>
       <boxGeometry args={scale} position={[0, 0, 0]} />

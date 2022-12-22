@@ -12,10 +12,6 @@ export const ListWalls = () => {
     update("floorPoints", []);
   }, [room]);
 
-  useEffect(() => {
-    console.log(wallsRef);
-  }, []);
-
   return (
     <group ref={wallsRef}>
       {room.walls?.map((wall, key) => (

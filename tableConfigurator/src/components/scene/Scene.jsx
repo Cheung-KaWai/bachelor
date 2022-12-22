@@ -48,6 +48,7 @@ const generateRoom = async (update) => {
   let rotation = new Quaternion();
   let scaleMatrix = new Vector3();
   matrix.transpose().decompose(translation, rotation, scaleMatrix);
+  console.log(translation);
   update("floorHeight", data.walls[0].dimensions[1] / 2);
   update("floorYPosition", translation.y);
   update("floorRotation", rotation);

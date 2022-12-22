@@ -14,7 +14,7 @@ export const Wall = ({ scale, transform }) => {
       generateCornerPoint(scale, wallRef, addFloorpoints);
     }, 50);
   }, [room]);
-  console.log(translation);
+
   return (
     <mesh position={translation} quaternion={rotation} ref={wallRef}>
       <boxGeometry args={[scale[0], scale[1], 0.01]} />
