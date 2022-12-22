@@ -1,5 +1,5 @@
 import { useConfigurationStore } from "@/store/data";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Euler, MeshStandardMaterial, Shape } from "three";
 
 export const Floor = () => {
@@ -9,6 +9,11 @@ export const Floor = () => {
   const sortedPoints = useConfigurationStore((state) => state.sortedPoints);
   const offset = useConfigurationStore((state) => state.offset);
   const rotation = useConfigurationStore((state) => state.floorRotation);
+  const height = useConfigurationStore((state) => state.floorHeight);
+  console.log(height);
+
+  const [shape, setShape] = useState(new Shape());
+  const [rotatie, setRotatie] = useState(null);
 
   useEffect(() => {
     if (floorPoints.length === check) {
@@ -33,10 +38,19 @@ export const Floor = () => {
     }
   }, [floorPoints]);
 
-  return <>{sortedPoints.length !== 0 && generateFloor(floorPoints, offset, sortedPoints, rotation)}</>;
+  useEffect(() => {
+    generateFloor(floorPoints, offset, sortedPoints, rotation, setShape, setRotatie);
+  }, [sortedPoints]);
+
+  // return <>{sortedPoints.length !== 0 && generateFloor(floorPoints, offset, sortedPoints, rotation)}</>;
+  return (
+    <mesh position={[0, -height, 0]} rotation={rotatie} receiveShadow material={new MeshStandardMaterial()}>
+      <shapeGeometry args={[shape]} />
+    </mesh>
+  );
 };
 
-const generateFloor = (floorPoints, offset, sortedPoints, rotation) => {
+const generateFloor = (floorPoints, offset, sortedPoints, rotation, setShape, setRotatie) => {
   if (floorPoints.length - offset !== sortedPoints.length) return;
   const shapes = new Shape();
 
@@ -52,13 +66,9 @@ const generateFloor = (floorPoints, offset, sortedPoints, rotation) => {
 
   const rotatie = new Euler(0, 0, 0, "YXZ").setFromQuaternion(rotation);
   rotatie.set(-Math.PI / 2, -Math.PI / 2, 0);
-  return (
-    <>
-      <mesh position={[0, 0, 0]} rotation={rotatie} receiveShadow material={new MeshStandardMaterial()}>
-        <shapeGeometry args={[shapes]} />
-      </mesh>
-    </>
-  );
+
+  setShape(shapes);
+  setRotatie(rotatie);
 };
 
 const findNearestIndex = (point, listPoints) => {

@@ -16,7 +16,7 @@ export const Wall = ({ scale, transform }) => {
   }, [room]);
 
   return (
-    <mesh position={translation} quaternion={rotation} ref={wallRef}>
+    <mesh position={[translation.x, 0, translation.z]} quaternion={rotation} ref={wallRef}>
       <boxGeometry args={[scale[0], scale[1], 0.01]} />
       <meshStandardMaterial wireframe={true} />
     </mesh>

@@ -20,7 +20,7 @@ export const Configurator = () => {
     matrix.transpose().decompose(translation, rotation, scaleMatrix);
 
     update("floorRotation", rotation);
-
+    update("floorHeight", data.walls[0].dimensions[1] / 2);
     update("room", data);
     update("check", data.walls.length * 5);
   };

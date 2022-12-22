@@ -10,10 +10,10 @@ export const ListWalls = () => {
   }, [room]);
 
   return (
-    <>
+    <group position={[0, 0, 0]}>
       {room.walls?.map((wall, key) => (
         <Wall key={key} scale={wall.dimensions} transform={wall.transform} />
       ))}
-    </>
+    </group>
   );
 };

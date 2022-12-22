@@ -45,6 +45,7 @@ const generateRoom = async (update) => {
   let scaleMatrix = new Vector3();
   matrix.transpose().decompose(translation, rotation, scaleMatrix);
 
+  update("floorHeight", data.walls[0].dimensions[1] / 2);
   update("floorRotation", rotation);
   update("room", data);
   update("check", data.walls.length * 5);
