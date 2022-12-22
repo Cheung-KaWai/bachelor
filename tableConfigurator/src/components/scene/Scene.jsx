@@ -8,6 +8,8 @@ import { Container } from "../layouts/Container";
 import { ListWalls } from "./walls/ListWalls";
 import { Floor } from "./floor/Floor";
 import { Matrix4, Quaternion, Vector3 } from "three";
+import { ListDoors } from "./doors/ListDoors";
+import { ListObjects } from "./objects/ListObjects";
 
 export const Scene = () => {
   const update = useConfigurationStore((state) => state.update);
@@ -22,12 +24,14 @@ export const Scene = () => {
       <Canvas>
         <OrbitControls position={[0, 20, 0]} makeDefault />
         <ListWalls />
-        {sortedPoints.map((point, index) => (
+        <ListDoors />
+        <ListObjects />
+        {/* {sortedPoints.map((point, index) => (
           <mesh position={[point.x, point.y, point.z]} scale={[0.2, 0.2, 0.2]} key={index}>
             <boxGeometry />
             <meshBasicMaterial color={selected === index ? "#f00" : "#0f0"} />
           </mesh>
-        ))}
+        ))} */}
         <Floor />
       </Canvas>
     </Container>
@@ -44,8 +48,8 @@ const generateRoom = async (update) => {
   let rotation = new Quaternion();
   let scaleMatrix = new Vector3();
   matrix.transpose().decompose(translation, rotation, scaleMatrix);
-
   update("floorHeight", data.walls[0].dimensions[1] / 2);
+  update("floorYPosition", translation.y);
   update("floorRotation", rotation);
   update("room", data);
   update("check", data.walls.length * 5);

@@ -29,6 +29,7 @@ export const Configurator = () => {
     <Container bgColor={colors.veryLightCreme} width={"40vw"} height={"100vh"}>
       <button onClick={() => handleNewRoom("wCCz3UBJxB5lqnqousUo")}>Option 1</button>
       <button onClick={() => handleNewRoom("8Z6cYjUgFUDDcyzZRC9H")}>Option 2</button>
+      <button onClick={() => handleNewRoom("sPLVGijQneEq4JyCaqGB")}>Option 3</button>
     </Container>
   );
 };

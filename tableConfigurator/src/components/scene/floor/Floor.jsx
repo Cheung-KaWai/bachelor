@@ -10,7 +10,7 @@ export const Floor = () => {
   const offset = useConfigurationStore((state) => state.offset);
   const rotation = useConfigurationStore((state) => state.floorRotation);
   const height = useConfigurationStore((state) => state.floorHeight);
-  console.log(height);
+  const positionY = useConfigurationStore((state) => state.floorYPosition);
 
   const [shape, setShape] = useState(new Shape());
   const [rotatie, setRotatie] = useState(null);
@@ -44,7 +44,7 @@ export const Floor = () => {
 
   // return <>{sortedPoints.length !== 0 && generateFloor(floorPoints, offset, sortedPoints, rotation)}</>;
   return (
-    <mesh position={[0, -height, 0]} rotation={rotatie} receiveShadow material={new MeshStandardMaterial()}>
+    <mesh position={[0, positionY, 0]} rotation={rotatie} receiveShadow material={new MeshStandardMaterial()}>
       <shapeGeometry args={[shape]} />
     </mesh>
   );
