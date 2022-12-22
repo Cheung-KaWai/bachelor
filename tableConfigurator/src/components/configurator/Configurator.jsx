@@ -8,7 +8,7 @@ import { Preset } from "./Preset";
 
 export const Configurator = () => {
   return (
-    <Container bgColor={colors.veryLightCreme} width={"40vw"} height={"100vh"} padding={"2rem"}>
+    <Container bgColor={colors.veryLightCreme} width={"40vw"} height={"100vh"} padding={"2rem 4rem"}>
       <Preset />
       <FloorOptions />
     </Container>

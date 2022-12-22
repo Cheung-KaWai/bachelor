@@ -14,7 +14,11 @@ export const Preset = () => {
 
   return (
     <Container padding={"2rem 0"}>
-      <Label text={"Preset Rooms"} size={"1.5rem"} weight={500} color={colors.charcoal} margin={"0 0 1rem 0 "} />
+      <GenerateContainer>
+        <InputField />
+        <GenerateButton>Generate</GenerateButton>
+      </GenerateContainer>
+      <Label text={"Preset Rooms"} size={"1.5rem"} weight={500} color={colors.charcoal} margin={"0 0 0.5rem 0 "} />
       <Flex gap={"1.5rem"} margin={"0 0 2rem 0"}>
         <PresetButton
           onClick={() => {
@@ -48,6 +52,36 @@ export const Preset = () => {
   );
 };
 
+const GenerateContainer = styled.div`
+  display: flex;
+  width: 60vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 0.5rem;
+`;
+
+const InputField = styled.input`
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 3rem;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  padding: 0 1rem;
+`;
+
+const GenerateButton = styled.button`
+  height: 3rem;
+  background-color: #fff;
+  color: ${colors.charcoal};
+  padding: 0 1.5rem;
+  font-size: 1.3rem;
+  border-radius: 3px;
+  outline: 1px solid rgba(0, 0, 0, 0.2);
+`;
+
 const PresetButton = styled.button`
   padding: 1rem 0;
   flex: 1;
@@ -58,6 +92,5 @@ const PresetButton = styled.button`
   background-color: ${(props) => (props.selected ? "#fff" : colors.lightCreme)};
   transition: transform 0.3s ease-out;
   transform: ${(props) => (props.selected ? "scale(1.05)" : null)};
-  outline: 1px solid ${(props) => (props.selected ? colors.creme : "transparant")};
-  box-shadow: ${(props) => (props.selected ? "0px 3px 5px 1px rgb(0, 0, 0 , 5%)" : null)};
+  outline: 1px solid ${(props) => (props.selected ? "rgba(0, 0, 0, 0.2)" : "transparant")};
 `;
