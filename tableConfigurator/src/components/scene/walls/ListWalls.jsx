@@ -6,7 +6,6 @@ export const ListWalls = () => {
   const room = useConfigurationStore((state) => state.room);
   const update = useConfigurationStore((state) => state.update);
   useEffect(() => {
-    console.log("listwall");
     update("floorPoints", []);
   }, [room]);
 

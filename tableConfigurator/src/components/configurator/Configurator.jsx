@@ -10,7 +10,7 @@ export const Configurator = () => {
   const handleNewRoom = async (id) => {
     const data = await getData(id);
     update("room", data);
-    console.log("yeah");
+    update("check", data.walls.length * 5);
   };
 
   return (

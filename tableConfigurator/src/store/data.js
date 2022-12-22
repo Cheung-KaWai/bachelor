@@ -4,6 +4,8 @@ import { mountStoreDevtool } from "simple-zustand-devtools";
 export const useConfigurationStore = create((set) => ({
   room: {},
   floorPoints: [],
+  sortedPoints: [],
+  check: -1,
   update: (name, value) => set({ [name]: value }),
   addFloorpoints: (points) => set((state) => ({ floorPoints: [...state.floorPoints, ...points] })),
 }));
