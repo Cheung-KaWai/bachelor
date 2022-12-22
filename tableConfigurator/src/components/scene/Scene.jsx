@@ -12,17 +12,14 @@ export const Scene = () => {
   const floorPoints = useConfigurationStore((state) => state.floorPoints);
 
   useEffect(() => {
-    update("floorPoints", []);
     generateRoom(update);
   }, []);
 
   return (
     <Container bgColor={colors.creme} width={"60vw"} height={"100vh"}>
       <Canvas>
-        <OrbitControls />
-        <Center>
-          <ListWalls />
-        </Center>
+        <OrbitControls position={[0, 20, 0]} makeDefault />
+        <ListWalls />
         {floorPoints.map((point) => (
           <mesh position={[point.x, point.y, point.z]} scale={[0.2, 0.2, 0.2]}>
             <boxGeometry />

@@ -1,9 +1,14 @@
 import { useConfigurationStore } from "@/store/data";
-import React from "react";
+import React, { useEffect } from "react";
 import { Wall } from "./Wall";
 
 export const ListWalls = () => {
   const room = useConfigurationStore((state) => state.room);
+  const update = useConfigurationStore((state) => state.update);
+  useEffect(() => {
+    console.log("listwall");
+    update("floorPoints", []);
+  }, [room]);
 
   return (
     <>
