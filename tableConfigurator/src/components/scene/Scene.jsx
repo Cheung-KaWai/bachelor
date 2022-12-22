@@ -10,6 +10,7 @@ import { Floor } from "./floor/Floor";
 import { Matrix4, Quaternion, Vector3 } from "three";
 import { ListDoors } from "./doors/ListDoors";
 import { ListObjects } from "./objects/ListObjects";
+import { Light } from "./lights/Light";
 
 export const Scene = () => {
   const update = useConfigurationStore((state) => state.update);
@@ -23,6 +24,7 @@ export const Scene = () => {
     <Container bgColor={colors.creme} width={"60vw"} height={"100vh"}>
       <Canvas>
         <OrbitControls position={[0, 20, 0]} makeDefault />
+        <Light />
         <ListWalls />
         <ListDoors />
         <ListObjects />
