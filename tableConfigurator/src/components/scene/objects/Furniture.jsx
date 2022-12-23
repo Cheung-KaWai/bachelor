@@ -6,7 +6,7 @@ export const Furniture = ({ scale, transform }) => {
   return (
     <mesh position={translation} quaternion={rotation}>
       <boxGeometry args={scale} position={[0, 0, 0]} />
-      <meshStandardMaterial wireframe={true} />
+      <meshStandardMaterial />
     </mesh>
   );
 };
