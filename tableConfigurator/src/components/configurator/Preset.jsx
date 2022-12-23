@@ -91,6 +91,5 @@ const PresetButton = styled.button`
   color: ${colors.charcoal};
   background-color: ${(props) => (props.selected ? "#fff" : colors.lightCreme)};
   transition: transform 0.3s ease-out;
-  transform: ${(props) => (props.selected ? "scale(1.05)" : null)};
   outline: 1px solid ${(props) => (props.selected ? "rgba(0, 0, 0, 0.2)" : "transparant")};
 `;

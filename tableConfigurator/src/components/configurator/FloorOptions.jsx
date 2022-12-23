@@ -13,7 +13,7 @@ export const FloorOptions = () => {
   return (
     <>
       <Label text={"Floor Material"} size={"1.5rem"} weight={500} color={colors.charcoal} margin={"0 0 0.5rem 0 "} />
-      <Grid columns={4} gap={"1rem"}>
+      <Grid columns={4} gap={"1rem"} margin={"0 0 4rem 0"}>
         {floorData.map((floor, key) => (
           <ImageButton onClick={() => update("floor", floor.id)} key={key} selected={currentFloor === floor.id}>
             <Image src={floor.map} />

@@ -13,7 +13,7 @@ export const useConfigurationStore = create((set) => ({
 
 export const useRoomConfiguration = create((set) => ({
   floor: "hooverstone",
-
+  wall: "#fff",
   update: (name, value) => set({ [name]: value }),
 }));
 

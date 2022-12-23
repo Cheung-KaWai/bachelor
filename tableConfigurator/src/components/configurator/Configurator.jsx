@@ -5,12 +5,14 @@ import React from "react";
 import { Container } from "../layouts/Container";
 import { FloorOptions } from "./FloorOptions";
 import { Preset } from "./Preset";
+import { WallColorOptions } from "./WallColorOptions";
 
 export const Configurator = () => {
   return (
     <Container bgColor={colors.veryLightCreme} width={"40vw"} height={"100vh"} padding={"2rem 4rem"}>
       <Preset />
       <FloorOptions />
+      <WallColorOptions />
     </Container>
   );
 };

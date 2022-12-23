@@ -1,5 +1,5 @@
 import { fixtextures } from "@/lib/functions";
-import { useConfigurationStore } from "@/store/data";
+import { useConfigurationStore, useRoomConfiguration } from "@/store/data";
 import { useTexture } from "@react-three/drei";
 import { Euler } from "three";
 
@@ -15,7 +15,7 @@ const wallsData = [
 export const WallMaterial = () => {
   const mapData = wallsData.map((wall) => wall.map);
   const normalData = wallsData.map((wall) => wall.normal);
-
+  const color = useRoomConfiguration((state) => state.wall);
   const mapTextures = useTexture(mapData);
   const normalTextures = useTexture(normalData);
   fixtextures(mapTextures, 6);
@@ -26,9 +26,8 @@ export const WallMaterial = () => {
   const maps = {
     plaster: {
       map: plasterMap,
-      envMapIntensity: 2.5,
-      color: "#ddd",
-      // normalMap: plasterNormal,
+      envMapIntensity: 2.8,
+      color: color,
     },
   };
   return maps;
