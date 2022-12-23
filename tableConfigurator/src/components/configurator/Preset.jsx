@@ -11,13 +11,20 @@ import { Label } from "../ui/Label";
 export const Preset = () => {
   const update = useConfigurationStore((state) => state.update);
   const [selected, setSelected] = useState(0);
+  const [room, setRoom] = useState("");
 
   return (
     <Container padding={"2rem 0"}>
       <Label text={"Your Rooms"} size={"1.5rem"} weight={500} color={colors.charcoal} margin={"0 0 0.5rem 0 "} />
       <GenerateContainer>
-        <InputField placeholder="Enter your room id" />
-        <GenerateButton>Generate</GenerateButton>
+        <InputField placeholder="Enter your room id" value={room} onChange={(ev) => setRoom(ev.target.value)} />
+        <GenerateButton
+          onClick={() => {
+            handleNewRoom(room, update, getData);
+          }}
+        >
+          Generate
+        </GenerateButton>
       </GenerateContainer>
       <Label text={"Preset Rooms"} size={"1.5rem"} weight={500} color={colors.charcoal} margin={"0 0 0.5rem 0 "} />
       <Flex gap={".5rem"} margin={"0 0 2rem 0"}>

@@ -16,4 +16,4 @@ export function Glass(props) {
   );
 }
 
-useGLTF.preload("/Glass.glb");
+useGLTF.preload("/assets/glb/Glass.glb");

@@ -14,6 +14,7 @@ export const Floor = () => {
   const positionY = useConfigurationStore((state) => state.floorYPosition);
   const floorRef = useRef();
   const currentFloor = useRoomConfiguration((state) => state.floor);
+  const showFloor = useRoomConfiguration((state) => state.showFloor);
   const maps = FloorMaterial();
   const material = new MeshStandardMaterial(maps[currentFloor]);
 
@@ -55,6 +56,7 @@ export const Floor = () => {
       material={material}
       ref={floorRef}
       castShadow
+      visible={showFloor}
     >
       <shapeGeometry args={[shape]} />
     </mesh>

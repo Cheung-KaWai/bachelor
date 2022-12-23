@@ -12,6 +12,7 @@ export const RoomOptions = () => {
   const windows = useRoomConfiguration((state) => state.showWindows);
   const objects = useRoomConfiguration((state) => state.showObjects);
   const openings = useRoomConfiguration((state) => state.showOpenings);
+  const floor = useRoomConfiguration((state) => state.showFloor);
 
   return (
     <>
@@ -31,6 +32,9 @@ export const RoomOptions = () => {
         </PresetButton>
         <PresetButton onClick={() => update("showOpenings", !openings)} selected={openings}>
           Openings
+        </PresetButton>
+        <PresetButton onClick={() => update("showFloor", !floor)} selected={floor}>
+          Floor
         </PresetButton>
       </Flex>
     </>

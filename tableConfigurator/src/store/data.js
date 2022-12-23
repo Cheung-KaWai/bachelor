@@ -19,6 +19,7 @@ export const useRoomConfiguration = create((set) => ({
   showWindows: true,
   showObjects: false,
   showOpenings: false,
+  showFloor: true,
   update: (name, value) => set({ [name]: value }),
 }));
 
