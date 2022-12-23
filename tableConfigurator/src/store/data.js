@@ -14,6 +14,11 @@ export const useConfigurationStore = create((set) => ({
 export const useRoomConfiguration = create((set) => ({
   floor: "hooverstone",
   wall: "#fff",
+  showWalls: true,
+  showDoors: true,
+  showWindows: true,
+  showObjects: false,
+  showOpenings: false,
   update: (name, value) => set({ [name]: value }),
 }));
 

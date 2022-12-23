@@ -14,8 +14,9 @@ export const Preset = () => {
 
   return (
     <Container padding={"2rem 0"}>
+      <Label text={"Your Rooms"} size={"1.5rem"} weight={500} color={colors.charcoal} margin={"0 0 0.5rem 0 "} />
       <GenerateContainer>
-        <InputField />
+        <InputField placeholder="Enter your room id" />
         <GenerateButton>Generate</GenerateButton>
       </GenerateContainer>
       <Label text={"Preset Rooms"} size={"1.5rem"} weight={500} color={colors.charcoal} margin={"0 0 0.5rem 0 "} />
@@ -54,26 +55,25 @@ export const Preset = () => {
 
 const GenerateContainer = styled.div`
   display: flex;
-  width: 60vw;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
   gap: 0.5rem;
+  margin-bottom: 4rem;
 `;
 
 const InputField = styled.input`
   border: 1px solid rgba(0, 0, 0, 0.2);
-  height: 3rem;
+  height: 4rem;
   border-radius: 3px;
   font-size: 1.2rem;
   padding: 0 1rem;
+  width: 70%;
 `;
 
 const GenerateButton = styled.button`
-  height: 3rem;
+  height: 4rem;
+  width: 30%;
+  text-align: center;
   background-color: #fff;
   color: ${colors.charcoal};
   padding: 0 1.5rem;

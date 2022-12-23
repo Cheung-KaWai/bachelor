@@ -15,7 +15,7 @@ export const WallColorOptions = () => {
   return (
     <>
       <Label text={"Wall Color"} size={"1.5rem"} weight={500} color={colors.charcoal} margin={"0 0 0.5rem 0 "} />
-      <Grid columns={4} gap={"1rem"}>
+      <Grid columns={4} gap={"1rem"} margin={"0 0 4rem 0 "}>
         <ColorButton onClick={() => handleWallColor("#2B2D42")} selected={wallColor === "#2B2D42"}>
           <ColorOption color={"#2B2D42"} />
         </ColorButton>
