@@ -20,7 +20,7 @@ export const Preset = () => {
         <GenerateButton>Generate</GenerateButton>
       </GenerateContainer>
       <Label text={"Preset Rooms"} size={"1.5rem"} weight={500} color={colors.charcoal} margin={"0 0 0.5rem 0 "} />
-      <Flex gap={"1.5rem"} margin={"0 0 2rem 0"}>
+      <Flex gap={".5rem"} margin={"0 0 2rem 0"}>
         <PresetButton
           onClick={() => {
             handleNewRoom("wCCz3UBJxB5lqnqousUo", update, getData);

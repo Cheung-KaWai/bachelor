@@ -1,7 +1,7 @@
 import { fixtextures } from "@/lib/functions";
 import { useConfigurationStore, useRoomConfiguration } from "@/store/data";
 import { useTexture } from "@react-three/drei";
-import { Euler } from "three";
+import { DoubleSide, Euler } from "three";
 
 const wallsData = [
   {
@@ -92,6 +92,7 @@ export const FloorMaterial = () => {
       normalMap: hooverstoneNormal,
       // roughnessMap: hooverstoneRoughness,
       roughness: 2,
+      side: DoubleSide,
     },
     nublo: {
       map: nubloMap,
@@ -99,6 +100,7 @@ export const FloorMaterial = () => {
       normalMap: nubloNormal,
       // roughnessMap: nubloRoughness,
       roughness: 2,
+      side: DoubleSide,
     },
     shermanoak: {
       map: shermanoakMap,
@@ -106,6 +108,7 @@ export const FloorMaterial = () => {
       normalMap: shermanoakNormal,
       // roughnessMap: shermanoakRoughness,
       roughness: 2,
+      side: DoubleSide,
     },
     volterra: {
       map: volterraMap,
@@ -113,6 +116,7 @@ export const FloorMaterial = () => {
       normalMap: volterraNormal,
       // roughnessMap: volterraRoughness,
       roughness: 2,
+      side: DoubleSide,
     },
   };
 

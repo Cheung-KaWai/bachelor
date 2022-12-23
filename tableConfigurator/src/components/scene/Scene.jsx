@@ -12,6 +12,7 @@ import { ListObjects } from "./objects/ListObjects";
 import { Light } from "./lights/Light";
 import { handleNewRoom } from "@/lib/functions";
 import { ListWindows } from "./windows/ListWindows";
+import { Controls } from "./Controls";
 export const Scene = () => {
   const update = useConfigurationStore((state) => state.update);
   useEffect(() => {
@@ -21,7 +22,7 @@ export const Scene = () => {
   return (
     <Container bgColor={colors.creme} width={"60vw"} height={"100vh"}>
       <Canvas shadows gl={{ physicallyCorrectLights: true, antialias: true }}>
-        <OrbitControls position={[0, 20, 0]} makeDefault />
+        <Controls />
         <Environment preset="city" />
         <ListWalls />
         <ListDoors />
