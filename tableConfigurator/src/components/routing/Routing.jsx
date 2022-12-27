@@ -2,6 +2,7 @@ import React from "react";
 import { Home } from "../../pages/Home";
 import { Landing } from "../../pages/Landing";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Login } from "../../pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -9,8 +10,12 @@ const router = createBrowserRouter([
     element: <Landing />,
   },
   {
-    path: "/:id",
+    path: "/home",
     element: <Home />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 

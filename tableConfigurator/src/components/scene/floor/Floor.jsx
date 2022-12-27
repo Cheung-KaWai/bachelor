@@ -1,7 +1,7 @@
-import { FloorMaterial } from "@/js/textures";
+import { FloorMaterial, WallMaterial } from "@/js/textures";
 import { useConfigurationStore, useRoomConfiguration } from "@/store/data";
 import React, { useEffect, useRef, useState } from "react";
-import { Euler, MeshStandardMaterial, Shape } from "three";
+import { BackSide, Euler, MeshStandardMaterial, Shape } from "three";
 
 export const Floor = () => {
   const floorPoints = useConfigurationStore((state) => state.floorPoints);
@@ -17,6 +17,9 @@ export const Floor = () => {
   const showFloor = useRoomConfiguration((state) => state.showFloor);
   const maps = FloorMaterial();
   const material = new MeshStandardMaterial(maps[currentFloor]);
+
+  const maps2 = WallMaterial();
+  const material2 = new MeshStandardMaterial({ ...maps2.plaster, side: BackSide });
 
   const [shape, setShape] = useState(new Shape());
   const [rotatie, setRotatie] = useState(null);
@@ -49,17 +52,29 @@ export const Floor = () => {
   }, [sortedPoints]);
   // return <>{sortedPoints.length !== 0 && generateFloor(floorPoints, offset, sortedPoints, rotation)}</>;
   return (
-    <mesh
-      position={[0, -height + positionY, 0]}
-      rotation={rotatie}
-      receiveShadow
-      material={material}
-      ref={floorRef}
-      castShadow
-      visible={showFloor}
-    >
-      <shapeGeometry args={[shape]} />
-    </mesh>
+    <>
+      <mesh
+        position={[0, -height + positionY, 0]}
+        rotation={rotatie}
+        receiveShadow
+        material={material}
+        ref={floorRef}
+        castShadow
+        visible={showFloor}
+      >
+        <shapeGeometry args={[shape]} />
+      </mesh>
+      {/* <mesh
+        position={[0, height + positionY, 0]}
+        rotation={rotatie}
+        receiveShadow
+        material={material2}
+        castShadow
+        visible={showFloor}
+      >
+        <shapeGeometry args={[shape]} />
+      </mesh> */}
+    </>
   );
 };
 

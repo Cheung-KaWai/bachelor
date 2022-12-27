@@ -15,4 +15,6 @@ const Container = styled.div`
   overflow-x: ${(props) => props.overflowX};
   margin: ${(props) => props.margin ?? 0};
   padding: ${(props) => props.padding};
+  height: ${(props) => props.height};
+  width: ${(props) => props.width};
 `;
