@@ -72,18 +72,24 @@ export const FloorMaterial = () => {
   const rotation = useConfigurationStore((state) => state.floorRotation);
   if (rotation) {
     const rotatie = new Euler(0, 0, 0, "YXZ").setFromQuaternion(rotation);
-    fixtextures(mapTextures, 0.3, rotatie.y);
-    fixtextures(normalTextures, 0.3, rotatie.y);
-    fixtextures(roughnesstextures, 0.3, rotatie.y);
+    fixtextures(mapTextures, 0.45, rotatie.y);
+    fixtextures(normalTextures, 0.45, rotatie.y);
+    fixtextures(roughnesstextures, 0.45, rotatie.y);
   } else {
-    fixtextures(mapTextures, 0.3);
-    fixtextures(normalTextures, 0.3);
-    fixtextures(roughnesstextures, 0.3);
+    fixtextures(mapTextures, 0.45);
+    fixtextures(normalTextures, 0.45);
+    fixtextures(roughnesstextures, 0.45);
   }
 
   const [hooverstoneMap, nubloMap, shermanoakMap, volterraMap] = mapTextures;
-  const [hooverstoneNormal, nubloNormal, shermanoakNormal, volterraNormal] = normalTextures;
-  const [hooverstoneRoughness, nubloRoughness, shermanoakRoughness, volterraRoughness] = roughnesstextures;
+  const [hooverstoneNormal, nubloNormal, shermanoakNormal, volterraNormal] =
+    normalTextures;
+  const [
+    hooverstoneRoughness,
+    nubloRoughness,
+    shermanoakRoughness,
+    volterraRoughness,
+  ] = roughnesstextures;
 
   const maps = {
     hooverstone: {
