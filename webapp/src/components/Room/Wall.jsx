@@ -29,29 +29,32 @@ export const Wall = ({ scale, transform }) => {
   ];
 
   useEffect(() => {
-    const matrix = boxRef.current.matrixWorld;
-    const vector1 = new Vector3(scale[0] / 2, -scale[1] / 2, 0);
-    const vector2 = new Vector3(-scale[0] / 2, -scale[1] / 2, 0);
+    setTimeout(() => {
+      const matrix = boxRef.current.matrixWorld;
+      // const vector1 = new Vector3(scale[0] / 2, -scale[1] / 2, 0);
+      // const vector2 = new Vector3(-scale[0] / 2, -scale[1] / 2, 0);
+      const vector1 = new Vector3(0, 0, 0);
+      const vector2 = new Vector3(0, 0, 0);
 
-    vector1.applyMatrix4(matrix);
-    vector2.applyMatrix4(matrix);
-    vector1.set(vector1.x.toFixed(2), vector1.y.toFixed(2), vector1.z.toFixed(2));
-    vector2.set(vector2.x.toFixed(2), vector2.y.toFixed(2), vector2.z.toFixed(2));
-    // const vector3 = new Vector3(...vClone1.sub(vClone2));
-    const points = [];
-    const difX = parseFloat(vector2.x) - parseFloat(vector1.x);
-    const difZ = parseFloat(vector2.z) - parseFloat(vector1.z);
+      vector1.applyMatrix4(matrix);
+      vector2.applyMatrix4(matrix);
+      vector1.set(vector1.x.toFixed(2), vector1.y.toFixed(2), vector1.z.toFixed(2));
+      vector2.set(vector2.x.toFixed(2), vector2.y.toFixed(2), vector2.z.toFixed(2));
+      // const vector3 = new Vector3(...vClone1.sub(vClone2));
+      const points = [];
+      const difX = parseFloat(vector2.x) - parseFloat(vector1.x);
+      const difZ = parseFloat(vector2.z) - parseFloat(vector1.z);
 
-    const pointsNumbers = 3;
-    const intervalX = difX / (pointsNumbers + 1);
-    const intervalZ = difZ / (pointsNumbers + 1);
-    for (let i = 1; i <= pointsNumbers; i++) {
-      points.push(
-        new Vector3(parseFloat(vector1.x) + intervalX * i, parseFloat(vector1.y), parseFloat(vector1.z) + intervalZ * i)
-      );
-    }
-
-    context.setCornerPoints((prev) => [...prev, vector1, ...points, vector2]);
+      // const pointsNumbers = 3;
+      // const intervalX = difX / (pointsNumbers + 1);
+      // const intervalZ = difZ / (pointsNumbers + 1);
+      // for (let i = 1; i <= pointsNumbers; i++) {
+      //   points.push(
+      //     new Vector3(parseFloat(vector1.x) + intervalX * i, parseFloat(vector1.y), parseFloat(vector1.z) + intervalZ * i)
+      //   );
+      // }
+      context.setCornerPoints((prev) => [...prev, vector1, vector2]);
+    }, 300);
   }, [context.roomData]);
 
   return (
@@ -65,7 +68,7 @@ export const Wall = ({ scale, transform }) => {
         visible={context.showWalls}
       >
         <boxGeometry args={[scale[0], scale[1], 0.01]} />
-        <meshStandardMaterial envMapIntensity={0.1} />
+        <meshStandardMaterial envMapIntensity={0.1} wireframe={true} />
       </mesh>
     </>
   );

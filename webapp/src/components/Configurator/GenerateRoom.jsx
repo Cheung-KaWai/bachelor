@@ -20,7 +20,7 @@ export const GenerateRoom = () => {
   const handlePreset = async (ev) => {
     const data = await getData(ev.target.dataset.id);
     // data.walls.length * 5
-    context.setAmountPoints(data.walls.length * 5);
+    context.setAmountPoints(data.walls.length * 2);
     context.setCornerPoints([]);
     context.setRoomData(data);
     context.setRerender((prev) => !prev);
@@ -49,7 +49,7 @@ export const GenerateRoom = () => {
       context.setCornerPoints([]);
       context.setRoomData(data);
       context.setRerender((prev) => !prev);
-      context.setAmountPoints(data.walls.length * 5);
+      context.setAmountPoints(data.walls.length * 2);
 
       const transform = data.walls[0].transform;
       const matrix = new THREE.Matrix4();
@@ -98,24 +98,23 @@ export const GenerateRoom = () => {
         </RoomSettingsContainer>
         <Label>Preset Rooms</Label>
         <RoomsContainer>
-          <ImageContainer>
-            <ImageRoom
-              src={preset1}
-              data-id="wCCz3UBJxB5lqnqousUo"
-              onClick={(ev) => {
-                handlePreset(ev);
-              }}
-            />
-          </ImageContainer>
-          <ImageContainer>
-            <ImageRoom
-              src={preset2}
-              data-id="8Z6cYjUgFUDDcyzZRC9H"
-              onClick={(ev) => {
-                handlePreset(ev);
-              }}
-            />
-          </ImageContainer>
+          <Preset
+            data-id="wCCz3UBJxB5lqnqousUo"
+            onClick={(ev) => {
+              handlePreset(ev);
+            }}
+          >
+            Preset 1
+          </Preset>
+
+          <Preset
+            data-id="8Z6cYjUgFUDDcyzZRC9H"
+            onClick={(ev) => {
+              handlePreset(ev);
+            }}
+          >
+            Preset 2
+          </Preset>
         </RoomsContainer>
 
         {/* <Generate onClick={handleNextStep}>Configure light</Generate> */}
@@ -201,3 +200,5 @@ const RoomGenerationContainer = styled.div`
   margin-bottom: 3rem;
   gap: 1rem;
 `;
+
+const Preset = styled.button``;
