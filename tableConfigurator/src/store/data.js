@@ -42,6 +42,8 @@ export const useTableconfiguration = create((set) => ({
   currentLeg: "leg1",
   legTexture: "metal3",
 
+  rotation: "null",
+
   update: (name, value) => set({ [name]: value }),
 }));
 

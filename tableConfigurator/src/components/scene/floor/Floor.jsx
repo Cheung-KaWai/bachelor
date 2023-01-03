@@ -1,5 +1,9 @@
 import { FloorMaterial, WallMaterial } from "@/js/textures";
-import { useConfigurationStore, useRoomConfiguration } from "@/store/data";
+import {
+  useConfigurationStore,
+  useRoomConfiguration,
+  useTableconfiguration,
+} from "@/store/data";
 import React, { useEffect, useRef, useState } from "react";
 import { BackSide, Euler, MeshStandardMaterial, Shape } from "three";
 
@@ -19,7 +23,10 @@ export const Floor = () => {
   const material = new MeshStandardMaterial(maps[currentFloor]);
 
   const maps2 = WallMaterial();
-  const material2 = new MeshStandardMaterial({ ...maps2.plaster, side: BackSide });
+  const material2 = new MeshStandardMaterial({
+    ...maps2.plaster,
+    side: BackSide,
+  });
 
   const [shape, setShape] = useState(new Shape());
   const [rotatie, setRotatie] = useState(null);
@@ -28,7 +35,9 @@ export const Floor = () => {
     if (floorPoints.length === check) {
       // filter duplicates
       const filterElements = floorPoints.reduce((unique, o) => {
-        if (!unique.some((obj) => obj.x == o.x && obj.y == o.y && obj.z == o.z)) {
+        if (
+          !unique.some((obj) => obj.x == o.x && obj.y == o.y && obj.z == o.z)
+        ) {
           unique.push(o);
         }
         return unique;
@@ -48,7 +57,14 @@ export const Floor = () => {
   }, [floorPoints]);
 
   useEffect(() => {
-    generateFloor(floorPoints, offset, sortedPoints, rotation, setShape, setRotatie);
+    generateFloor(
+      floorPoints,
+      offset,
+      sortedPoints,
+      rotation,
+      setShape,
+      setRotatie
+    );
   }, [sortedPoints]);
   // return <>{sortedPoints.length !== 0 && generateFloor(floorPoints, offset, sortedPoints, rotation)}</>;
   return (
@@ -78,7 +94,14 @@ export const Floor = () => {
   );
 };
 
-const generateFloor = (floorPoints, offset, sortedPoints, rotation, setShape, setRotatie) => {
+const generateFloor = (
+  floorPoints,
+  offset,
+  sortedPoints,
+  rotation,
+  setShape,
+  setRotatie
+) => {
   if (floorPoints.length - offset !== sortedPoints.length) return;
   const shapes = new Shape();
 

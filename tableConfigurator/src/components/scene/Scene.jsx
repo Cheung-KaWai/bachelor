@@ -21,8 +21,10 @@ import { handleNewRoom } from "@/lib/functions";
 import { ListWindows } from "./windows/ListWindows";
 import { Controls } from "./Controls";
 import { Table } from "./table/Table";
+import { Legs } from "./table/Legs";
 export const Scene = () => {
   const update = useConfigurationStore((state) => state.update);
+
   useEffect(() => {
     handleNewRoom("wCCz3UBJxB5lqnqousUo", update, getData);
   }, []);
