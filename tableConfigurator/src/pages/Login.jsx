@@ -77,5 +77,14 @@ const InputLabel = styled.label`
 `;
 
 const SubmitButton = styled.button`
-  margin-top: 2rem;
+  margin-top: 4rem;
+  width: 25rem;
+  padding: 1rem 0;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 1.4rem;
+  color: ${colors.charcoal};
+  background-color: #fff;
+  transition: transform 0.3s ease-out;
+  outline: 1px solid rgba(0, 0, 0, 0.2);
 `;

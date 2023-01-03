@@ -1,23 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { handleNewRoom } from "@/lib/functions";
-import { useConfigurationStore } from "@/store/data";
+import { useConfigurationStore, useUserConfiguration } from "@/store/data";
 import { Flex } from "../layouts/Flex";
 import styled from "styled-components";
 import { colors } from "@/js/theme";
 import { Container } from "../layouts/Container";
-import { getData } from "@/js/firebase";
+import { getData, getDataLoggedUser } from "@/js/firebase";
 import { Label } from "../ui/Label";
 
 export const Preset = () => {
   const update = useConfigurationStore((state) => state.update);
   const [selected, setSelected] = useState(0);
   const [room, setRoom] = useState("");
+  const user = useUserConfiguration((store) => store.user);
+
+  useEffect(() => {
+    if (user) {
+      // getDataLoggedUser(user.uid);
+    }
+  }, []);
 
   return (
     <Container padding={"2rem 0"}>
-      <Label text={"Your Rooms"} size={"1.5rem"} weight={500} color={colors.charcoal} margin={"0 0 0.5rem 0 "} />
+      <Label
+        text={"Your Rooms"}
+        size={"1.5rem"}
+        weight={500}
+        color={colors.charcoal}
+        margin={"0 0 0.5rem 0 "}
+      />
       <GenerateContainer>
-        <InputField placeholder="Enter your room id" value={room} onChange={(ev) => setRoom(ev.target.value)} />
+        <InputField
+          placeholder="Enter your room id"
+          value={room}
+          onChange={(ev) => setRoom(ev.target.value)}
+        />
         <GenerateButton
           onClick={() => {
             handleNewRoom(room, update, getData);
@@ -26,7 +43,14 @@ export const Preset = () => {
           Generate
         </GenerateButton>
       </GenerateContainer>
-      <Label text={"Preset Rooms"} size={"1.5rem"} weight={500} color={colors.charcoal} margin={"0 0 0.5rem 0 "} />
+      <></>
+      <Label
+        text={"Preset Rooms"}
+        size={"1.5rem"}
+        weight={500}
+        color={colors.charcoal}
+        margin={"0 0 0.5rem 0 "}
+      />
       <Flex gap={".5rem"} margin={"0 0 2rem 0"}>
         <PresetButton
           onClick={() => {
@@ -98,5 +122,6 @@ const PresetButton = styled.button`
   color: ${colors.charcoal};
   background-color: ${(props) => (props.selected ? "#fff" : colors.lightCreme)};
   transition: transform 0.3s ease-out;
-  outline: 1px solid ${(props) => (props.selected ? "rgba(0, 0, 0, 0.2)" : "transparant")};
+  outline: 1px solid
+    ${(props) => (props.selected ? "rgba(0, 0, 0, 0.2)" : "transparant")};
 `;
