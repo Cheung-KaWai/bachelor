@@ -30,6 +30,11 @@ export const useUserConfiguration = create((set) => ({
   update: (name, value) => set({ [name]: value }),
 }));
 
+export const useTableconfiguration = create((set) => ({
+  showTableConfiguration: false,
+  update: (name, value) => set({ [name]: value }),
+}));
+
 // eslint-disable-next-line no-undef
 if (process.env.NODE_ENV === "development") {
   mountStoreDevtool("Store", useConfigurationStore);
