@@ -2,20 +2,27 @@ import { Container } from "@/components/layouts/Container";
 import { Flex } from "@/components/layouts/Flex";
 import { login } from "@/js/firebase";
 import { colors } from "@/js/theme";
+import { useUserConfiguration } from "@/store/data";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
+  const update = useUserConfiguration((store) => store.update);
+  const navigate = useNavigate();
   const onSubmit = () => {
+    setError("");
     login(email, password)
       .then((data) => {
-        console.log(data);
+        update("user", data);
+        navigate("/home");
       })
       .catch((err) => {
-        console.log(err);
+        setError(err.message);
       });
   };
 
@@ -28,6 +35,7 @@ export const Login = () => {
         justify={"center"}
         align={"center"}
       >
+        <Error>{error}</Error>
         <InputLabel htlmFor={"email"}>Email</InputLabel>
         <InputField
           name={"email"}
@@ -48,6 +56,11 @@ export const Login = () => {
     </Container>
   );
 };
+
+const Error = styled.p`
+  color: red;
+  width: 25rem;
+`;
 
 const InputField = styled.input`
   width: 25rem;
