@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Outdoor({ material, width, length, position }) {
-  const { nodes, materials } = useGLTF("assets/models/tables/outdoor.glb");
+  const { nodes, materials } = useGLTF("/assets/models/tables/outdoor.glb");
   return (
     <mesh
       geometry={nodes.Cube014.geometry}
@@ -13,4 +13,4 @@ export function Outdoor({ material, width, length, position }) {
   );
 }
 
-useGLTF.preload("assets/models/tables/outdoor.glb");
+useGLTF.preload("/assets/models/tables/outdoor.glb");

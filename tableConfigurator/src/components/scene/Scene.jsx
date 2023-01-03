@@ -20,6 +20,7 @@ import { Light } from "./lights/Light";
 import { handleNewRoom } from "@/lib/functions";
 import { ListWindows } from "./windows/ListWindows";
 import { Controls } from "./Controls";
+import { Table } from "./table/Table";
 export const Scene = () => {
   const update = useConfigurationStore((state) => state.update);
   useEffect(() => {
@@ -37,6 +38,7 @@ export const Scene = () => {
         <ListWindows />
         <Stats />
         <Floor />
+        <Table />
       </Canvas>
     </Container>
   );

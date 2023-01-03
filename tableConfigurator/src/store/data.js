@@ -32,6 +32,16 @@ export const useUserConfiguration = create((set) => ({
 
 export const useTableconfiguration = create((set) => ({
   showTableConfiguration: false,
+  width: 0.9,
+  length: 2,
+
+  currentTable: "square",
+  currentEdge: "edge1",
+  tableTexture: "wood1",
+
+  currentLeg: "leg1",
+  legTexture: "metal3",
+
   update: (name, value) => set({ [name]: value }),
 }));
 
@@ -40,4 +50,5 @@ if (process.env.NODE_ENV === "development") {
   mountStoreDevtool("Store", useConfigurationStore);
   mountStoreDevtool("Store2", useRoomConfiguration);
   mountStoreDevtool("Store3", useUserConfiguration);
+  mountStoreDevtool("Store4", useTableconfiguration);
 }
