@@ -8,7 +8,8 @@ export const useConfigurationStore = create((set) => ({
   check: -1,
   offset: -1,
   update: (name, value) => set({ [name]: value }),
-  addFloorpoints: (points) => set((state) => ({ floorPoints: [...state.floorPoints, ...points] })),
+  addFloorpoints: (points) =>
+    set((state) => ({ floorPoints: [...state.floorPoints, ...points] })),
 }));
 
 export const useRoomConfiguration = create((set) => ({
@@ -23,8 +24,15 @@ export const useRoomConfiguration = create((set) => ({
   update: (name, value) => set({ [name]: value }),
 }));
 
+export const useUserConfiguration = create((set) => ({
+  user: {},
+
+  update: (name, value) => set({ [name]: value }),
+}));
+
 // eslint-disable-next-line no-undef
 if (process.env.NODE_ENV === "development") {
   mountStoreDevtool("Store", useConfigurationStore);
   mountStoreDevtool("Store2", useRoomConfiguration);
+  mountStoreDevtool("Store3", useUserConfiguration);
 }

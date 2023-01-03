@@ -1,6 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDocs,
+  getDoc,
+  getFirestore,
+  query,
+} from "firebase/firestore";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCJVkQ3lO-FaafDNUyZg2mKGsToHDx236E",
@@ -15,6 +23,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore();
+const auth = getAuth();
 
 export const getData = async (roomId) => {
   try {
@@ -28,4 +37,16 @@ export const getData = async (roomId) => {
   } catch (err) {
     return err;
   }
+};
+
+export const login = async (email, password) => {
+  const data = await signInWithEmailAndPassword(auth, email, password);
+  return data.user;
+};
+
+export const getDataLoggedUser = async (userId) => {
+  const q = query(collection(db, "roomplanData"), where("uid", "===", userId));
+
+  const data = await getDocs(q);
+  console.log(data);
 };
