@@ -1,27 +1,68 @@
 import { Container } from "@/components/layouts/Container";
 import { Flex } from "@/components/layouts/Flex";
+import { login } from "@/js/firebase";
 import { colors } from "@/js/theme";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 export const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onSubmit = () => {
+    login(email, password)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <Container width={"100vw"} height={"100vh"} bgColor={colors.creme}>
-      <Flex direction={"column"} width={"100vw"} height={"100vh"} justify={"center"} align={"center"}>
-        <InputLabel>Email</InputLabel>
-        <InputField />
-        <InputLabel>Password</InputLabel>
-        <InputField />
+      <Flex
+        direction={"column"}
+        width={"100vw"}
+        height={"100vh"}
+        justify={"center"}
+        align={"center"}
+      >
+        <InputLabel htlmFor={"email"}>Email</InputLabel>
+        <InputField
+          name={"email"}
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <InputLabel htmlFor={"password"}>Password</InputLabel>
+        <InputField
+          name={"password"}
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          type={password}
+        />
+        <SubmitButton onClick={onSubmit} type={"button"}>
+          Login
+        </SubmitButton>
       </Flex>
     </Container>
   );
 };
 
 const InputField = styled.input`
-  width: 20rem;
+  width: 25rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0 1rem;
+  height: 4rem;
+  border-radius: 3px;
+  font-size: 1.4rem;
 `;
 
 const InputLabel = styled.label`
-  width: 20rem;
+  width: 25rem;
+  margin-top: 2rem;
+`;
+
+const SubmitButton = styled.button`
+  margin-top: 2rem;
 `;
