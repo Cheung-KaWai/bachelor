@@ -44,6 +44,10 @@ export const useTableconfiguration = create((set) => ({
 
   rotation: "null",
 
+  url: "",
+  complete: false,
+  showLoading: false,
+
   update: (name, value) => set({ [name]: value }),
 }));
 

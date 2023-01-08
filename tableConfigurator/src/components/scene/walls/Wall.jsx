@@ -1,4 +1,5 @@
 import { useConfigurationStore } from "@/store/data";
+import { Html } from "@react-three/drei";
 import React, { useEffect, useRef } from "react";
 import { Matrix4, Quaternion, Vector3 } from "three";
 
@@ -16,8 +17,22 @@ export const Wall = ({ scale, transform, material }) => {
   }, [room]);
 
   return (
-    <mesh position={translation} quaternion={rotation} ref={wallRef} material={material}>
+    <mesh
+      position={translation}
+      quaternion={rotation}
+      ref={wallRef}
+      material={material}
+    >
       <boxGeometry args={[scale[0], scale[1], 0.01]} />
+      <Html
+        position={[0, scale[1] / 2 + 0.1, 0]}
+        center
+        transform
+        scale={0.5}
+        zIndexRange={[1, 0]}
+      >
+        {scale[0].toFixed(2)}m
+      </Html>
     </mesh>
   );
 };
@@ -56,7 +71,11 @@ const generateCornerPoint = (scale, wallRef, addFloorpoints) => {
   const intervalZ = difZ / (pointsNumbers + 1);
   for (let i = 1; i <= pointsNumbers; i++) {
     points.push(
-      new Vector3(parseFloat(vector1.x) + intervalX * i, parseFloat(vector1.y), parseFloat(vector1.z) + intervalZ * i)
+      new Vector3(
+        parseFloat(vector1.x) + intervalX * i,
+        parseFloat(vector1.y),
+        parseFloat(vector1.z) + intervalZ * i
+      )
     );
   }
 
