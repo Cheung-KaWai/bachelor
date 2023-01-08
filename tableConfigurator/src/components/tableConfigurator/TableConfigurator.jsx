@@ -1,6 +1,7 @@
 import { colors } from "@/js/theme";
 import React from "react";
 import { Container } from "../layouts/Container";
+import { Shape } from "./Shape";
 
 export const TableConfigurator = () => {
   return (
@@ -11,7 +12,7 @@ export const TableConfigurator = () => {
       padding={"2rem 4rem"}
       overflowY={"scroll"}
     >
-      hello
+      <Shape />
     </Container>
   );
 };
