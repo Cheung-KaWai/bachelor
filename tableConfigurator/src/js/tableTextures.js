@@ -1,7 +1,7 @@
 import { useTexture } from "@react-three/drei";
 import { RepeatWrapping, sRGBEncoding } from "three";
 
-const tableData = [
+export const tableData = [
   {
     id: "wood1",
     map: "/assets/textures/tables/wood1/Wood051_2K_Color.jpg",
