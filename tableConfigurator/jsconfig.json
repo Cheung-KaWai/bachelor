@@ -8,6 +8,8 @@
       "@/store/*": ["src/store/*"],
       "@/data/*": ["src/data/*"],
       "@/js/*": ["src/js/*"],
+      "@/context/*": ["src/context/*"],
+      "@/models/*": ["src/models/*"],
       "@/root/*": ["./*"]
     }
   }

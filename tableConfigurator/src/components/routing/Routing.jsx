@@ -3,6 +3,7 @@ import { Home } from "../../pages/Home";
 import { Landing } from "../../pages/Landing";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Login } from "../../pages/Login";
+import { ArView } from "../../pages/ArView";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/ar/:id",
+    element: <ArView />,
   },
 ]);
 

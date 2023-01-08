@@ -39,6 +39,35 @@ export const getData = async (roomId) => {
   }
 };
 
+export const addData = async (blob) => {
+  try {
+    let id = uuidv4();
+    id += ".glb";
+    const storageRef = ref(storage, id);
+    await uploadBytes(storageRef, blob);
+    return id;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getModel = async (id) => {
+  try {
+    const model = await getDownloadURL(ref(storage, id));
+    return model;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const deleteModel = async (id) => {
+  try {
+    await deleteObject(ref(storage, id));
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
 export const login = async (email, password) => {
   const data = await signInWithEmailAndPassword(auth, email, password);
   return data.user;

@@ -30,9 +30,31 @@ export const useUserConfiguration = create((set) => ({
   update: (name, value) => set({ [name]: value }),
 }));
 
+export const useTableconfiguration = create((set) => ({
+  showTableConfiguration: false,
+  width: 0.9,
+  length: 2,
+
+  currentTable: "square",
+  currentEdge: "edge1",
+  tableTexture: "Wood1",
+
+  currentLeg: "leg1",
+  legTexture: "Metal3",
+
+  rotation: "null",
+
+  url: "",
+  complete: false,
+  showLoading: false,
+
+  update: (name, value) => set({ [name]: value }),
+}));
+
 // eslint-disable-next-line no-undef
 if (process.env.NODE_ENV === "development") {
   mountStoreDevtool("Store", useConfigurationStore);
   mountStoreDevtool("Store2", useRoomConfiguration);
   mountStoreDevtool("Store3", useUserConfiguration);
+  mountStoreDevtool("Store4", useTableconfiguration);
 }
