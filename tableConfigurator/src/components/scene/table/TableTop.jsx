@@ -22,7 +22,15 @@ export const TableTop = () => {
     outdoor: Outdoor,
   };
 
-  const TableModel = tableModels[currentTable][currentEdge];
+  const getTableModel = () => {
+    if (currentTable == "square") {
+      return tableModels[currentTable][currentEdge];
+    } else {
+      return tableModels[currentTable];
+    }
+  };
+
+  const TableModel = getTableModel();
 
   return (
     <TableModel

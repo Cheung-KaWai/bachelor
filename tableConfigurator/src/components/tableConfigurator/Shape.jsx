@@ -78,7 +78,7 @@ export const Shape = () => {
               <Image
                 src={"/assets/images/edge3.jpg"}
                 selected={currentEdge === "edge3"}
-                onClick={() => handleChange("currentEdge", "edge2")}
+                onClick={() => handleChange("currentEdge", "edge3")}
               />
             </>
           )}
