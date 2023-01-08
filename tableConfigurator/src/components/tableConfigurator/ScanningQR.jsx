@@ -29,7 +29,7 @@ export const ScanningQR = () => {
             <QRCode
               size={256}
               style={{ height: "auto", width: "50%" }}
-              value={`https://tableconfigurator-cheung-kawai.vercel.app/ar/${context.url}`}
+              value={`https://bp-cheung-kawai.vercel.app/ar/${context.url}`}
               viewBox={`0 0 256 256`}
             />
             <TextContainer>
