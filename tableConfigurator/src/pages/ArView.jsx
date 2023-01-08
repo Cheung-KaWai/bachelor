@@ -35,9 +35,7 @@ export const ArView = () => {
             shadow-intensity="0"
             exposure="0.3"
             shadow-softness="1"
-          >
-            <StartButton slot="ar-button">AR Mode</StartButton>
-          </model-viewer>
+          ></model-viewer>
         </>
       )}
       {error && <p>{error}</p>}
