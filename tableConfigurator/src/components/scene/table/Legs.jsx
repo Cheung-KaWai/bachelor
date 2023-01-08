@@ -1,3 +1,4 @@
+import { LegMaterial } from "@/js/legsTextures";
 import { Leg1 } from "@/models/legs/Leg1";
 import { Leg2 } from "@/models/legs/Leg2";
 import { useTableconfiguration } from "@/store/data";
@@ -10,8 +11,8 @@ export const Legs = () => {
 
   const currentLeg = useTableconfiguration((store) => store.currentLeg);
   const currentLegTexture = useTableconfiguration((store) => store.legTexture);
-
-  const material = new MeshStandardMaterial();
+  const maps = LegMaterial();
+  const material = new MeshStandardMaterial(maps[currentLegTexture]);
 
   const legModels = {
     leg1: Leg1,
