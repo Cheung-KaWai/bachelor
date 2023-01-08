@@ -1,4 +1,10 @@
-import { Matrix4, Quaternion, RepeatWrapping, sRGBEncoding, Vector3 } from "three";
+import {
+  Matrix4,
+  Quaternion,
+  RepeatWrapping,
+  sRGBEncoding,
+  Vector3,
+} from "three";
 
 export const getTransformData = (transform) => {
   const matrix = new Matrix4();
@@ -38,7 +44,6 @@ export const fixtextures = (arrayTextures, repeat, rotate) => {
       texture.repeat.set(repeat, repeat);
     }
     if (rotate) {
-      console.log("hello");
       texture.rotation = rotate;
     }
     texture.encoding = sRGBEncoding;
