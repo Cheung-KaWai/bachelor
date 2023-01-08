@@ -12,18 +12,16 @@ export const Table = () => {
   const context = useContext(TableContext);
 
   return (
-    <group
-      position={[0, -height + positionY, 0]}
-      quaternion={rotation}
-      ref={context.tableRef}
-    >
+    <group position={[0, -height + positionY, 0]} quaternion={rotation}>
       <PivotControls
         anchor={[0, height - positionY, 0]}
         scale={0.5}
         activeAxes={[true, false, true]}
       >
-        <TableTop />
-        <Legs />
+        <group ref={context.tableRef}>
+          <TableTop />
+          <Legs />
+        </group>
       </PivotControls>
     </group>
   );
