@@ -21,7 +21,6 @@ export const Legs = () => {
   };
 
   const Leg = legModels[currentLeg];
-  console.log(legModels[currentLeg]);
   return (
     <>
       <Leg position={[length / 2 - 0.1, 0, 0]} material={material} />

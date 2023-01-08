@@ -9,6 +9,15 @@ import {
   query,
 } from "firebase/firestore";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  ref,
+  getStorage,
+  uploadBytes,
+  getDownloadURL,
+  getBlob,
+  deleteObject,
+} from "firebase/storage";
+import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCJVkQ3lO-FaafDNUyZg2mKGsToHDx236E",
@@ -24,6 +33,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore();
 const auth = getAuth();
+const storage = getStorage(app);
 
 export const getData = async (roomId) => {
   try {
