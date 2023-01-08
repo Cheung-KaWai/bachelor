@@ -26,17 +26,20 @@ export const ArView = () => {
   return (
     <>
       {loadingDone && (
-        <model-viewer
-          src={glb}
-          ar
-          ar-modes="scene-viewer quick-look"
-          camera-controls
-          shadow-intensity="0"
-          exposure="0.3"
-          shadow-softness="1"
-        >
-          <StartButton slot="ar-button">AR Mode</StartButton>
-        </model-viewer>
+        <>
+          <p>Hello World</p>
+          <model-viewer
+            src={glb}
+            ar
+            ar-modes="scene-viewer quick-look"
+            camera-controls
+            shadow-intensity="0"
+            exposure="0.3"
+            shadow-softness="1"
+          >
+            <StartButton slot="ar-button">AR Mode</StartButton>
+          </model-viewer>
+        </>
       )}
       {error && <p>{error}</p>}
     </>
