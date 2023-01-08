@@ -39,7 +39,7 @@ export const ArView = () => {
             <button slot="ar-button" id="ar-button">
               View in your space
             </button>
-            <button id="ar-failure">AR is not tracking!</button>
+            {/* <button id="ar-failure">AR is not tracking!</button> */}
           </model-viewer>
         </>
       )}
