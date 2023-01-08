@@ -26,7 +26,7 @@ export const Controls = () => {
 
   return (
     <>
-      <OrbitControls />
+      <OrbitControls makeDefault />
       <AnimatedCamera makeDefault fov={75} position={[0, 12, 0]} far={40} />
     </>
   );
