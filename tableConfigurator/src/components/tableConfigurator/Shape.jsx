@@ -2,6 +2,8 @@ import { Subheading } from "@/components/ui/Subheading";
 import { useTableconfiguration } from "@/store/data";
 import React from "react";
 import styled from "styled-components";
+import { Label } from "../ui/Label";
+import { Margin } from "../ui/Margin";
 
 export const Shape = () => {
   const currentTable = useTableconfiguration((store) => store.currentTable);
@@ -15,7 +17,7 @@ export const Shape = () => {
   return (
     <>
       <SectionContainer>
-        <Subheading>length</Subheading>
+        <Label text={"Length"} />
         <SectionParameters>
           <Select
             defaultValue={2}
@@ -33,7 +35,7 @@ export const Shape = () => {
         </SectionParameters>
       </SectionContainer>
       <SectionContainer>
-        <Subheading>width</Subheading>
+        <Label text={"Width"} />
         <SectionParameters>
           <Select
             defaultValue={0.9}
@@ -45,8 +47,9 @@ export const Shape = () => {
           </Select>
         </SectionParameters>
       </SectionContainer>
+      <Margin height={"3rem"} />
       <SectionContainer>
-        <Subheading>Table Shape</Subheading>
+        <Label text={"Table Shape"} />
         <ImagesContainer>
           <Image
             src={"/assets/images/table1.jpg"}
@@ -61,7 +64,7 @@ export const Shape = () => {
         </ImagesContainer>
       </SectionContainer>
       <SectionContainer>
-        <Subheading>Edge finish</Subheading>
+        <Label text={"Edge Finish"} />
         <ImagesContainer>
           <Image
             src={"/assets/images/edge1.jpg"}
@@ -89,7 +92,7 @@ export const Shape = () => {
 };
 
 const SectionContainer = styled.div`
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 `;
 
 const SectionParameters = styled.div`
@@ -109,27 +112,23 @@ const Select = styled.select`
   outline: 1px solid transparent;
   color: #212529;
   font-weight: 500;
-  outline: ${(props) => (props.selected === true ? "3px" : "2px")} solid #212529;
+  outline: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   transition: all 0.2s ease-out;
-  &:hover {
-    outline-width: 3px;
-  }
+  margin-top: 0.5rem;
 `;
 
 const Option = styled.option``;
 
 const ImagesContainer = styled.div`
   display: flex;
+  margin-top: 0.5rem;
   gap: 2rem;
 `;
 
 const Image = styled.img`
   cursor: pointer;
-  outline: ${(props) => (props.selected === true ? "3px" : "2px")} solid #212529;
+  outline: ${(props) => (props.selected === true ? "2px" : "1px")} solid
+    rgba(0, 0, 0, 0.2);
   border-radius: 0.5rem;
-  transition: all 0.2s ease-out;
-  &:hover {
-    outline-width: 3px;
-  }
 `;

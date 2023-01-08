@@ -1,3 +1,4 @@
+import { colors } from "@/js/theme";
 import React from "react";
 import styled from "styled-components";
 
@@ -10,5 +11,7 @@ export const NextButton = ({ text, ...props }) => {
 };
 
 const Button = styled.button`
-  background-color: red;
+  margin-top: 2rem;
+  color: ${colors.charcoal};
+  text-decoration: underline;
 `;
