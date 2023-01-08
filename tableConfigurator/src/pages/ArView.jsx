@@ -35,7 +35,12 @@ export const ArView = () => {
             shadow-intensity="0"
             exposure="0.3"
             shadow-softness="1"
-          ></model-viewer>
+          >
+            <button slot="ar-button" id="ar-button">
+              View in your space
+            </button>
+            <button id="ar-failure">AR is not tracking!</button>
+          </model-viewer>
         </>
       )}
       {error && <p>{error}</p>}
