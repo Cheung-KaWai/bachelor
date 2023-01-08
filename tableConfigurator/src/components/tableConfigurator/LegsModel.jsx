@@ -1,6 +1,7 @@
 import { useTableconfiguration } from "@/store/data";
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { Grid } from "../layouts/Grid";
 import { Label } from "../ui/Label";
 export const LegsModel = () => {
   const update = useTableconfiguration((store) => store.update);
@@ -8,7 +9,7 @@ export const LegsModel = () => {
   return (
     <>
       <Label text={"Legs Type"} />
-      <ImagesContainer>
+      <Grid columns={4} gap={"1rem"} margin={"0 0 4rem 0"}>
         <Image
           src={"/assets/images/leg1.jpg"}
           selected={currentLeg === "leg1"}
@@ -19,7 +20,7 @@ export const LegsModel = () => {
           selected={currentLeg === "leg2"}
           onClick={() => update("currentLeg", "leg2")}
         />
-      </ImagesContainer>
+      </Grid>
     </>
   );
 };
@@ -36,5 +37,7 @@ const Image = styled.img`
   outline: ${(props) => (props.selected === true ? "2px" : "1px")} solid
     rgba(0, 0, 0, 0.2);
   border-radius: 0.5rem;
-  transition: all 0.2s ease-out;
+  width: 100%;
+  aspect-ratio: 1/1;
+  vertical-align: middle;
 `;

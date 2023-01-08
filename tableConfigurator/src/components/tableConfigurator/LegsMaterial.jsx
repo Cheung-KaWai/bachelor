@@ -2,6 +2,7 @@ import { legData } from "@/js/legsTextures";
 import { useTableconfiguration } from "@/store/data";
 import React from "react";
 import styled from "styled-components";
+import { Grid } from "../layouts/Grid";
 import { Label } from "../ui/Label";
 
 export const LegsMaterial = () => {
@@ -11,7 +12,7 @@ export const LegsMaterial = () => {
   return (
     <>
       <Label text={"Legs Material"} />
-      <ImageContainers>
+      <Grid columns={4} gap={"1rem"} margin={"0 0 4rem 0"}>
         <ImageTexture
           src={legData[0].preview}
           selected={legTexture === "Metal1"}
@@ -27,20 +28,20 @@ export const LegsMaterial = () => {
           selected={legTexture === "Metal3"}
           onClick={() => update("legTexture", "Metal3")}
         />
-      </ImageContainers>
+      </Grid>
     </>
   );
 };
 
 const ImageTexture = styled.img`
-  width: 7rem;
-  height: 7rem;
+  width: 100%;
+  aspect-ratio: 1/1;
+  vertical-align: middle;
   border-radius: 50%;
   cursor: pointer;
   outline: ${(props) => (props.selected === true ? "2px" : "0px")} solid
     rgba(0, 0, 0, 0.2);
   border-radius: 50%;
-  transition: all 0.2s ease-out;
 `;
 
 const ImageContainers = styled.div`

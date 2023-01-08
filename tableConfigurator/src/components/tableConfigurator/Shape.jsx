@@ -2,6 +2,7 @@ import { Subheading } from "@/components/ui/Subheading";
 import { useTableconfiguration } from "@/store/data";
 import React from "react";
 import styled from "styled-components";
+import { Grid } from "../layouts/Grid";
 import { Label } from "../ui/Label";
 import { Margin } from "../ui/Margin";
 
@@ -50,7 +51,7 @@ export const Shape = () => {
       <Margin height={"3rem"} />
       <SectionContainer>
         <Label text={"Table Shape"} />
-        <ImagesContainer>
+        <Grid columns={4} gap={"1rem"} margin={"0 0 4rem 0"}>
           <Image
             src={"/assets/images/table1.jpg"}
             selected={currentTable === "square"}
@@ -61,11 +62,11 @@ export const Shape = () => {
             selected={currentTable === "outdoor"}
             onClick={() => handleChange("currentTable", "outdoor")}
           />
-        </ImagesContainer>
+        </Grid>
       </SectionContainer>
       <SectionContainer>
         <Label text={"Edge Finish"} />
-        <ImagesContainer>
+        <Grid columns={4} gap={"1rem"} margin={"0 0 4rem 0"}>
           <Image
             src={"/assets/images/edge1.jpg"}
             selected={currentEdge === "edge1"}
@@ -85,7 +86,7 @@ export const Shape = () => {
               />
             </>
           )}
-        </ImagesContainer>
+        </Grid>
       </SectionContainer>
     </>
   );
@@ -128,6 +129,9 @@ const ImagesContainer = styled.div`
 
 const Image = styled.img`
   cursor: pointer;
+  width: 100%;
+  aspect-ratio: 1/1;
+  vertical-align: middle;
   outline: ${(props) => (props.selected === true ? "2px" : "1px")} solid
     rgba(0, 0, 0, 0.2);
   border-radius: 0.5rem;
