@@ -18,6 +18,7 @@ export const ArView = () => {
         console.log(model);
       });
     } catch (err) {
+      console.log(err);
       setError(err?.message);
     }
   }, []);
