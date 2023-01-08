@@ -27,7 +27,7 @@ export const ArView = () => {
     <>
       {loadingDone && (
         <>
-          <p>Hello World</p>
+          <p>Hello Worl</p>
           <model-viewer
             src={glb}
             ar
