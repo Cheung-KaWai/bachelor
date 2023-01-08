@@ -37,7 +37,7 @@ export const useTableconfiguration = create((set) => ({
 
   currentTable: "square",
   currentEdge: "edge1",
-  tableTexture: "wood1",
+  tableTexture: "Wood1",
 
   currentLeg: "leg1",
   legTexture: "metal3",

@@ -1,3 +1,4 @@
+import { TableMaterial } from "@/js/tableTextures";
 import { Outdoor } from "@/models/tables/Outdoor";
 import { Square1 } from "@/models/tables/Square1";
 import { Square2 } from "@/models/tables/Square2";
@@ -8,11 +9,12 @@ import { MeshStandardMaterial } from "three";
 
 export const TableTop = () => {
   const currentTable = useTableconfiguration((store) => store.currentTable);
-  const currentTexture = useTableconfiguration((store) => store.currentTexture);
+  const currentTexture = useTableconfiguration((store) => store.tableTexture);
   const currentEdge = useTableconfiguration((store) => store.currentEdge);
   const length = useTableconfiguration((store) => store.length);
   const width = useTableconfiguration((store) => store.width);
-  const material = new MeshStandardMaterial();
+  const maps = TableMaterial(length, width);
+  const material = new MeshStandardMaterial(maps[currentTexture]);
   const tableModels = {
     square: {
       edge1: Square1,
