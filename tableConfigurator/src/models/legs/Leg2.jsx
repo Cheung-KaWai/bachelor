@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 export function Leg2({ position, material }) {
-  const { nodes, materials } = useGLTF(leg2);
+  const { nodes, materials } = useGLTF("/assets/models/legs/leg2.glb");
   return (
     <group position={position} dispose={"/assets/models/legs/leg2.glb"}>
       <mesh

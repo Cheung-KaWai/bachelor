@@ -10,6 +10,7 @@ export const Legs = () => {
   const width = useTableconfiguration((store) => store.width);
 
   const currentLeg = useTableconfiguration((store) => store.currentLeg);
+
   const currentLegTexture = useTableconfiguration((store) => store.legTexture);
   const maps = LegMaterial();
   const material = new MeshStandardMaterial(maps[currentLegTexture]);
@@ -20,7 +21,7 @@ export const Legs = () => {
   };
 
   const Leg = legModels[currentLeg];
-
+  console.log(legModels[currentLeg]);
   return (
     <>
       <Leg position={[length / 2 - 0.1, 0, 0]} material={material} />
