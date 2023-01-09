@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { CiRuler, CiGrid42, CiBank, CiMobile4 } from "react-icons/ci";
+import { BiMobileAlt } from "react-icons/bi";
+import { HiOutlineCube } from "react-icons/hi";
 import { GLTFExporter } from "@/js/GLTFExporter";
-import { useTableconfiguration } from "@/store/data";
+import { useRoomConfiguration } from "@/store/data";
 import { addData } from "@/js/firebase";
 import { TableContext } from "@/context/TableContextProvider";
 
 export const Options = () => {
   const context = useContext(TableContext);
-  const update = useTableconfiguration((store) => store.update);
+  const update = useRoomConfiguration((store) => store.update);
+  const showObjects = useRoomConfiguration((store) => store.showObjects);
   const exporter = new GLTFExporter();
 
   async function saveArrayBuffer(buffer) {
@@ -41,11 +43,15 @@ export const Options = () => {
 
   return (
     <Container>
-      <OptionContainer selected={false} onClick={() => {}} icon={"Show sizes"}>
-        <CiRuler size={32} />
+      <OptionContainer
+        selected={false}
+        onClick={() => update("showObjects", !showObjects)}
+        icon={"hide objects"}
+      >
+        <HiOutlineCube size={32} />
       </OptionContainer>
       <OptionContainer onClick={handleExport} icon={"View in AR"}>
-        <CiMobile4 size={32} />
+        <BiMobileAlt size={32} />
       </OptionContainer>
     </Container>
   );

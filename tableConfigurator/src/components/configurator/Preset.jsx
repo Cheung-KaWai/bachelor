@@ -48,8 +48,9 @@ export const Preset = () => {
       <>
         <Flex direction={"column"} gap={"0.5rem"} margin={"0 0 4rem 0"}>
           {listRooms &&
-            listRooms.map((id) => (
+            listRooms.map((id, key) => (
               <button
+                key={key}
                 type="button"
                 onClick={() => handleNewRoom(id, update, getData)}
               >
