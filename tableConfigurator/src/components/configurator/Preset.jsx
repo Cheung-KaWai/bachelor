@@ -12,11 +12,13 @@ export const Preset = () => {
   const update = useConfigurationStore((state) => state.update);
   const [selected, setSelected] = useState(0);
   const [room, setRoom] = useState("");
+  const [listRooms, setListRooms] = useState([]);
+
   const user = useUserConfiguration((store) => store.user);
 
   useEffect(() => {
-    if (user) {
-      // getDataLoggedUser(user.uid);
+    if (user?.uid) {
+      getDataLoggedUser(user.uid).then((list) => setListRooms(list));
     }
   }, []);
 
@@ -43,7 +45,19 @@ export const Preset = () => {
           Generate
         </GenerateButton>
       </GenerateContainer>
-      <></>
+      <>
+        <Flex direction={"column"} gap={"0.5rem"} margin={"0 0 4rem 0"}>
+          {listRooms &&
+            listRooms.map((id) => (
+              <button
+                type="button"
+                onClick={() => handleNewRoom(id, update, getData)}
+              >
+                {id}
+              </button>
+            ))}
+        </Flex>
+      </>
       <Label
         text={"Preset Rooms"}
         size={"1.5rem"}
@@ -89,7 +103,7 @@ const GenerateContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 `;
 
 const InputField = styled.input`

@@ -7,6 +7,7 @@ import {
   getDoc,
   getFirestore,
   query,
+  where,
 } from "firebase/firestore";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {
@@ -84,8 +85,12 @@ export const login = async (email, password) => {
 };
 
 export const getDataLoggedUser = async (userId) => {
-  const q = query(collection(db, "roomplanData"), where("uid", "===", userId));
+  const ref = query(collection(db, "roomplanData"), where("uid", "==", userId));
+  const snap = await getDocs(ref);
+  const listId = [];
+  snap.forEach((doc) => {
+    listId.push(doc.id);
+  });
 
-  const data = await getDocs(q);
-  console.log(data);
+  return listId;
 };
