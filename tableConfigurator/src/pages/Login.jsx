@@ -47,7 +47,7 @@ export const Login = () => {
           name={"password"}
           onChange={(e) => setPassword(e.target.value)}
           value={password}
-          type={password}
+          type={"password"}
         />
         <SubmitButton onClick={onSubmit} type={"button"}>
           Login
