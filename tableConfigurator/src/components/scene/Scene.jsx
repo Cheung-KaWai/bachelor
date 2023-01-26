@@ -38,7 +38,6 @@ export const Scene = () => {
         <ListDoors />
         <ListObjects />
         <ListWindows />
-        <Stats />
         <Floor />
         <Table />
       </Canvas>
